@@ -1,251 +1,331 @@
 import React, { useState } from 'react';
 import { 
   ArrowRight, 
-  CheckCircle2, 
-  ShieldCheck, 
-  Percent, 
+  Check, 
+  Wrench, 
+  AlertTriangle, 
   Sparkles, 
-  Zap, 
-  Truck, 
-  ClockAlert, 
-  CreditCard,
-  Check,
-  Star
+  ClipboardCheck, 
+  Clock, 
+  FolderClock,
+  ShieldCheck,
+  Calendar,
+  Users,
+  CheckCircle2
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { MEMBERSHIP_PERKS } from '../data/mockData';
+import membershipCardImg from '../assets/design_assets/Component 35.png';
 
 export default function MembershipPage() {
-  const { openBookingModal, showToast } = useApp();
-  const [selectedPlan, setSelectedPlan] = useState('gold');
+  const { openBookingModal, showToast, navigateTo } = useApp();
+  const [openFaq, setOpenFaq] = useState(null);
 
-  const handleJoin = (tierName, price) => {
+  const handleJoinMembership = () => {
     openBookingModal({
-      title: `Instant Mechanic Club: ${tierName} Membership`,
-      price: `₹${price}/year`,
-      estTime: 'Instant Activation',
+      title: 'Instant Mechanic Annual Membership',
+      price: '₹1,499/year',
+      estTime: 'Instant Activation · 12 Months'
     });
   };
 
+  const handleBenefitClick = (title) => {
+    showToast(`Membership Benefit: ${title} is included in your plan!`, 'info');
+  };
+
+  const faqs = [
+    {
+      q: 'What does the membership include?',
+      a: 'The annual membership includes 10% off all repair and service bills, unlimited 24/7 roadside breakdown assistance, unlimited AI diagnostics, 1 free 40-point annual vehicle health check, priority technician dispatch, and digitized service history.'
+    },
+    {
+      q: 'How long is the membership valid?',
+      a: 'The membership is valid for exactly 12 months from the date of activation and covers you 365 days a year across state highways and city roads.'
+    },
+    {
+      q: 'How does the 20% repair discount work?',
+      a: 'The discount (up to 20% on select seasonal services and a flat 10% on all standard repairs & labor) is automatically deducted from your checkout bill whenever you book through Instant Mechanic.'
+    },
+    {
+      q: 'What is covered under roadside assistance?',
+      a: 'Free jump-starts, flat tyre swaps, emergency fuel top-up (up to 5 litres), lock-out assistance, minor electrical fixes, and discounted emergency towing if the vehicle cannot be safely driven.'
+    },
+    {
+      q: 'Can I use the membership for any car?',
+      a: 'The membership is registered to one vehicle registration number (RC) to ensure seamless fast dispatch, but you can add secondary family cars at a special 40% discount.'
+    },
+    {
+      q: 'Can I cancel or transfer my membership?',
+      a: 'Yes! If you sell your car, you can transfer your remaining membership balance to your new vehicle at no extra charge through your account dashboard.'
+    }
+  ];
+
   return (
-    <div className="page-wrapper membership-page">
-      <div className="membership-container">
-        {/* Hero Section from Figma Image 4 */}
-        <section className="membership-hero text-center">
-          <h1 className="membership-heading">
-            More miles. <span className="text-orange-600">Less worries.</span>
+    <div className="membership-v1-page">
+      {/* 1. Hero Section */}
+      <section className="membership-hero">
+        <div className="membership-hero-container">
+          <h1 className="membership-hero-title">
+            More miles. <span className="text-orange">Less worries.</span>
           </h1>
-          <p className="membership-subheading">
+          <p className="membership-hero-subtitle">
             One membership. Reliable car care whenever the road throws something your way.
           </p>
 
           <div className="membership-hero-actions">
-            <a href="#membership-tiers" className="membership-explore-btn">
+            <a href="#membership-plan" className="membership-explore-btn">
               <span>Explore Membership</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
 
-          {/* 3 Lifestyle Visual Cards from Figma Image 4 */}
-          <div className="membership-triad-grid">
-            <div className="triad-card">
-              <div className="triad-card-badge">PEACE OF MIND</div>
-              <h4>Zero Breakdown Anxiety</h4>
-              <p>Drive anywhere across state highways knowing help is just 1 tap away.</p>
+          {/* 4 Lifestyle Gallery Cards */}
+          <div className="membership-gallery-grid">
+            <div className="gallery-card gallery-card--1">
+              <img 
+                src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" 
+                alt="Mobile mechanic assisting roadside tyre repair" 
+                loading="lazy"
+              />
             </div>
-            <div className="triad-card triad-card--highlight">
-              <div className="triad-card-badge">PRIORITY ACCESS</div>
-              <h4>10-Min Highway Dispatch</h4>
-              <p>Bypass regular queues with our exclusive dedicated rapid assistance vans.</p>
+            <div className="gallery-card gallery-card--2">
+              <img 
+                src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80" 
+                alt="Confident driver smiling inside car" 
+                loading="lazy"
+              />
             </div>
-            <div className="triad-card">
-              <div className="triad-card-badge">UNLIMITED SAVINGS</div>
-              <h4>Save ₹12,000+ Annually</h4>
-              <p>Flat 10% off on all doorstep repairs, free inspections & emergency fuel.</p>
+            <div className="gallery-card gallery-card--3">
+              <img 
+                src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80" 
+                alt="Instant Mechanic van servicing engine roadside" 
+                loading="lazy"
+              />
             </div>
-          </div>
-        </section>
-
-        {/* Section: Everything your car needs all in one Membership (Figma Image 4) */}
-        <section className="membership-card-showcase-section">
-          <div className="text-center mb-8">
-            <h2 className="section-heading">
-              Everything your car needs. <br />
-              all in <span className="text-orange-600">one Membership</span>
-            </h2>
-            <p className="section-subheading">
-              A comprehensive digital motor club pass for your vehicle.
-            </p>
-          </div>
-
-          {/* Realistic 3D Glassmorphic Membership Card from Figma Image 4 */}
-          <div className="card-mockup-wrapper">
-            <div className="premium-metal-card">
-              <div className="metal-card-glow" />
-              
-              <div className="metal-card-top">
-                <span className="metal-card-plate">DL 04 AB 2432</span>
-                <div className="metal-card-logo">
-                  <span className="metal-brand">Instant</span>
-                  <span className="metal-brand-sub">Mechanic</span>
-                </div>
-              </div>
-
-              {/* Golden Chip */}
-              <div className="metal-chip-row">
-                <div className="gold-smart-chip">
-                  <div className="chip-line" />
-                  <div className="chip-line" />
-                </div>
-                <div className="card-tier-label">VIP ALL-YEAR CAR CARE</div>
-              </div>
-
-              <div className="metal-card-title-group">
-                <h3 className="metal-card-title">MEMBERSHIP</h3>
-                <span className="metal-card-subtitle">ALL YEAR ROADSIDE & SERVICE PASS</span>
-              </div>
-
-              {/* Car Silhouette & Graphic Elements */}
-              <div className="metal-car-silhouette">
-                <svg viewBox="0 0 200 40" fill="none" className="w-full h-10 opacity-70">
-                  <path d="M10 28 Q 30 20, 50 18 Q 70 8, 95 8 Q 130 8, 145 18 Q 170 20, 190 28" stroke="#F97316" strokeWidth="2" />
-                  <circle cx="45" cy="28" r="8" stroke="#F97316" strokeWidth="2" fill="#1C1917" />
-                  <circle cx="155" cy="28" r="8" stroke="#F97316" strokeWidth="2" fill="#1C1917" />
-                </svg>
-              </div>
-
-              <div className="metal-card-bottom">
-                <div>
-                  <span className="card-meta-label">STATUS</span>
-                  <span className="card-meta-value">DRIVE WORRY-FREE</span>
-                </div>
-                <div>
-                  <span className="card-meta-label">COVERAGE</span>
-                  <span className="card-meta-value">SERVICE • REPAIR • CARE</span>
-                </div>
-              </div>
+            <div className="gallery-card gallery-card--4">
+              <img 
+                src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=600&q=80" 
+                alt="Driver view in rear mirror on road trip" 
+                loading="lazy"
+              />
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Perks Row from Figma Image 4 */}
-          <div className="membership-key-perks">
-            <div className="perk-pill-card">
-              <div className="perk-pill-icon bg-orange-100 text-orange-600">
-                <Percent className="w-5 h-5" />
+      {/* 2. All-in-One Radial Benefits Section */}
+      <section className="membership-radial-section">
+        <div className="radial-header text-center">
+          <h2 className="radial-title">
+            Everything your car needs.<br />
+            all in <span className="text-orange">one Membership</span>
+          </h2>
+        </div>
+
+        <div className="radial-content-wrap">
+          {/* Radial Centerpiece with Membership Card */}
+          <div className="radial-layout">
+            {/* Left 3 Benefits */}
+            <div className="radial-col radial-col--left">
+              {/* Benefit 1 */}
+              <div className="radial-benefit-card" onClick={() => handleBenefitClick('10% Off Repairs')}>
+                <div className="benefit-badge-icon benefit-badge--wrench">
+                  <Wrench className="w-4 h-4 text-orange-600" />
+                </div>
+                <div className="benefit-text">
+                  <h4 className="benefit-title">10% Off Repairs</h4>
+                  <p className="benefit-desc">Save on repair service</p>
+                  <span className="benefit-know-more">Know more &rsaquo;</span>
+                </div>
               </div>
-              <div>
-                <h4 className="perk-pill-title">10% Off Repairs</h4>
-                <p className="perk-pill-sub">Save flat 10% on every repair service & labor</p>
+
+              {/* Benefit 2 */}
+              <div className="radial-benefit-card" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
+                <div className="benefit-badge-icon benefit-badge--hazard">
+                  <AlertTriangle className="w-4 h-4 text-amber-600" />
+                </div>
+                <div className="benefit-text">
+                  <h4 className="benefit-title">Unlimited Roadside Help</h4>
+                  <p className="benefit-desc">Help when you need it</p>
+                </div>
+              </div>
+
+              {/* Benefit 3 */}
+              <div className="radial-benefit-card" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
+                <div className="benefit-badge-icon benefit-badge--ai">
+                  <Sparkles className="w-4 h-4 text-purple-600" />
+                </div>
+                <div className="benefit-text">
+                  <h4 className="benefit-title">Unlimited AI Diagnosis</h4>
+                  <p className="benefit-desc">Know what's wrong</p>
+                </div>
               </div>
             </div>
 
-            <div className="perk-pill-card">
-              <div className="perk-pill-icon bg-emerald-100 text-emerald-600">
-                <CheckCircle2 className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="perk-pill-title">1 Free Annual Check</h4>
-                <p className="perk-pill-sub">Keep your car in prime shape with full 65-point scan</p>
+            {/* Central Luxury Card with concentric circles */}
+            <div className="radial-center-card">
+              <div className="concentric-ring concentric-ring--1"></div>
+              <div className="concentric-ring concentric-ring--2"></div>
+              <div className="membership-card-frame">
+                <img 
+                  src={membershipCardImg} 
+                  alt="Instant Mechanic Luxury Membership Card"
+                  className="membership-card-img" 
+                />
               </div>
             </div>
 
-            <div className="perk-pill-card">
-              <div className="perk-pill-icon bg-blue-100 text-blue-600">
-                <Zap className="w-5 h-5" />
+            {/* Right 3 Benefits */}
+            <div className="radial-col radial-col--right">
+              {/* Benefit 4 */}
+              <div className="radial-benefit-card" onClick={() => handleBenefitClick('1 Free Annual Check')}>
+                <div className="benefit-badge-icon benefit-badge--check">
+                  <ClipboardCheck className="w-4 h-4 text-emerald-600" />
+                </div>
+                <div className="benefit-text">
+                  <h4 className="benefit-title">1 Free Annual Check</h4>
+                  <p className="benefit-desc">Keep your car in shape</p>
+                  <span className="benefit-know-more">Know more &rsaquo;</span>
+                </div>
               </div>
-              <div>
-                <h4 className="perk-pill-title">Unlimited Jump Starts</h4>
-                <p className="perk-pill-sub">Emergency battery boosts anywhere, anytime</p>
+
+              {/* Benefit 5 */}
+              <div className="radial-benefit-card" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
+                <div className="benefit-badge-icon benefit-badge--dispatch">
+                  <Clock className="w-4 h-4 text-blue-600" />
+                </div>
+                <div className="benefit-text">
+                  <h4 className="benefit-title">Priority Mechanic Dispatch</h4>
+                  <p className="benefit-desc">Faster response, every time</p>
+                </div>
+              </div>
+
+              {/* Benefit 6 */}
+              <div className="radial-benefit-card" onClick={() => handleBenefitClick('Service History')}>
+                <div className="benefit-badge-icon benefit-badge--history">
+                  <FolderClock className="w-4 h-4 text-amber-600" />
+                </div>
+                <div className="benefit-text">
+                  <h4 className="benefit-title">Service History</h4>
+                  <p className="benefit-desc">All your records, in one place</p>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Membership Tiers Comparison */}
-        <section id="membership-tiers" className="membership-tiers-section">
-          <div className="text-center mb-8">
-            <h2 className="section-heading">Choose Your Protection Plan</h2>
-            <p className="section-subheading">Annual vehicle coverage with no hidden deductibles</p>
-          </div>
+      {/* 3. Pricing Plan Card Section */}
+      <section className="membership-pricing-section" id="membership-plan">
+        <div className="pricing-section-header text-center">
+          <h2 className="pricing-title">
+            <span className="text-orange">One membership.</span> Every kind of car day.
+          </h2>
+          <p className="pricing-subtitle">
+            From unexpected breakdowns to regular care, your membership keeps you covered.
+          </p>
+        </div>
 
-          <div className="membership-pricing-grid">
-            {/* Silver Plan */}
-            <div className="pricing-card">
-              <div className="pricing-card-header">
-                <h3>Silver Care</h3>
-                <p>Essential roadside protection for daily city commuters</p>
-                <div className="pricing-card-cost">
-                  <span className="price-val">₹1,499</span>
-                  <span className="price-term">/ year</span>
-                </div>
-              </div>
-              <ul className="pricing-features">
-                <li><Check className="w-4 h-4 text-emerald-500" /> 2 Free Roadside Jump Starts</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> Free Flat Tyre Puncture Support</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> 5% Off All Doorstep Repairs</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> Standard 30-min response</li>
-              </ul>
-              <button 
-                className="btn-outline w-full mt-6"
-                onClick={() => handleJoin('Silver Care', '1,499')}
-              >
-                Join Silver
-              </button>
+        <div className="plan-banner-card">
+          <div className="plan-banner-left">
+            <span className="plan-sub-tag">Complete Car Care One simple Plan</span>
+            <div className="plan-strike-price">₹2,999</div>
+            <div className="plan-main-price">
+              <span className="price-num">₹1,499</span>
+              <span className="price-freq">/year</span>
             </div>
+            <p className="plan-breakdown-note">That's just ₹125/month</p>
 
-            {/* Gold Plan (Recommended) */}
-            <div className="pricing-card pricing-card--featured">
-              <div className="featured-plan-tag">MOST POPULAR</div>
-              <div className="pricing-card-header">
-                <h3>Gold Unlimited</h3>
-                <p>Complete all-year roadside security and maximum repair discounts</p>
-                <div className="pricing-card-cost">
-                  <span className="price-val">₹2,999</span>
-                  <span className="price-term">/ year</span>
-                </div>
-              </div>
-              <ul className="pricing-features">
-                <li><Check className="w-4 h-4 text-emerald-500" /> <strong>Unlimited</strong> Battery Jump Starts</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> <strong>1 Free Comprehensive Annual Check</strong> (Worth ₹1,999)</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> <strong>Flat 10% Off</strong> All Doorstep Repairs</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> Free Flatbed Towing up to 25 km</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> <strong>Priority 15-Minute Dispatch</strong></li>
-              </ul>
-              <button 
-                className="btn-primary w-full mt-6"
-                onClick={() => handleJoin('Gold Unlimited', '2,999')}
-              >
-                Join Gold Unlimited
-              </button>
-            </div>
+            <button className="plan-cta-btn" onClick={handleJoinMembership}>
+              <span>Get Membership Now</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
 
-            {/* Platinum Plan */}
-            <div className="pricing-card">
-              <div className="pricing-card-header">
-                <h3>Platinum Family</h3>
-                <p>Premium multi-car pass with concierge technician</p>
-                <div className="pricing-card-cost">
-                  <span className="price-val">₹4,999</span>
-                  <span className="price-term">/ year (2 Cars)</span>
-                </div>
+            <div className="plan-perks-row">
+              <div className="plan-perk">
+                <Calendar className="w-4 h-4 text-orange-600" />
+                <span>12 Months Coverage</span>
               </div>
-              <ul className="pricing-features">
-                <li><Check className="w-4 h-4 text-emerald-500" /> Everything in Gold for 2 Vehicles</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> 2 Free Comprehensive Annual Services</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> Flat 15% Off All Repairs & Spares</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> Free Towing up to 50 km</li>
-                <li><Check className="w-4 h-4 text-emerald-500" /> Personal Master Mechanic Concierge</li>
-              </ul>
-              <button 
-                className="btn-outline w-full mt-6"
-                onClick={() => handleJoin('Platinum Family', '4,999')}
-              >
-                Join Platinum
-              </button>
+              <div className="plan-perk">
+                <Users className="w-4 h-4 text-orange-600" />
+                <span>24/7 Member support</span>
+              </div>
+              <div className="plan-perk">
+                <CheckCircle2 className="w-4 h-4 text-orange-600" />
+                <span>No hidden Charges</span>
+              </div>
             </div>
           </div>
-        </section>
-      </div>
+
+          <div className="plan-banner-right">
+            <div className="plan-car-illustration">
+              <div className="illustration-calendar-card">
+                <div className="cal-header"></div>
+                <div className="cal-body">
+                  <div className="cal-badge-check">✓</div>
+                  <div className="cal-bell-icon">🔔</div>
+                </div>
+              </div>
+              <div className="illustration-wrench-icon">🔧</div>
+              <img 
+                src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80" 
+                alt="White car maintenance" 
+                className="illustration-car-img" 
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Frequently Asked Questions */}
+      <section className="faq-section">
+        <div className="faq-header text-center">
+          <h2 className="faq-heading">
+            <span className="text-orange">Questions?</span> We've Got answers.
+          </h2>
+        </div>
+
+        <div className="faq-accordion-list">
+          {faqs.map((faq, index) => {
+            const isOpen = openFaq === index;
+            return (
+              <div key={index} className={`faq-card ${isOpen ? 'faq-card--open' : ''}`}>
+                <button 
+                  className="faq-question-btn"
+                  onClick={() => setOpenFaq(isOpen ? null : index)}
+                  aria-expanded={isOpen}
+                >
+                  <span>{faq.q}</span>
+                  <span className="faq-icon-indicator">{isOpen ? '−' : '+'}</span>
+                </button>
+                {isOpen && (
+                  <div className="faq-answer-body">
+                    <p>{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 5. Pre-Footer Scenic CTA Banner */}
+      <section className="membership-prefooter-banner">
+        <div className="prefooter-overlay"></div>
+        <div className="prefooter-content">
+          <h2 className="prefooter-title">Drive with confidence. We've got you.</h2>
+          <p className="prefooter-desc">
+            Wherever the road takes you, Instant Mechanic is just a call away.
+            From everyday care to unexpected breakdowns, we're here when you need us.
+          </p>
+          <button 
+            className="prefooter-btn"
+            onClick={() => navigateTo('repairs')}
+          >
+            <span>Book a service Now</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </section>
     </div>
   );
 }

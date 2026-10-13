@@ -8,7 +8,7 @@ export default function Navbar() {
 
   const navLinks = [
     { id: 'membership', label: 'Membership' },
-    { id: 'services', label: 'Services', target: 'repairs' },
+    { id: 'services', label: 'Services', target: 'annual' },
     { id: 'repairs', label: 'Car Repair', target: 'repairs' },
     { id: 'about', label: 'About Us', target: 'about' },
   ];
