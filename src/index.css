@@ -7320,4 +7320,587 @@ ul {
   }
 }
 
+/* ==========================================================================
+   HOME FAQ SECTION (Matching Figma Image 3 & 4)
+   ========================================================================== */
+.home-faq-section {
+  padding: 80px 24px;
+  background: #FFFFFF;
+  width: 100%;
+}
+
+.home-faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.home-faq-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-faq-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  line-height: 1.22;
+}
+
+.home-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.home-faq-item {
+  border: 1.5px solid #E5E7EB;
+  border-radius: 16px;
+  background: #FFFFFF;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.home-faq-item:hover {
+  border-color: #FED7AA;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.05);
+}
+
+.home-faq-item--open {
+  border-color: #EA580C;
+}
+
+.home-faq-question-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.faq-q-text {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #1F2937;
+  line-height: 1.4;
+}
+
+.faq-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.home-faq-answer {
+  padding: 0 20px 18px;
+  color: #4B5563;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  border-top: 1px solid #F3F4F6;
+  padding-top: 12px;
+}
+
+/* FAQ Right Side (Desktop Showcase) */
+.home-faq-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faq-mechanic-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 440px;
+  background: #FDF3EB;
+  border-radius: 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+}
+
+.faq-mechanic-img {
+  width: 86%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  margin-top: -40px;
+  display: block;
+  z-index: 2;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.08));
+}
+
+.faq-verified-badge {
+  position: absolute;
+  bottom: 24px;
+  left: -20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+}
+
+.badge-avatar {
+  font-size: 1.2rem;
+}
+
+.badge-text {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+/* Still Have Questions Banner */
+.faq-contact-pill-banner {
+  width: 100%;
+  max-width: 440px;
+  background: #FDF3EB;
+  border-radius: 9999px;
+  padding: 12px 20px 12px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  box-shadow: 0 4px 15px rgba(234, 88, 12, 0.06);
+}
+
+.faq-pill-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+.faq-pill-action-btn {
+  background: #EA580C;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 10px 24px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+}
+
+.faq-pill-action-btn:hover {
+  background: #C2410C;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   PRE-FOOTER ROADSIDE VEHICLES BANNER & MAIN DARK FOOTER (Image 1 & 2)
+   ========================================================================== */
+.instant-mechanic-footer-wrapper {
+  width: 100%;
+  background: #FFFFFF;
+}
+
+/* Trouble on the Road Section */
+.pre-footer-roadside-cta {
+  padding-top: 70px;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.roadside-cta-header {
+  max-width: 800px;
+  margin: 0 auto 36px;
+  padding: 0 20px;
+}
+
+.roadside-cta-title {
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.roadside-cta-subtitle {
+  font-size: 1.1rem;
+  color: #4B5563;
+  margin-bottom: 28px;
+}
+
+.roadside-cta-book-btn {
+  background: #EA580C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  padding: 14px 38px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.35);
+  transition: all 0.2s ease;
+}
+
+.roadside-cta-book-btn:hover {
+  background: #C2410C;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.45);
+}
+
+/* Roadside Vehicles Row & Asphalt Strip */
+.roadside-scene-container {
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+}
+
+.roadside-vehicles-row {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -18px;
+}
+
+.vehicle-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.vehicle-item img {
+  max-height: 190px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+.vehicle--van img {
+  max-height: 185px;
+}
+
+.vehicle--tow img {
+  max-height: 175px;
+}
+
+.vehicle--garage img {
+  max-height: 200px;
+}
+
+/* Dark Asphalt Road Strip with Dashes */
+.asphalt-road-strip {
+  width: 100%;
+  background: #2E2925;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.road-dashed-lines {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.dash-mark {
+  width: 50px;
+  height: 6px;
+  background: #78716C;
+  border-radius: 3px;
+  opacity: 0.85;
+}
+
+/* Main Dark Footer Body */
+.main-dark-footer-body {
+  background-color: #191613;
+  color: #A3A3A3;
+  padding: 60px 24px 30px;
+}
+
+.footer-columns-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 1.8fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+.footer-col--brand .footer-tagline-title {
+  color: #EA580C;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.footer-col--brand .footer-mission-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #A3A3A3;
+  margin-bottom: 22px;
+  max-width: 360px;
+}
+
+.footer-social-row {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #2A2521;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-social-icon-btn:hover {
+  background: #EA580C;
+  transform: translateY(-2px);
+}
+
+.footer-social--ig {
+  background: linear-gradient(45deg, #F09433, #E6683C, #DC2743, #CC2366, #BC1888);
+}
+
+.footer-social--li {
+  background: #0077B5;
+}
+
+.footer-social--wa {
+  background: #25D366;
+}
+
+.footer-col-heading {
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links-list button,
+.footer-links-list a {
+  background: none;
+  border: none;
+  color: #A3A3A3;
+  font-size: 0.92rem;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.footer-links-list button:hover,
+.footer-links-list a:hover {
+  color: #EA580C;
+}
+
+/* Contact Column Stack with icons */
+.contact-items-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #2A2521;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item-label {
+  font-size: 0.74rem;
+  color: #737373;
+  margin-bottom: 2px;
+}
+
+.contact-item-val {
+  font-size: 0.9rem;
+  color: #E5E5E5;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+a.contact-item-val:hover {
+  color: #EA580C;
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #737373;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal-links a {
+  color: #737373;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #E5E5E5;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS FOR FAQ AND FOOTER
+   ========================================================================== */
+@media (max-width: 860px) {
+  /* FAQ Mobile */
+  .home-faq-section {
+    padding: 50px 18px;
+  }
+
+  .home-faq-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .home-faq-title {
+    font-size: 2.1rem;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .home-faq-right {
+    display: none; /* In Figma mobile view (Image 3), only the 6 accordion pills are shown! */
+  }
+
+  /* Pre-Footer Roadside CTA Mobile */
+  .pre-footer-roadside-cta {
+    padding-top: 50px;
+  }
+
+  .roadside-cta-title {
+    font-size: 2.1rem;
+  }
+
+  .roadside-cta-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  .roadside-vehicles-row {
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .vehicle-item img {
+    max-height: 110px;
+  }
+
+  .vehicle--van img { max-height: 105px; }
+  .vehicle--tow img { max-height: 95px; }
+  .vehicle--garage img { max-height: 115px; }
+
+  .asphalt-road-strip {
+    height: 40px;
+  }
+
+  .dash-mark {
+    width: 30px;
+    height: 4px;
+  }
+
+  /* Footer Columns Mobile (Image 1) */
+  .footer-columns-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-col--brand {
+    grid-column: span 2;
+  }
+
+  .footer-col--contact {
+    grid-column: span 2;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-columns-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-col--brand,
+  .footer-col--contact {
+    grid-column: span 1;
+  }
+}
+
 

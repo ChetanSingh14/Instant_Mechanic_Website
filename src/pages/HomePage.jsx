@@ -22,6 +22,7 @@ import CarBuddySection from '../components/home/CarBuddySection';
 import DelhiNcrLocationSection from '../components/home/DelhiNcrLocationSection';
 import CarBrandsSection from '../components/home/CarBrandsSection';
 import TestimonialSection from '../components/home/TestimonialSection';
+import HomeFaqSection from '../components/home/HomeFaqSection';
 
 export default function HomePage() {
   const { navigateTo, openBookingModal, openSOSModal } = useApp();
@@ -105,32 +106,8 @@ export default function HomePage() {
         {/* Real Customers Testimonials Section (Exact match to Figma testimonial images) */}
         <TestimonialSection />
 
-      {/* Bottom CTA Banner for Annual & Membership */}
-      <section className="home-explore-banner">
-        <div className="explore-banner-card">
-          <div className="explore-banner-text">
-            <span className="explore-tag">PREVENTIVE CARE</span>
-            <h3 className="explore-title">Your Car Deserves More Than Just a Service.</h3>
-            <p className="explore-desc">
-              Schedule comprehensive annual maintenance or join our all-year care membership for 10% off repairs.
-            </p>
-          </div>
-          <div className="explore-banner-actions">
-            <button 
-              className="explore-btn explore-btn--primary"
-              onClick={() => navigateTo('annual')}
-            >
-              Annual Service Plans
-            </button>
-            <button 
-              className="explore-btn explore-btn--secondary"
-              onClick={() => navigateTo('membership')}
-            >
-              Explore Membership
-            </button>
-          </div>
-        </div>
-      </section>
+        {/* Questions? We Got You Covered FAQ Section (Exact match to Figma Image 3 & 4) */}
+        <HomeFaqSection />
       </div>
     </div>
   );
