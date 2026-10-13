@@ -18,6 +18,7 @@ import { HERO_STATS, SERVICE_CATEGORIES, SERVICE_BENEFITS } from '../data/mockDa
 import RoadsideHelpSection from '../components/home/RoadsideHelpSection';
 import HowItWorksSection from '../components/home/HowItWorksSection';
 import VanHelpSection from '../components/home/VanHelpSection';
+import CarBuddySection from '../components/home/CarBuddySection';
 
 export default function HomePage() {
   const { navigateTo, openBookingModal, openSOSModal } = useApp();
@@ -88,6 +89,9 @@ export default function HomePage() {
 
         {/* Van Tracking & Message Away Section (Exact Match to Figma Desktop & Mobile) */}
         <VanHelpSection />
+
+        {/* CarBuddy AI Technician Section (Exact Match to Figma Desktop & Mobile) */}
+        <CarBuddySection />
 
       {/* Why Choose Instant Mechanic Section (Matches Figma Image 2 & 3) */}
       <section className="home-why-us">

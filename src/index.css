@@ -1764,6 +1764,115 @@ ul {
 }
 
 /* ==========================================================================
+   CARBUDDY AI SECTION (Desktop & Mobile Figma Match)
+   ========================================================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.carbuddy-section {
+  width: 100%;
+  padding: 20px 0 60px;
+}
+
+.carbuddy-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #FFFFFF;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carbuddy-container:hover {
+  box-shadow: 0 10px 32px rgba(234, 88, 12, 0.1);
+}
+
+.carbuddy-banner-desktop {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.carbuddy-banner-mobile {
+  position: relative;
+  width: 100%;
+  display: none;
+}
+
+.carbuddy-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Interactive CTA button hotspot */
+.carbuddy-btn-overlay {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  transition: all 0.25s ease;
+  z-index: 5;
+}
+
+.carbuddy-btn-overlay.desktop {
+  top: 66.5%;
+  left: 6.25%;
+  width: 18.2%;
+  height: 7.6%;
+}
+
+.carbuddy-btn-overlay.mobile {
+  top: 25.8%;
+  left: 6%;
+  width: 45%;
+  height: 5.5%;
+}
+
+.carbuddy-btn-overlay:hover {
+  box-shadow: 0 0 25px rgba(234, 88, 12, 0.6), inset 0 0 12px rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+}
+
+.carbuddy-btn-overlay:active {
+  transform: scale(0.98);
+}
+
+/* Responsive breakpoint: switch to mobile banner */
+@media (max-width: 768px) {
+  .carbuddy-section {
+    padding: 15px 0 45px;
+  }
+
+  .carbuddy-container {
+    border-radius: 20px;
+  }
+
+  .carbuddy-banner-desktop {
+    display: none;
+  }
+
+  .carbuddy-banner-mobile {
+    display: block;
+  }
+}
+
+/* ==========================================================================
    SERVICE CARD & GRID (Figma Image 2)
    ========================================================================== */
 .section-header-wrap {
