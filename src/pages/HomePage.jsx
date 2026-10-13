@@ -21,6 +21,7 @@ import VanHelpSection from '../components/home/VanHelpSection';
 import CarBuddySection from '../components/home/CarBuddySection';
 import DelhiNcrLocationSection from '../components/home/DelhiNcrLocationSection';
 import CarBrandsSection from '../components/home/CarBrandsSection';
+import TestimonialSection from '../components/home/TestimonialSection';
 
 export default function HomePage() {
   const { navigateTo, openBookingModal, openSOSModal } = useApp();
@@ -100,6 +101,9 @@ export default function HomePage() {
 
         {/* Trusted Car Brands Section (Exact match to Figma carbrand images) */}
         <CarBrandsSection />
+
+        {/* Real Customers Testimonials Section (Exact match to Figma testimonial images) */}
+        <TestimonialSection />
 
       {/* Bottom CTA Banner for Annual & Membership */}
       <section className="home-explore-banner">
