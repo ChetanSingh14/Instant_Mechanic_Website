@@ -16,6 +16,8 @@ import {
 import { useApp } from '../context/AppContext';
 import { HERO_STATS, SERVICE_CATEGORIES, SERVICE_BENEFITS } from '../data/mockData';
 import RoadsideHelpSection from '../components/home/RoadsideHelpSection';
+import HowItWorksSection from '../components/home/HowItWorksSection';
+import VanHelpSection from '../components/home/VanHelpSection';
 
 export default function HomePage() {
   const { navigateTo, openBookingModal, openSOSModal } = useApp();
@@ -80,6 +82,12 @@ export default function HomePage() {
       <div className="page-wrapper home-page">
         {/* Roadside Help Section (Exact Match to Figma Images & Mobile Horizontal Scroll) */}
         <RoadsideHelpSection />
+
+        {/* How It Works 4-Step Section (Exact Match to Figma Desktop & Mobile 2x2 Grid) */}
+        <HowItWorksSection />
+
+        {/* Van Tracking & Message Away Section (Exact Match to Figma Desktop & Mobile) */}
+        <VanHelpSection />
 
       {/* Why Choose Instant Mechanic Section (Matches Figma Image 2 & 3) */}
       <section className="home-why-us">

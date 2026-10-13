@@ -1212,6 +1212,558 @@ ul {
 }
 
 /* ==========================================================================
+   HOW IT WORKS SECTION (Exact Figma Desktop 4-Col & Mobile 2x2 Grid)
+   ========================================================================== */
+.how-it-works-section {
+  width: 100%;
+  padding: 30px 0 60px;
+}
+
+.how-it-works-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.how-it-works-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 46px;
+}
+
+.how-it-works-title {
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #18181B;
+  margin-bottom: 12px;
+}
+
+.how-it-works-title-orange {
+  color: #EA580C;
+}
+
+.how-it-works-subtitle {
+  font-size: 1rem;
+  color: #6B7280;
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-top: 18px;
+}
+
+.how-step-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 20px;
+  padding: 40px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.how-step-card:hover {
+  transform: translateY(-4px);
+  border-color: #EA580C;
+  box-shadow: 0 12px 28px -4px rgba(234, 88, 12, 0.12), 0 3px 6px rgba(0, 0, 0, 0.03);
+}
+
+.how-step-badge {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FFFFFF;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 9999px;
+  min-width: 48px;
+  height: 36px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #EA580C;
+  font-size: 1rem;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.how-step-card:hover .how-step-badge {
+  border-color: #EA580C;
+  background: #FFF7ED;
+}
+
+.how-step-img-wrap {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.how-step-card:hover .how-step-img-wrap {
+  transform: scale(1.04);
+}
+
+.how-step-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.how-step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #18181B;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.how-step-desc {
+  font-size: 0.9rem;
+  color: #6B7280;
+  line-height: 1.45;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* Responsive: Tablet and Mobile 2x2 */
+@media (max-width: 1024px) {
+  .how-it-works-grid {
+    gap: 16px;
+  }
+  .how-step-card {
+    padding: 36px 14px 24px;
+  }
+  .how-step-img-wrap {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Mobile View: EXACT 2x2 Grid matching Image 2 */
+@media (max-width: 768px) {
+  .how-it-works-section {
+    padding: 20px 0 45px;
+  }
+
+  .how-it-works-header {
+    margin-bottom: 34px;
+  }
+
+  .how-it-works-title {
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .how-it-works-subtitle {
+    font-size: 0.88rem;
+    padding: 0 10px;
+  }
+
+  .how-it-works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding-top: 14px;
+  }
+
+  .how-step-card {
+    padding: 28px 10px 18px;
+    border-radius: 16px;
+  }
+
+  .how-step-badge {
+    top: -14px;
+    min-width: 40px;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 0.88rem;
+  }
+
+  .how-step-img-wrap {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 14px;
+  }
+
+  .how-step-title {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .how-step-desc {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .how-it-works-grid {
+    gap: 12px;
+  }
+
+  .how-step-card {
+    padding: 26px 8px 16px;
+  }
+
+  .how-step-img-wrap {
+    width: 84px;
+    height: 84px;
+  }
+
+  .how-step-title {
+    font-size: 0.88rem;
+  }
+
+  .how-step-desc {
+    font-size: 0.74rem;
+  }
+}
+/* ==========================================================================
+   VAN HELP SECTION ("Help is just a message away" - Desktop & Mobile)
+   ========================================================================== */
+.van-help-section {
+  width: 100%;
+  padding: 40px 0 65px;
+}
+
+.van-help-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.van-help-visual {
+  flex: 1.1;
+  max-width: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.van-help-main-img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.08));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.van-help-main-img:hover {
+  transform: scale(1.02);
+}
+
+.van-help-content {
+  flex: 1;
+  max-width: 520px;
+  width: 100%;
+}
+
+.van-help-title {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #18181B;
+  margin-bottom: 14px;
+}
+
+.van-help-title-orange {
+  color: #EA580C;
+}
+
+.van-help-subtitle {
+  font-size: 1.02rem;
+  color: #4B5563;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+/* Mechanic Tracker Card */
+.van-tracker-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 24px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  margin-bottom: 24px;
+  transition: all 0.25s ease;
+}
+
+.van-tracker-card:hover {
+  border-color: #FDBA74;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.1);
+}
+
+.van-tracker-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.van-tracker-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.van-tracker-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #27272A;
+  margin-bottom: 4px;
+}
+
+.van-tracker-eta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.van-tracker-num {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #EA580C;
+  line-height: 1;
+}
+
+.van-tracker-unit {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #18181B;
+}
+
+.van-tracker-badge {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: #FDF1E7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.van-tracker-van-img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+.van-tracker-route {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+  width: 100%;
+}
+
+.van-route-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.van-route-avatar {
+  width: 36px;
+  height: auto;
+  object-fit: contain;
+}
+
+.van-route-map {
+  width: 36px;
+  height: auto;
+  object-fit: contain;
+}
+
+.van-route-line-wrap {
+  flex: 1;
+  margin: 0 12px;
+}
+
+.van-route-line {
+  width: 100%;
+  height: 5px;
+  background: #E5E7EB;
+  border-radius: 9999px;
+}
+
+/* Bottom CTA Row */
+.van-help-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.van-help-cta-text {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.van-call-btn {
+  background: #EA580C;
+  color: #FFFFFF;
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.van-call-btn:hover {
+  background: #C2410C;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.45);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .van-help-container {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .van-help-visual {
+    width: 100%;
+    max-width: 440px;
+    order: 1;
+  }
+
+  .van-help-content {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .van-help-section {
+    padding: 25px 0 50px;
+  }
+
+  .van-help-title {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .van-help-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin-bottom: 22px;
+  }
+
+  .van-tracker-card {
+    padding: 20px 18px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .van-tracker-label {
+    font-size: 0.98rem;
+  }
+
+  .van-tracker-num {
+    font-size: 2.35rem;
+  }
+
+  .van-tracker-unit {
+    font-size: 1.05rem;
+  }
+
+  .van-tracker-badge {
+    width: 86px;
+    height: 86px;
+  }
+
+  .van-tracker-van-img {
+    width: 65px;
+  }
+
+  .van-route-avatar {
+    width: 32px;
+  }
+
+  .van-route-map {
+    width: 32px;
+  }
+
+  .van-help-cta-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .van-help-cta-text {
+    font-size: 0.92rem;
+  }
+
+  .van-call-btn {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .van-help-title {
+    font-size: 1.65rem;
+  }
+
+  .van-tracker-num {
+    font-size: 2.1rem;
+  }
+
+  .van-tracker-badge {
+    width: 76px;
+    height: 76px;
+  }
+
+  .van-tracker-van-img {
+    width: 58px;
+  }
+
+  .van-help-cta-text {
+    font-size: 0.85rem;
+  }
+
+  .van-call-btn {
+    padding: 9px 18px;
+    font-size: 0.84rem;
+  }
+}
+
+/* ==========================================================================
    SERVICE CARD & GRID (Figma Image 2)
    ========================================================================== */
 .section-header-wrap {
