@@ -19,6 +19,7 @@ import RoadsideHelpSection from '../components/home/RoadsideHelpSection';
 import HowItWorksSection from '../components/home/HowItWorksSection';
 import VanHelpSection from '../components/home/VanHelpSection';
 import CarBuddySection from '../components/home/CarBuddySection';
+import DelhiNcrLocationSection from '../components/home/DelhiNcrLocationSection';
 
 export default function HomePage() {
   const { navigateTo, openBookingModal, openSOSModal } = useApp();
@@ -93,31 +94,8 @@ export default function HomePage() {
         {/* CarBuddy AI Technician Section (Exact Match to Figma Desktop & Mobile) */}
         <CarBuddySection />
 
-      {/* Why Choose Instant Mechanic Section (Matches Figma Image 2 & 3) */}
-      <section className="home-why-us">
-        <div className="why-us-container">
-          <div className="text-center mb-8">
-            <h2 className="section-heading">
-              Why Choose <span className="text-orange-600">Instant Mechanic?</span>
-            </h2>
-            <p className="section-subheading">
-              Designed to eliminate repair anxiety with transparent pricing and verified doorstep mechanics.
-            </p>
-          </div>
-
-          <div className="why-us-grid">
-            {SERVICE_BENEFITS.map((benefit, idx) => (
-              <div key={idx} className="why-us-card">
-                <div className="why-us-icon-box">
-                  <Sparkles className="w-6 h-6 text-orange-600" />
-                </div>
-                <h3 className="why-us-card__title">{benefit.title}</h3>
-                <p className="why-us-card__desc">{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* Delhi NCR Coverage & Mechanics Network Section (Exact match to Figma Image 2 & 3) */}
+        <DelhiNcrLocationSection />
 
       {/* Bottom CTA Banner for Annual & Membership */}
       <section className="home-explore-banner">

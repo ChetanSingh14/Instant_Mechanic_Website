@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import { 
   ArrowRight, 
-  Check, 
   Wrench, 
   AlertTriangle, 
   Sparkles, 
   ClipboardCheck, 
   Clock, 
   FolderClock,
-  ShieldCheck,
   Calendar,
   Users,
-  CheckCircle2
+  CheckCircle2,
+  Headphones
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import membershipCardImg from '../assets/design_assets/Component 35.png';
+
+// Exact assets from src/assets/membership/
+import photo1 from '../assets/membership/Rectangle 73.png';
+import photo2 from '../assets/membership/Rectangle 75.png';
+import photo3 from '../assets/membership/Rectangle 76.png';
+import photo4 from '../assets/membership/Rectangle 74.png';
+import membershipCardImg from '../assets/membership/image 54.png';
+import membershipPlanBanner from '../assets/membership/membership card.png';
 
 export default function MembershipPage() {
   const { openBookingModal, showToast, navigateTo } = useApp();
@@ -60,270 +66,363 @@ export default function MembershipPage() {
   ];
 
   return (
-    <div className="membership-v1-page">
-      {/* 1. Hero Section */}
-      <section className="membership-hero">
-        <div className="membership-hero-container">
-          <h1 className="membership-hero-title">
+    <div className="membership-page-wrapper">
+      {/* 1. Hero Section matching Image 1 (Desktop) & Image 4 (Mobile) */}
+      <section className="membership-hero-section">
+        <div className="membership-hero-content text-center">
+          <h1 className="membership-hero-headline">
             More miles. <span className="text-orange">Less worries.</span>
           </h1>
-          <p className="membership-hero-subtitle">
+          <p className="membership-hero-subtext">
             One membership. Reliable car care whenever the road throws something your way.
           </p>
 
-          <div className="membership-hero-actions">
-            <a href="#membership-plan" className="membership-explore-btn">
+          <div className="membership-hero-cta-wrap">
+            <a href="#membership-plan" className="membership-explore-pill-btn">
               <span>Explore Membership</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-orange" />
             </a>
           </div>
 
-          {/* 4 Lifestyle Gallery Cards */}
-          <div className="membership-gallery-grid">
-            <div className="gallery-card gallery-card--1">
-              <img 
-                src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" 
-                alt="Mobile mechanic assisting roadside tyre repair" 
-                loading="lazy"
-              />
+          {/* Desktop Lifestyle Photo Gallery (Image 1) */}
+          <div className="membership-desktop-gallery">
+            <div className="gallery-photo-card gallery-photo--1">
+              <img src={photo1} alt="Mechanic assisting roadside wheel repair" />
             </div>
-            <div className="gallery-card gallery-card--2">
-              <img 
-                src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80" 
-                alt="Confident driver smiling inside car" 
-                loading="lazy"
-              />
+            <div className="gallery-photo-card gallery-photo--2">
+              <img src={photo2} alt="Woman driving car smiling" />
             </div>
-            <div className="gallery-card gallery-card--3">
-              <img 
-                src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80" 
-                alt="Instant Mechanic van servicing engine roadside" 
-                loading="lazy"
-              />
+            <div className="gallery-photo-card gallery-photo--3">
+              <img src={photo3} alt="Instant Mechanic van servicing roadside vehicle" />
             </div>
-            <div className="gallery-card gallery-card--4">
-              <img 
-                src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=600&q=80" 
-                alt="Driver view in rear mirror on road trip" 
-                loading="lazy"
-              />
+            <div className="gallery-photo-card gallery-photo--4">
+              <img src={photo4} alt="Driver view in rear mirror" />
+            </div>
+          </div>
+
+          {/* Mobile Lifestyle Photo Gallery (Image 4): 2 columns, left tall, right stacked */}
+          <div className="membership-mobile-gallery">
+            <div className="mobile-gallery-left">
+              <div className="mobile-photo-card mobile-photo--tall">
+                <img src={photo2} alt="Woman driving car smiling" />
+              </div>
+            </div>
+            <div className="mobile-gallery-right">
+              <div className="mobile-photo-card mobile-photo--stacked-top">
+                <img src={photo1} alt="Mechanic roadside assistance" />
+              </div>
+              <div className="mobile-photo-card mobile-photo--stacked-bottom">
+                <img src={photo4} alt="Driver view in rear mirror" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. All-in-One Radial Benefits Section */}
-      <section className="membership-radial-section">
-        <div className="radial-header text-center">
-          <h2 className="radial-title">
+      {/* 2. All-in-One Membership Section matching Image 2 (Desktop) & Image 4/5 (Mobile) */}
+      <section className="membership-allinone-section">
+        <div className="allinone-header text-center">
+          <h2 className="allinone-title">
             Everything your car needs.<br />
             all in <span className="text-orange">one Membership</span>
           </h2>
         </div>
 
-        <div className="radial-content-wrap">
-          {/* Radial Centerpiece with Membership Card */}
-          <div className="radial-layout">
-            {/* Left 3 Benefits */}
-            <div className="radial-col radial-col--left">
-              {/* Benefit 1 */}
-              <div className="radial-benefit-card" onClick={() => handleBenefitClick('10% Off Repairs')}>
-                <div className="benefit-badge-icon benefit-badge--wrench">
-                  <Wrench className="w-4 h-4 text-orange-600" />
-                </div>
-                <div className="benefit-text">
-                  <h4 className="benefit-title">10% Off Repairs</h4>
-                  <p className="benefit-desc">Save on repair service</p>
-                  <span className="benefit-know-more">Know more &rsaquo;</span>
-                </div>
-              </div>
+        {/* Desktop Layout: Radial with Center Card & 6 Surrounding Cards */}
+        <div className="allinone-desktop-layout">
+          {/* Subtle concentric decorative rings behind the card */}
+          <div className="allinone-concentric-circles">
+            <div className="concentric-circle concentric-circle--1"></div>
+            <div className="concentric-circle concentric-circle--2"></div>
+            <div className="concentric-circle concentric-circle--3"></div>
+          </div>
 
-              {/* Benefit 2 */}
-              <div className="radial-benefit-card" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
-                <div className="benefit-badge-icon benefit-badge--hazard">
-                  <AlertTriangle className="w-4 h-4 text-amber-600" />
-                </div>
-                <div className="benefit-text">
-                  <h4 className="benefit-title">Unlimited Roadside Help</h4>
-                  <p className="benefit-desc">Help when you need it</p>
-                </div>
+          {/* Left Column 3 Benefit Cards */}
+          <div className="allinone-side-col allinone-col--left">
+            {/* Card 1 */}
+            <div className="membership-perk-card" onClick={() => handleBenefitClick('10% Off Repairs')}>
+              <div className="perk-text-content">
+                <h4 className="perk-title">10% Off Repairs</h4>
+                <p className="perk-desc">Save on repair service</p>
+                <span className="perk-know-more">Know more &rsaquo;</span>
               </div>
-
-              {/* Benefit 3 */}
-              <div className="radial-benefit-card" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
-                <div className="benefit-badge-icon benefit-badge--ai">
-                  <Sparkles className="w-4 h-4 text-purple-600" />
-                </div>
-                <div className="benefit-text">
-                  <h4 className="benefit-title">Unlimited AI Diagnosis</h4>
-                  <p className="benefit-desc">Know what's wrong</p>
-                </div>
+              <div className="perk-icon-circle perk-icon--wrench">
+                <Wrench className="w-4 h-4 text-orange-600" />
               </div>
             </div>
 
-            {/* Central Luxury Card with concentric circles */}
-            <div className="radial-center-card">
-              <div className="concentric-ring concentric-ring--1"></div>
-              <div className="concentric-ring concentric-ring--2"></div>
-              <div className="membership-card-frame">
-                <img 
-                  src={membershipCardImg} 
-                  alt="Instant Mechanic Luxury Membership Card"
-                  className="membership-card-img" 
-                />
+            {/* Card 2 */}
+            <div className="membership-perk-card" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
+              <div className="perk-text-content">
+                <h4 className="perk-title">Unlimited Roadside Help</h4>
+                <p className="perk-desc">Help when you need it</p>
+              </div>
+              <div className="perk-icon-circle perk-icon--hazard">
+                <AlertTriangle className="w-4 h-4 text-amber-600" />
               </div>
             </div>
 
-            {/* Right 3 Benefits */}
-            <div className="radial-col radial-col--right">
-              {/* Benefit 4 */}
-              <div className="radial-benefit-card" onClick={() => handleBenefitClick('1 Free Annual Check')}>
-                <div className="benefit-badge-icon benefit-badge--check">
-                  <ClipboardCheck className="w-4 h-4 text-emerald-600" />
-                </div>
-                <div className="benefit-text">
-                  <h4 className="benefit-title">1 Free Annual Check</h4>
-                  <p className="benefit-desc">Keep your car in shape</p>
-                  <span className="benefit-know-more">Know more &rsaquo;</span>
-                </div>
+            {/* Card 3 */}
+            <div className="membership-perk-card" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
+              <div className="perk-text-content">
+                <h4 className="perk-title">Unlimited AI Diagnosis</h4>
+                <p className="perk-desc">Know what's wrong</p>
               </div>
+              <div className="perk-icon-circle perk-icon--sparkle">
+                <Sparkles className="w-4 h-4 text-purple-600" />
+              </div>
+            </div>
+          </div>
 
-              {/* Benefit 5 */}
-              <div className="radial-benefit-card" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
-                <div className="benefit-badge-icon benefit-badge--dispatch">
-                  <Clock className="w-4 h-4 text-blue-600" />
-                </div>
-                <div className="benefit-text">
-                  <h4 className="benefit-title">Priority Mechanic Dispatch</h4>
-                  <p className="benefit-desc">Faster response, every time</p>
-                </div>
-              </div>
+          {/* Center Card */}
+          <div className="allinone-center-card-wrap">
+            <div className="luxury-card-container">
+              <img 
+                src={membershipCardImg} 
+                alt="Instant Mechanic Luxury All Year Car Care Membership Card" 
+                className="luxury-card-img"
+              />
+            </div>
+          </div>
 
-              {/* Benefit 6 */}
-              <div className="radial-benefit-card" onClick={() => handleBenefitClick('Service History')}>
-                <div className="benefit-badge-icon benefit-badge--history">
-                  <FolderClock className="w-4 h-4 text-amber-600" />
-                </div>
-                <div className="benefit-text">
-                  <h4 className="benefit-title">Service History</h4>
-                  <p className="benefit-desc">All your records, in one place</p>
-                </div>
+          {/* Right Column 3 Benefit Cards */}
+          <div className="allinone-side-col allinone-col--right">
+            {/* Card 4 */}
+            <div className="membership-perk-card membership-perk-card--right" onClick={() => handleBenefitClick('1 Free Annual Check')}>
+              <div className="perk-icon-circle perk-icon--clipboard">
+                <ClipboardCheck className="w-4 h-4 text-emerald-600" />
               </div>
+              <div className="perk-text-content">
+                <h4 className="perk-title">1 Free Annual Check</h4>
+                <p className="perk-desc">Keep your car in shape</p>
+                <span className="perk-know-more">Know more &rsaquo;</span>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="membership-perk-card membership-perk-card--right" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
+              <div className="perk-icon-circle perk-icon--dispatch">
+                <Headphones className="w-4 h-4 text-blue-600" />
+              </div>
+              <div className="perk-text-content">
+                <h4 className="perk-title">Priority Mechanic Dispatch</h4>
+                <p className="perk-desc">Faster response, every time</p>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="membership-perk-card membership-perk-card--right" onClick={() => handleBenefitClick('Service History')}>
+              <div className="perk-icon-circle perk-icon--folder">
+                <FolderClock className="w-4 h-4 text-amber-600" />
+              </div>
+              <div className="perk-text-content">
+                <h4 className="perk-title">Service History</h4>
+                <p className="perk-desc">All your records, in one place</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout (Image 4 & 5): Center card on top, then 2-column grid of 6 cards below */}
+        <div className="allinone-mobile-layout">
+          <div className="mobile-card-preview-wrap">
+            <img 
+              src={membershipCardImg} 
+              alt="Instant Mechanic All Year Car Care Membership Card" 
+              className="mobile-luxury-card-img"
+            />
+          </div>
+
+          <div className="mobile-perks-grid">
+            <div className="mobile-perk-item" onClick={() => handleBenefitClick('10% Off Repairs')}>
+              <div className="mobile-perk-header">
+                <div className="mobile-perk-icon-circle perk-icon--wrench">
+                  <Wrench className="w-3.5 h-3.5 text-orange-600" />
+                </div>
+                <h5 className="mobile-perk-title">10% Off Repairs</h5>
+              </div>
+              <p className="mobile-perk-desc">Save on repair service</p>
+              <span className="mobile-perk-link">Know more &rsaquo;</span>
+            </div>
+
+            <div className="mobile-perk-item" onClick={() => handleBenefitClick('1 Free Annual Check')}>
+              <div className="mobile-perk-header">
+                <div className="mobile-perk-icon-circle perk-icon--clipboard">
+                  <ClipboardCheck className="w-3.5 h-3.5 text-emerald-600" />
+                </div>
+                <h5 className="mobile-perk-title">1 Free Annual Check</h5>
+              </div>
+              <p className="mobile-perk-desc">Keep your car in shape</p>
+              <span className="mobile-perk-link">Know more &rsaquo;</span>
+            </div>
+
+            <div className="mobile-perk-item" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
+              <div className="mobile-perk-header">
+                <div className="mobile-perk-icon-circle perk-icon--hazard">
+                  <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
+                </div>
+                <h5 className="mobile-perk-title">Unlimited Roadside Help</h5>
+              </div>
+              <p className="mobile-perk-desc">Help when you need it</p>
+            </div>
+
+            <div className="mobile-perk-item" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
+              <div className="mobile-perk-header">
+                <div className="mobile-perk-icon-circle perk-icon--dispatch">
+                  <Headphones className="w-3.5 h-3.5 text-blue-600" />
+                </div>
+                <h5 className="mobile-perk-title">Priority Mechanic Dispatch</h5>
+              </div>
+              <p className="mobile-perk-desc">Faster response, every time</p>
+            </div>
+
+            <div className="mobile-perk-item" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
+              <div className="mobile-perk-header">
+                <div className="mobile-perk-icon-circle perk-icon--sparkle">
+                  <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+                </div>
+                <h5 className="mobile-perk-title">Unlimited AI Diagnosis</h5>
+              </div>
+              <p className="mobile-perk-desc">Know what's wrong</p>
+            </div>
+
+            <div className="mobile-perk-item" onClick={() => handleBenefitClick('Service History')}>
+              <div className="mobile-perk-header">
+                <div className="mobile-perk-icon-circle perk-icon--folder">
+                  <FolderClock className="w-3.5 h-3.5 text-amber-600" />
+                </div>
+                <h5 className="mobile-perk-title">Service History</h5>
+              </div>
+              <p className="mobile-perk-desc">All your records, in one place</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Pricing Plan Card Section */}
+      {/* 3. Pricing Plan Section matching Image 2 (Desktop) & Image 5 (Mobile) */}
       <section className="membership-pricing-section" id="membership-plan">
-        <div className="pricing-section-header text-center">
-          <h2 className="pricing-title">
+        <div className="pricing-header-wrap text-center">
+          <h2 className="pricing-headline">
             <span className="text-orange">One membership.</span> Every kind of car day.
           </h2>
-          <p className="pricing-subtitle">
+          <p className="pricing-subheadline">
             From unexpected breakdowns to regular care, your membership keeps you covered.
           </p>
         </div>
 
-        <div className="plan-banner-card">
-          <div className="plan-banner-left">
-            <span className="plan-sub-tag">Complete Car Care One simple Plan</span>
-            <div className="plan-strike-price">₹2,999</div>
-            <div className="plan-main-price">
-              <span className="price-num">₹1,499</span>
-              <span className="price-freq">/year</span>
-            </div>
-            <p className="plan-breakdown-note">That's just ₹125/month</p>
-
-            <button className="plan-cta-btn" onClick={handleJoinMembership}>
-              <span>Get Membership Now</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <div className="plan-perks-row">
-              <div className="plan-perk">
-                <Calendar className="w-4 h-4 text-orange-600" />
-                <span>12 Months Coverage</span>
+        {/* Desktop Plan Card using rendered background or live layout */}
+        <div className="membership-plan-card-desktop">
+          <div className="plan-desktop-card-inner">
+            <div className="plan-desktop-left">
+              <span className="plan-tier-label">Complete Car Care One simple Plan</span>
+              <div className="plan-original-price">₹2,999</div>
+              <div className="plan-discount-price-row">
+                <span className="plan-currency-num">₹1,499</span>
+                <span className="plan-currency-freq">/year</span>
               </div>
-              <div className="plan-perk">
-                <Users className="w-4 h-4 text-orange-600" />
-                <span>24/7 Member support</span>
-              </div>
-              <div className="plan-perk">
-                <CheckCircle2 className="w-4 h-4 text-orange-600" />
-                <span>No hidden Charges</span>
-              </div>
-            </div>
-          </div>
+              <p className="plan-monthly-breakdown">That's just ₹125/month</p>
 
-          <div className="plan-banner-right">
-            <div className="plan-car-illustration">
-              <div className="illustration-calendar-card">
-                <div className="cal-header"></div>
-                <div className="cal-body">
-                  <div className="cal-badge-check">✓</div>
-                  <div className="cal-bell-icon">🔔</div>
+              <button className="plan-action-btn" onClick={handleJoinMembership}>
+                <span>Get Membership Now</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <div className="plan-perks-checklist">
+                <div className="plan-perk-check">
+                  <Calendar className="w-4 h-4 text-orange-600 flex-shrink-0" />
+                  <span>12 Months Coverage</span>
+                </div>
+                <div className="plan-perk-check">
+                  <Users className="w-4 h-4 text-orange-600 flex-shrink-0" />
+                  <span>24/7 Member support</span>
+                </div>
+                <div className="plan-perk-check">
+                  <CheckCircle2 className="w-4 h-4 text-orange-600 flex-shrink-0" />
+                  <span>No hidden Charges</span>
                 </div>
               </div>
-              <div className="illustration-wrench-icon">🔧</div>
+            </div>
+
+            <div className="plan-desktop-right">
               <img 
-                src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80" 
-                alt="White car maintenance" 
-                className="illustration-car-img" 
+                src={membershipPlanBanner} 
+                alt="Car Care Membership with 3D car and calendar" 
+                className="plan-banner-cropped-img"
               />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Plan Card matching Image 5 */}
+        <div className="membership-plan-card-mobile">
+          <div className="mobile-plan-banner-card">
+            {/* 3D Badge: CarCare Membership */}
+            <div className="mobile-plan-badge-wrap text-center">
+              <span className="mobile-plan-badge-pill">👑 CarCare Membership</span>
+            </div>
+
+            <div className="mobile-plan-text text-center">
+              <span className="mobile-plan-tag">Complete Car Care One simple Plan</span>
+              <div className="mobile-plan-original-price">₹2,999</div>
+              <div className="mobile-plan-current-price">
+                <span className="mobile-price-num">₹1,499</span>
+                <span className="mobile-price-freq">/year</span>
+              </div>
+              <p className="mobile-plan-breakdown">That's just ₹125/month</p>
+
+              <button className="mobile-plan-btn" onClick={handleJoinMembership}>
+                <span>Get Membership Now</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <div className="mobile-plan-perks-row">
+                <div className="mobile-plan-perk-item">
+                  <Calendar className="w-3.5 h-3.5 text-blue-500" />
+                  <span>12 Months Coverage</span>
+                </div>
+                <div className="mobile-plan-perk-item">
+                  <Users className="w-3.5 h-3.5 text-amber-500" />
+                  <span>24/7 Member support</span>
+                </div>
+                <div className="mobile-plan-perk-item">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>No hidden Charges</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Frequently Asked Questions */}
-      <section className="faq-section">
-        <div className="faq-header text-center">
-          <h2 className="faq-heading">
+      {/* 4. Frequently Asked Questions matching Image 3 */}
+      <section className="membership-faq-section">
+        <div className="faq-heading-wrap text-center">
+          <h2 className="faq-title">
             <span className="text-orange">Questions?</span> We've Got answers.
           </h2>
         </div>
 
-        <div className="faq-accordion-list">
+        <div className="faq-pills-list">
           {faqs.map((faq, index) => {
             const isOpen = openFaq === index;
             return (
-              <div key={index} className={`faq-card ${isOpen ? 'faq-card--open' : ''}`}>
+              <div key={index} className={`faq-capsule-item ${isOpen ? 'open' : ''}`}>
                 <button 
-                  className="faq-question-btn"
+                  className="faq-capsule-btn"
                   onClick={() => setOpenFaq(isOpen ? null : index)}
                   aria-expanded={isOpen}
                 >
-                  <span>{faq.q}</span>
-                  <span className="faq-icon-indicator">{isOpen ? '−' : '+'}</span>
+                  <span className="faq-capsule-q">{faq.q}</span>
+                  <span className="faq-capsule-toggle">{isOpen ? '−' : '+'}</span>
                 </button>
                 {isOpen && (
-                  <div className="faq-answer-body">
+                  <div className="faq-capsule-answer">
                     <p>{faq.a}</p>
                   </div>
                 )}
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* 5. Pre-Footer Scenic CTA Banner */}
-      <section className="membership-prefooter-banner">
-        <div className="prefooter-overlay"></div>
-        <div className="prefooter-content">
-          <h2 className="prefooter-title">Drive with confidence. We've got you.</h2>
-          <p className="prefooter-desc">
-            Wherever the road takes you, Instant Mechanic is just a call away.
-            From everyday care to unexpected breakdowns, we're here when you need us.
-          </p>
-          <button 
-            className="prefooter-btn"
-            onClick={() => navigateTo('repairs')}
-          >
-            <span>Book a service Now</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
         </div>
       </section>
     </div>
