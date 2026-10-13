@@ -815,7 +815,7 @@ ul {
    ========================================================================== */
 .stats-strip-section {
   width: 100%;
-  margin: 0 0 45px;
+  margin: 0 0 20px;
   background: #FAF6F0;
   border-top: 1px solid rgba(234, 219, 206, 0.7);
   border-bottom: 1px solid rgba(234, 219, 206, 0.7);
@@ -870,6 +870,345 @@ ul {
   font-size: 0.85rem;
   font-weight: 500;
   color: #71717A;
+}
+/* ==========================================================================
+   ROADSIDE HELP SECTION (Exact Figma Image 2 & Mobile Horizontal Scroll)
+   ========================================================================== */
+.roadside-section {
+  width: 100%;
+  padding: 10px 0 45px;
+}
+
+.roadside-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.roadside-left {
+  flex: 1;
+  max-width: 560px;
+  width: 100%;
+}
+
+.roadside-title {
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 28px;
+}
+
+.roadside-title-orange {
+  color: #EA580C;
+}
+
+.roadside-title-dark {
+  color: #18181B;
+}
+
+.roadside-cards-wrapper {
+  width: 100%;
+}
+
+.roadside-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.roadside-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 22px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.roadside-card:hover {
+  border-color: #EA580C;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -4px rgba(234, 88, 12, 0.12), 0 3px 6px rgba(0, 0, 0, 0.03);
+}
+
+.roadside-card:focus-visible {
+  border-color: #EA580C;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2);
+}
+
+.roadside-card:active {
+  transform: translateY(0);
+}
+
+.roadside-card-icon-wrap {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roadside-card-img {
+  max-height: 56px;
+  width: auto;
+  max-width: 68px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.06));
+  transition: transform 0.22s ease;
+}
+
+.roadside-card:hover .roadside-card-img {
+  transform: scale(1.08);
+}
+
+.roadside-card-label {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #1F2937;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.roadside-footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.roadside-footer-text {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.roadside-help-btn {
+  background: #EA580C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 24px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.32);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.roadside-help-btn:hover {
+  background: #C2410C;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.42);
+}
+
+.roadside-btn-arrow {
+  display: inline-block;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.roadside-help-btn:hover .roadside-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Right Side: 2x2 Photo Collage */
+.roadside-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roadside-collage {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  max-width: 520px;
+}
+
+.roadside-collage-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.roadside-img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roadside-collage-img {
+  width: auto;
+  max-width: 220px;
+  max-height: 290px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.07));
+  transition: all 0.3s ease;
+}
+
+.roadside-collage-img:hover {
+  transform: translateY(-3px) scale(1.02);
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.1));
+}
+
+.warning-triangle-img {
+  max-width: 195px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 991px) {
+  .roadside-container {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .roadside-left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .roadside-right {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .roadside-collage {
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 16px;
+  }
+
+  .roadside-collage-img {
+    max-width: 175px;
+  }
+}
+
+/* Mobile View: Exactly horizontal scroll matching user Image 3 */
+@media (max-width: 768px) {
+  .roadside-title {
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+  }
+
+  .roadside-cards-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    margin: 0 -20px 16px -20px;
+    padding: 4px 20px 16px 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .roadside-cards-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .roadside-cards-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: max-content;
+    margin-bottom: 0;
+  }
+
+  .roadside-card {
+    flex: 0 0 160px;
+    min-width: 160px;
+    width: 160px;
+    padding: 18px 12px;
+    border-radius: 14px;
+    scroll-snap-align: start;
+  }
+
+  .roadside-card-img {
+    max-height: 48px;
+    max-width: 58px;
+  }
+
+  .roadside-card-label {
+    font-size: 0.88rem;
+  }
+
+  .roadside-footer-cta {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .roadside-footer-text {
+    font-size: 0.92rem;
+  }
+
+  .roadside-help-btn {
+    padding: 9px 20px;
+    font-size: 0.88rem;
+  }
+
+  .roadside-collage {
+    gap: 12px;
+    max-width: 320px;
+  }
+
+  .roadside-collage-col {
+    gap: 12px;
+  }
+
+  .roadside-collage-img {
+    max-width: 135px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roadside-title {
+    font-size: 1.5rem;
+  }
+
+  .roadside-card {
+    flex: 0 0 150px;
+    min-width: 150px;
+    width: 150px;
+    padding: 16px 10px;
+  }
+
+  .roadside-footer-cta {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .roadside-footer-text {
+    font-size: 0.88rem;
+  }
+
+  .roadside-help-btn {
+    padding: 8px 16px;
+    font-size: 0.84rem;
+  }
 }
 
 /* ==========================================================================

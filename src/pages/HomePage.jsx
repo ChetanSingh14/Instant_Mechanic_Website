@@ -15,13 +15,10 @@ import {
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { HERO_STATS, SERVICE_CATEGORIES, SERVICE_BENEFITS } from '../data/mockData';
-import ServiceCard from '../components/common/ServiceCard';
+import RoadsideHelpSection from '../components/home/RoadsideHelpSection';
 
 export default function HomePage() {
   const { navigateTo, openBookingModal, openSOSModal } = useApp();
-
-  // Quick emergency highlight cards from mock data
-  const quickServices = SERVICE_CATEGORIES.slice(0, 4);
 
   return (
     <div className="home-page-container">
@@ -81,33 +78,8 @@ export default function HomePage() {
       </section>
 
       <div className="page-wrapper home-page">
-
-      {/* Roadside Help Quick Grid (Matches Figma Image 2 & 5) */}
-      <section className="home-quick-services">
-        <div className="section-header-wrap">
-          <div>
-            <h2 className="section-heading">
-              <span className="text-orange-600">Your roadside help,</span> right when you need it.
-            </h2>
-            <p className="section-subheading">
-              Select any urgent car breakdown issue below to get immediate assistance.
-            </p>
-          </div>
-          <button 
-            className="view-all-link-btn"
-            onClick={() => navigateTo('repairs')}
-          >
-            <span>View All 12 Services</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="services-grid">
-          {quickServices.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
-      </section>
+        {/* Roadside Help Section (Exact Match to Figma Images & Mobile Horizontal Scroll) */}
+        <RoadsideHelpSection />
 
       {/* Why Choose Instant Mechanic Section (Matches Figma Image 2 & 3) */}
       <section className="home-why-us">
