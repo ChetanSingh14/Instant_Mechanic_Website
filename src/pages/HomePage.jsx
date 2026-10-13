@@ -20,6 +20,7 @@ import HowItWorksSection from '../components/home/HowItWorksSection';
 import VanHelpSection from '../components/home/VanHelpSection';
 import CarBuddySection from '../components/home/CarBuddySection';
 import DelhiNcrLocationSection from '../components/home/DelhiNcrLocationSection';
+import CarBrandsSection from '../components/home/CarBrandsSection';
 
 export default function HomePage() {
   const { navigateTo, openBookingModal, openSOSModal } = useApp();
@@ -96,6 +97,9 @@ export default function HomePage() {
 
         {/* Delhi NCR Coverage & Mechanics Network Section (Exact match to Figma Image 2 & 3) */}
         <DelhiNcrLocationSection />
+
+        {/* Trusted Car Brands Section (Exact match to Figma carbrand images) */}
+        <CarBrandsSection />
 
       {/* Bottom CTA Banner for Annual & Membership */}
       <section className="home-explore-banner">
