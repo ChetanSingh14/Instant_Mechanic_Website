@@ -1780,95 +1780,214 @@ ul {
 
 .carbuddy-section {
   width: 100%;
-  padding: 20px 0 60px;
+  padding: 30px 0 65px;
 }
 
 .carbuddy-container {
+  position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
   border-radius: 28px;
   overflow: hidden;
-  background: #FFFFFF;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(135deg, #FFFDFB 0%, #FFF8F0 100%);
+  border: 1px solid rgba(251, 146, 60, 0.2);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .carbuddy-container:hover {
-  box-shadow: 0 10px 32px rgba(234, 88, 12, 0.1);
+  box-shadow: 0 12px 36px rgba(234, 88, 12, 0.1);
 }
 
-.carbuddy-banner-desktop {
-  position: relative;
-  width: 100%;
-  display: block;
-}
-
-.carbuddy-banner-mobile {
-  position: relative;
-  width: 100%;
-  display: none;
-}
-
-.carbuddy-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* Interactive CTA button hotspot */
-.carbuddy-btn-overlay {
+.carbuddy-bg-art {
   position: absolute;
-  background: transparent;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.carbuddy-svg-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.carbuddy-content-grid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 60px 40px;
+  gap: 40px;
+}
+
+.carbuddy-text-col {
+  flex: 1.1;
+  max-width: 580px;
+}
+
+.carbuddy-heading {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+
+.carbuddy-heading-orange {
+  color: #EA580C;
+}
+
+.carbuddy-heading-ai {
+  background: linear-gradient(135deg, #EC4899 0%, #D946EF 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.carbuddy-heading-dark {
+  color: #18181B;
+}
+
+.carbuddy-desc {
+  font-size: 1.05rem;
+  color: #4B5563;
+  line-height: 1.5;
+  max-width: 480px;
+  margin-bottom: 34px;
+}
+
+.carbuddy-action-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.carbuddy-cta-btn {
+  background: linear-gradient(95deg, #EA580C 0%, #C026D3 55%, #312E81 100%);
+  color: #FFFFFF;
   border: none;
-  cursor: pointer;
   border-radius: 9999px;
-  padding: 0;
-  margin: 0;
-  outline: none;
+  padding: 13px 30px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.35), 0 4px 14px rgba(192, 38, 211, 0.25);
   transition: all 0.25s ease;
-  z-index: 5;
 }
 
-.carbuddy-btn-overlay.desktop {
-  top: 66.5%;
-  left: 6.25%;
-  width: 18.2%;
-  height: 7.6%;
+.carbuddy-cta-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.45), 0 6px 18px rgba(192, 38, 211, 0.35);
 }
 
-.carbuddy-btn-overlay.mobile {
-  top: 25.8%;
-  left: 6%;
-  width: 45%;
-  height: 5.5%;
+.carbuddy-cta-btn:active {
+  transform: translateY(0) scale(0.99);
 }
 
-.carbuddy-btn-overlay:hover {
-  box-shadow: 0 0 25px rgba(234, 88, 12, 0.6), inset 0 0 12px rgba(255, 255, 255, 0.25);
-  transform: scale(1.02);
+.carbuddy-sparkle-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.carbuddy-btn-overlay:active {
-  transform: scale(0.98);
+.carbuddy-slogan {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #18181B;
+  margin: 0;
 }
 
-/* Responsive breakpoint: switch to mobile banner */
+.carbuddy-visual-col {
+  flex: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carbuddy-phone-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carbuddy-phone-img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.12));
+  transition: transform 0.35s ease;
+}
+
+.carbuddy-container:hover .carbuddy-phone-img {
+  transform: translateY(-4px);
+}
+
+/* Responsive breakpoint: Mobile view matching reference Image 1 */
+@media (max-width: 900px) {
+  .carbuddy-content-grid {
+    padding: 45px 30px 35px;
+    gap: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .carbuddy-section {
-    padding: 15px 0 45px;
+    padding: 20px 0 45px;
   }
 
   .carbuddy-container {
     border-radius: 20px;
   }
 
-  .carbuddy-banner-desktop {
-    display: none;
+  .carbuddy-content-grid {
+    flex-direction: column;
+    padding: 40px 20px 30px;
+    gap: 28px;
+    text-align: left;
   }
 
-  .carbuddy-banner-mobile {
-    display: block;
+  .carbuddy-text-col {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .carbuddy-heading {
+    font-size: 1.75rem;
+    line-height: 1.22;
+  }
+
+  .carbuddy-desc {
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+  }
+
+  .carbuddy-cta-btn {
+    padding: 11px 24px;
+    font-size: 0.95rem;
+  }
+
+  .carbuddy-slogan {
+    font-size: 0.9rem;
+  }
+
+  .carbuddy-visual-col {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .carbuddy-phone-img {
+    max-width: 290px;
   }
 }
 
