@@ -15,7 +15,12 @@ import {
   Wrench,
 } from 'lucide-react';
 
-export default function ServiceIcon({ type, className = '' }) {
+export interface ServiceIconProps {
+  type: string;
+  className?: string;
+}
+
+export default function ServiceIcon({ type, className = '' }: ServiceIconProps) {
   switch (type) {
     case 'battery':
       return (

@@ -43,7 +43,7 @@ export default function Sidebar() {
 
   // Close on ESC key press
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isSidebarOpen) {
         toggleSidebar(false);
       }
@@ -54,7 +54,7 @@ export default function Sidebar() {
 
   if (!isSidebarOpen) return null;
 
-  const handleItemClick = (id) => {
+  const handleItemClick = (id: string) => {
     if (id === 'sos') {
       toggleSidebar(false);
       openSOSModal();

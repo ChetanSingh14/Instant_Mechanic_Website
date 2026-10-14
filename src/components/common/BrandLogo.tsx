@@ -1,7 +1,13 @@
 import React from 'react';
 import logoImg from '../../assets/logo.png';
 
-export default function BrandLogo({ size = 'default', onClick, variant = 'light' }) {
+export interface BrandLogoProps {
+  size?: 'default' | 'large' | string;
+  onClick?: () => void;
+  variant?: 'light' | 'dark';
+}
+
+export default function BrandLogo({ size = 'default', onClick, variant = 'light' }: BrandLogoProps) {
   const isLarge = size === 'large';
 
   return (

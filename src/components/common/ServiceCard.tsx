@@ -3,7 +3,22 @@ import { ArrowRight, Clock, ShieldCheck } from 'lucide-react';
 import ServiceIcon from './ServiceIcon';
 import { useApp } from '../../context/AppContext';
 
-export default function ServiceCard({ service }) {
+export interface ServiceItem {
+  id: string;
+  title: string;
+  category?: string;
+  desc: string;
+  price: string;
+  estTime?: string;
+  iconType: string;
+  popular?: boolean;
+}
+
+export interface ServiceCardProps {
+  service: ServiceItem;
+}
+
+export default function ServiceCard({ service }: ServiceCardProps) {
   const { openBookingModal } = useApp();
 
   return (

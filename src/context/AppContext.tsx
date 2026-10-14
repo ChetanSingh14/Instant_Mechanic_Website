@@ -1,9 +1,46 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode } from 'react';
 import { ACTIVE_BOOKING_MOCK } from '../data/mockData';
 
-const AppContext = createContext(null);
+export interface ToastMessage {
+  msg: string;
+  type?: 'info' | 'success' | 'emergency';
+}
 
-export function AppProvider({ children }) {
+export interface BookingModalState {
+  isOpen: boolean;
+  service: any | null;
+}
+
+export interface AppContextType {
+  activeTab: string;
+  navigateTo: (tabId: string) => void;
+  isSidebarOpen: boolean;
+  toggleSidebar: (val?: boolean) => void;
+  isSOSModalOpen: boolean;
+  openSOSModal: () => void;
+  closeSOSModal: () => void;
+  bookingModalState: BookingModalState;
+  openBookingModal: (service?: any) => void;
+  closeBookingModal: () => void;
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  carRegNumber: string;
+  setCarRegNumber: React.Dispatch<React.SetStateAction<string>>;
+  mobileNumber: string;
+  setMobileNumber: React.Dispatch<React.SetStateAction<string>>;
+  activeBooking: any;
+  setActiveBooking: React.Dispatch<React.SetStateAction<any>>;
+  toastMessage: ToastMessage | null;
+  showToast: (msg: string, type?: 'info' | 'success' | 'emergency') => void;
+}
+
+const AppContext = createContext<AppContextType | null>(null);
+
+export interface AppProviderProps {
+  children: ReactNode;
+}
+
+export function AppProvider({ children }: AppProviderProps) {
   // Sync route with URL hash for clean SPA navigation with browser history
   const getInitialTab = () => {
     if (typeof window !== 'undefined') {

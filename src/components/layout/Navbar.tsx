@@ -6,14 +6,20 @@ import { useApp } from '../../context/AppContext';
 export default function Navbar() {
   const { activeTab, navigateTo, isSidebarOpen, toggleSidebar, openBookingModal } = useApp();
 
-  const navLinks = [
+  interface NavLinkItem {
+    id: string;
+    label: string;
+    target?: string;
+  }
+
+  const navLinks: NavLinkItem[] = [
     { id: 'membership', label: 'Membership' },
     { id: 'services', label: 'Services', target: 'annual' },
     { id: 'repairs', label: 'Car Repair', target: 'repairs' },
     { id: 'about', label: 'About Us', target: 'about' },
   ];
 
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (link: NavLinkItem) => {
     if (link.target === 'about') {
       if (activeTab !== 'home') {
         navigateTo('home');
