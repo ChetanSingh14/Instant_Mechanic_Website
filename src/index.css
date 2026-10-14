@@ -4,32 +4,39 @@
    DESIGN TOKENS & ROOT VARIABLES
    ========================================================================== */
 :root {
+  /* ==========================================================================
+     GLOBAL THEME & TYPOGRAPHY - SINGLE SOURCE OF TRUTH
+     Modify font and main colors here to update them throughout the entire application
+     ========================================================================== */
   --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
-  /* Color Palette - Instant Mechanic Brand */
-  --color-primary: #f97316;
-  --color-primary-hover: #ea580c;
-  --color-primary-toggle: #ea580c;
+  /* Primary Brand Colors (Main Orange Theme) */
+  --color-primary: #EA580C;
+  --color-primary-hover: #C2410C;
+  --color-primary-active: #9A3412;
   --color-primary-light: #FFF7ED;
   --color-primary-subtle: #FFEDD5;
+  --color-primary-rgb: 234, 88, 12;
   
+  /* Dark & Neutral Colors */
   --color-dark: #18181B;
   --color-dark-muted: #27272A;
   --color-text-main: #18181B;
-  --color-text-secondary: #52525B;
-  --color-text-muted: #71717A;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #6B7280;
   
+  /* Background Colors */
   --color-bg-base: #FBF8F3; /* Warm Figma off-white cream */
   --color-bg-surface: #FFFFFF;
   --color-bg-subtle: #F4EFEA;
   --color-bg-card-hover: #FFFDF9;
 
+  /* Accent Colors */
   --color-emergency: #DC2626;
   --color-emergency-glow: rgba(220, 38, 38, 0.45);
-  
   --color-success: #16A34A;
   --color-success-bg: #DCFCE7;
-  
   --color-border: #EADBCE;
   --color-border-subtle: #F3ECE4;
 
@@ -38,7 +45,7 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
   --shadow-card: 0 4px 20px -2px rgba(24, 24, 27, 0.04), 0 1px 3px rgba(24, 24, 27, 0.02);
-  --shadow-hover: 0 12px 24px -4px rgba(249, 115, 22, 0.16), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 12px 24px -4px rgba(234, 88, 12, 0.16), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
 
   /* Radius */
   --radius-sm: 8px;
@@ -47,10 +54,12 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Layout */
+  /* Standard Grid & Container Layout */
   --header-height: 72px;
   --bottom-nav-height: 68px;
-  --max-width: 1220px;
+  --max-width: 1200px;
+  --container-padding-desktop: 24px;
+  --container-padding-mobile: 16px;
 }
 
 /* ==========================================================================
@@ -103,6 +112,38 @@ a {
 
 ul {
   list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-main);
+  letter-spacing: -0.02em;
+}
+
+/* Master Brand Accent Classes */
+.text-orange {
+  color: var(--color-primary) !important;
+}
+
+.bg-orange {
+  background-color: var(--color-primary) !important;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+/* Home Flow Section Container */
+.home-sections-flow {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* App Container */
@@ -876,10 +917,13 @@ ul {
    ========================================================================== */
 .roadside-section {
   width: 100%;
-  padding: 10px 0 45px;
+  padding: 40px 0 55px;
 }
 
 .roadside-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-desktop);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -893,19 +937,19 @@ ul {
 }
 
 .roadside-title {
-  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  margin-bottom: 28px;
+  font-size: clamp(1.75rem, 2.5vw, 2.15rem);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
 }
 
 .roadside-title-orange {
-  color: #EA580C;
+  color: var(--color-primary);
 }
 
 .roadside-title-dark {
-  color: #18181B;
+  color: var(--color-text-main);
 }
 
 .roadside-cards-wrapper {
@@ -1106,9 +1150,20 @@ ul {
 
 /* Mobile View: Exactly horizontal scroll matching user Image 3 */
 @media (max-width: 768px) {
+  .roadside-section {
+    padding: 30px 0 38px;
+  }
+
+  .roadside-container {
+    padding: 0 var(--container-padding-mobile);
+    flex-direction: column;
+    gap: 24px;
+  }
+
   .roadside-title {
     font-size: 1.7rem;
     margin-bottom: 18px;
+    text-align: left;
   }
 
   .roadside-cards-wrapper {
@@ -1116,8 +1171,9 @@ ul {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    margin: 0 -20px 16px -20px;
-    padding: 4px 20px 16px 20px;
+    scroll-padding: 0 var(--container-padding-mobile);
+    margin: 0 calc(-1 * var(--container-padding-mobile)) 16px calc(-1 * var(--container-padding-mobile));
+    padding: 4px var(--container-padding-mobile) 16px var(--container-padding-mobile);
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -1216,37 +1272,39 @@ ul {
    ========================================================================== */
 .how-it-works-section {
   width: 100%;
-  padding: 30px 0 60px;
+  padding: 50px 0 65px;
+  background: #FFFFFF;
 }
 
 .how-it-works-container {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--container-padding-desktop);
 }
 
 .how-it-works-header {
   text-align: center;
   max-width: 780px;
-  margin: 0 auto 46px;
+  margin: 0 auto 42px;
 }
 
 .how-it-works-title {
-  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
-  font-weight: 800;
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  font-weight: 750;
   line-height: 1.25;
-  letter-spacing: -0.025em;
-  color: #18181B;
+  letter-spacing: -0.02em;
+  color: var(--color-text-main);
   margin-bottom: 12px;
 }
 
 .how-it-works-title-orange {
-  color: #EA580C;
+  color: var(--color-primary);
 }
 
 .how-it-works-subtitle {
-  font-size: 1rem;
-  color: #6B7280;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
   max-width: 680px;
   margin: 0 auto;
 }
@@ -1361,22 +1419,26 @@ ul {
 /* Mobile View: EXACT 2x2 Grid matching Image 2 */
 @media (max-width: 768px) {
   .how-it-works-section {
-    padding: 20px 0 45px;
+    padding: 35px 0 45px;
+  }
+
+  .how-it-works-container {
+    padding: 0 var(--container-padding-mobile);
   }
 
   .how-it-works-header {
-    margin-bottom: 34px;
+    margin-bottom: 28px;
   }
 
   .how-it-works-title {
     font-size: 1.7rem;
     line-height: 1.25;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .how-it-works-subtitle {
     font-size: 0.88rem;
-    padding: 0 10px;
+    padding: 0;
   }
 
   .how-it-works-grid {
@@ -1443,12 +1505,13 @@ ul {
    ========================================================================== */
 .van-help-section {
   width: 100%;
-  padding: 40px 0 65px;
+  padding: 50px 0 65px;
 }
 
 .van-help-container {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--container-padding-desktop);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1484,23 +1547,23 @@ ul {
 }
 
 .van-help-title {
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
-  color: #18181B;
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-text-main);
   margin-bottom: 14px;
 }
 
 .van-help-title-orange {
-  color: #EA580C;
+  color: var(--color-primary);
 }
 
 .van-help-subtitle {
-  font-size: 1.02rem;
-  color: #4B5563;
-  line-height: 1.5;
-  margin-bottom: 30px;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin-bottom: 26px;
 }
 
 /* Mechanic Tracker Card */
@@ -1651,6 +1714,7 @@ ul {
   .van-help-container {
     flex-direction: column;
     gap: 36px;
+    padding: 0 var(--container-padding-mobile);
   }
 
   .van-help-visual {
@@ -1668,19 +1732,19 @@ ul {
 
 @media (max-width: 768px) {
   .van-help-section {
-    padding: 25px 0 50px;
+    padding: 30px 0 45px;
   }
 
   .van-help-title {
-    font-size: 1.85rem;
-    line-height: 1.2;
+    font-size: 1.7rem;
+    line-height: 1.25;
     margin-bottom: 10px;
   }
 
   .van-help-subtitle {
-    font-size: 0.92rem;
-    line-height: 1.45;
-    margin-bottom: 22px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
 
   .van-tracker-card {
@@ -1780,7 +1844,7 @@ ul {
 
 .carbuddy-section {
   width: 100%;
-  padding: 30px 0 65px;
+  padding: 35px var(--container-padding-desktop) 65px;
 }
 
 .carbuddy-container {
@@ -1828,15 +1892,15 @@ ul {
 }
 
 .carbuddy-heading {
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
   margin-bottom: 16px;
 }
 
 .carbuddy-heading-orange {
-  color: #EA580C;
+  color: var(--color-primary);
 }
 
 .carbuddy-heading-ai {
@@ -1847,15 +1911,15 @@ ul {
 }
 
 .carbuddy-heading-dark {
-  color: #18181B;
+  color: var(--color-text-main);
 }
 
 .carbuddy-desc {
-  font-size: 1.05rem;
-  color: #4B5563;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
   max-width: 480px;
-  margin-bottom: 34px;
+  margin-bottom: 30px;
 }
 
 .carbuddy-action-wrap {
@@ -1942,7 +2006,7 @@ ul {
 
 @media (max-width: 768px) {
   .carbuddy-section {
-    padding: 20px 0 45px;
+    padding: 20px var(--container-padding-mobile) 45px;
   }
 
   .carbuddy-container {
@@ -1951,8 +2015,8 @@ ul {
 
   .carbuddy-content-grid {
     flex-direction: column;
-    padding: 40px 20px 30px;
-    gap: 28px;
+    padding: 32px 18px 26px;
+    gap: 26px;
     text-align: left;
   }
 
@@ -1962,13 +2026,13 @@ ul {
   }
 
   .carbuddy-heading {
-    font-size: 1.75rem;
-    line-height: 1.22;
+    font-size: 1.7rem;
+    line-height: 1.25;
   }
 
   .carbuddy-desc {
-    font-size: 0.92rem;
-    margin-bottom: 24px;
+    font-size: 0.9rem;
+    margin-bottom: 22px;
   }
 
   .carbuddy-cta-btn {
@@ -1977,7 +2041,7 @@ ul {
   }
 
   .carbuddy-slogan {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
   .carbuddy-visual-col {
@@ -6617,15 +6681,16 @@ ul {
    DELHI NCR ROADSIDE LOCATION COVERAGE SECTION (Image 2 Desktop & Image 3 Mobile)
    ========================================================================== */
 .delhi-ncr-location-section {
-  padding: 80px 24px;
+  padding: 65px 0 70px;
   background: #FFFFFF;
   position: relative;
   overflow: hidden;
 }
 
 .delhi-ncr-container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--container-padding-desktop);
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 48px;
@@ -6638,19 +6703,19 @@ ul {
 }
 
 .location-section-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #111827;
-  line-height: 1.22;
-  margin-bottom: 14px;
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  font-weight: 750;
+  color: var(--color-text-main);
+  line-height: 1.25;
+  margin-bottom: 12px;
   letter-spacing: -0.02em;
 }
 
 .location-section-subtitle {
-  font-size: 1.05rem;
-  color: #4B5563;
-  line-height: 1.5;
-  margin-bottom: 32px;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin-bottom: 28px;
   max-width: 580px;
 }
 
@@ -6855,22 +6920,24 @@ ul {
 /* Responsive Tablet & Mobile Media Queries */
 @media (max-width: 860px) {
   .delhi-ncr-location-section {
-    padding: 50px 18px;
+    padding: 40px 0 48px;
   }
 
   .delhi-ncr-container {
+    padding: 0 var(--container-padding-mobile);
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
   }
 
   .location-section-title {
-    font-size: 2.1rem;
+    font-size: 1.7rem;
+    line-height: 1.25;
     text-align: left;
   }
 
   .location-section-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 24px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
     text-align: left;
   }
 
@@ -6947,7 +7014,7 @@ ul {
    CAR BRANDS TRUSTED SECTION (Figma Car Brand Strip)
    ========================================================================== */
 .car-brands-trust-section {
-  padding: 60px 0 65px;
+  padding: 55px 0 60px;
   background: #FFFFFF;
   width: 100%;
   overflow: hidden;
@@ -6955,24 +7022,24 @@ ul {
 
 .car-brands-header {
   max-width: 820px;
-  margin: 0 auto 36px;
-  padding: 0 20px;
+  margin: 0 auto 32px;
+  padding: 0 var(--container-padding-desktop);
   text-align: center;
 }
 
 .car-brands-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #111827;
+  font-size: clamp(1.75rem, 2.5vw, 2.15rem);
+  font-weight: 750;
+  color: var(--color-text-main);
   letter-spacing: -0.02em;
   margin-bottom: 10px;
   line-height: 1.25;
 }
 
 .car-brands-subtitle {
-  font-size: 1.05rem;
-  color: #4B5563;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
   max-width: 620px;
   margin: 0 auto;
 }
@@ -7011,16 +7078,22 @@ ul {
 /* Responsive & Mobile Marquee Animation */
 @media (max-width: 860px) {
   .car-brands-trust-section {
-    padding: 45px 0 50px;
+    padding: 38px 0 42px;
+  }
+
+  .car-brands-header {
+    padding: 0 var(--container-padding-mobile);
+    margin-bottom: 22px;
   }
 
   .car-brands-title {
-    font-size: 1.85rem;
+    font-size: 1.65rem;
+    line-height: 1.25;
   }
 
   .car-brands-subtitle {
-    font-size: 0.92rem;
-    padding: 0 10px;
+    font-size: 0.88rem;
+    padding: 0;
   }
 
   .car-brands-strip-wrapper {
@@ -7059,36 +7132,37 @@ ul {
    REAL CUSTOMERS TESTIMONIALS SECTION (Matching Figma Image 1 & 2)
    ========================================================================== */
 .testimonials-section {
-  padding: 70px 20px 80px;
+  padding: 65px 0 75px;
   background: #FFFFFF;
   width: 100%;
 }
 
 .testimonials-container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--container-padding-desktop);
 }
 
 .testimonials-header {
-  margin-bottom: 45px;
+  margin-bottom: 42px;
   text-align: center;
 }
 
 .testimonials-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #111827;
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  font-weight: 750;
+  color: var(--color-text-main);
   letter-spacing: -0.02em;
   margin-bottom: 12px;
   line-height: 1.25;
 }
 
 .testimonials-subtitle {
-  font-size: 1.05rem;
-  color: #4B5563;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
   max-width: 640px;
   margin: 0 auto;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* 4 Cards: Desktop Grid, Mobile Swipe */
@@ -7258,26 +7332,38 @@ ul {
 /* Mobile & Tablet Responsiveness */
 @media (max-width: 860px) {
   .testimonials-section {
-    padding: 45px 16px 55px;
+    padding: 40px 0 48px;
+  }
+
+  .testimonials-container {
+    padding: 0 var(--container-padding-mobile);
+  }
+
+  .testimonials-header {
+    margin-bottom: 26px;
   }
 
   .testimonials-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    line-height: 1.25;
   }
 
   .testimonials-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 30px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
   }
 
   .testimonials-cards-wrapper {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--container-padding-mobile);
     -webkit-overflow-scrolling: touch;
     gap: 14px;
-    margin-bottom: 40px;
-    padding-bottom: 12px;
+    margin-left: calc(-1 * var(--container-padding-mobile));
+    margin-right: calc(-1 * var(--container-padding-mobile));
+    padding: 4px var(--container-padding-mobile) 16px var(--container-padding-mobile);
+    margin-bottom: 32px;
     scrollbar-width: none;
   }
 
@@ -7324,14 +7410,15 @@ ul {
    HOME FAQ SECTION (Matching Figma Image 3 & 4)
    ========================================================================== */
 .home-faq-section {
-  padding: 80px 24px;
+  padding: 65px 0 75px;
   background: #FFFFFF;
   width: 100%;
 }
 
 .home-faq-container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--container-padding-desktop);
   display: grid;
   grid-template-columns: 1.25fr 0.95fr;
   gap: 50px;
@@ -7344,12 +7431,12 @@ ul {
 }
 
 .home-faq-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #111827;
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  font-weight: 750;
+  color: var(--color-text-main);
   letter-spacing: -0.02em;
-  margin-bottom: 32px;
-  line-height: 1.22;
+  margin-bottom: 28px;
+  line-height: 1.25;
 }
 
 .home-faq-list {
@@ -7528,35 +7615,36 @@ ul {
 }
 
 .roadside-cta-title {
-  font-size: 2.7rem;
-  font-weight: 800;
-  color: #111827;
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  font-weight: 750;
+  color: var(--color-text-main);
   letter-spacing: -0.02em;
   margin-bottom: 12px;
   line-height: 1.25;
 }
 
 .roadside-cta-subtitle {
-  font-size: 1.1rem;
-  color: #4B5563;
-  margin-bottom: 28px;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin-bottom: 24px;
 }
 
 .roadside-cta-book-btn {
-  background: #EA580C;
+  background: var(--color-primary);
   color: #FFFFFF;
   border: none;
   border-radius: 9999px;
-  padding: 14px 38px;
-  font-size: 1.05rem;
-  font-weight: 700;
+  padding: 13px 36px;
+  font-size: 1rem;
+  font-weight: 650;
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(234, 88, 12, 0.35);
   transition: all 0.2s ease;
 }
 
 .roadside-cta-book-btn:hover {
-  background: #C2410C;
+  background: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(234, 88, 12, 0.45);
 }
@@ -7816,18 +7904,20 @@ a.contact-item-val:hover {
 @media (max-width: 860px) {
   /* FAQ Mobile */
   .home-faq-section {
-    padding: 50px 18px;
+    padding: 40px 0 48px;
   }
 
   .home-faq-container {
+    padding: 0 var(--container-padding-mobile);
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 24px;
   }
 
   .home-faq-title {
-    font-size: 2.1rem;
+    font-size: 1.7rem;
+    line-height: 1.25;
     text-align: left;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .home-faq-right {
@@ -7836,16 +7926,18 @@ a.contact-item-val:hover {
 
   /* Pre-Footer Roadside CTA Mobile */
   .pre-footer-roadside-cta {
-    padding-top: 50px;
+    padding-top: 38px;
   }
 
   .roadside-cta-title {
-    font-size: 2.1rem;
+    font-size: 1.7rem;
+    line-height: 1.25;
   }
 
   .roadside-cta-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 22px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    padding: 0 var(--container-padding-mobile);
   }
 
   .roadside-vehicles-row {

@@ -11,12 +11,13 @@ import towTruckImg from '../../assets/fotter/road assiantance car.png';
 import garageImg from '../../assets/fotter/garage mechanic.png';
 
 export default function Footer() {
-  const { navigateTo, openBookingModal } = useApp();
+  const { navigateTo, openBookingModal, activeTab } = useApp();
 
   return (
     <footer className="instant-mechanic-footer-wrapper">
-      {/* 1. Trouble on the Road? Pre-footer Roadside Banner (Image 1 & 2) */}
-      <div className="pre-footer-roadside-cta">
+      {/* 1. Trouble on the Road? Pre-footer Roadside Banner - ONLY ON HOME SCREEN */}
+      {activeTab === 'home' && (
+        <div className="pre-footer-roadside-cta">
         <div className="roadside-cta-header text-center">
           <h2 className="roadside-cta-title">
             Trouble on the Road? <span className="text-orange">We've Got You.</span>
@@ -62,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
+      )}
       {/* 2. Main Dark Footer */}
       <div className="main-dark-footer-body">
         <div className="footer-columns-container">

@@ -84,7 +84,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="page-wrapper home-page">
+      <div className="home-sections-flow">
         {/* Roadside Help Section (Exact Match to Figma Images & Mobile Horizontal Scroll) */}
         <RoadsideHelpSection />
 
