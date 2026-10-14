@@ -25,6 +25,95 @@ import carCalendar3dImg from '../assets/membership/car-calendar-3d.png';
 import carCareLogoImg from '../assets/membership/car-care-membership-logo.png';
 import driveConfidenceBannerImg from '../assets/membership/image-41.png';
 
+// Custom SVG Icons matching Figma design
+const WrenchGearIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+    {/* Golden Cog in background */}
+    <path d="M16 6a10 10 0 014.2.9l.6-1.8 2.2.7-.6 1.8a10 10 0 013.1 2.2l1.5-1.2 1.6 1.6-1.2 1.5a10 10 0 012.2 3.1l1.8-.6.7 2.2-1.8.6a10 10 0 010 3.8l1.8.6-.7 2.2-1.8-.6a10 10 0 01-2.2 3.1l1.2 1.5-1.6 1.6-1.5-1.2a10 10 0 01-3.1 2.2l.6 1.8-2.2.7-.6-1.8a10 10 0 01-4.2 0l-.6 1.8-2.2-.7.6-1.8a10 10 0 01-3.1-2.2l-1.5 1.2-1.6-1.6 1.2-1.5a10 10 0 01-2.2-3.1l-1.8.6-.7-2.2 1.8-.6a10 10 0 010-3.8l-1.8-.6.7-2.2 1.8.6a10 10 0 012.2-3.1l-1.2-1.5 1.6-1.6 1.5 1.2a10 10 0 013.1-2.2l-.6-1.8 2.2-.7.6 1.8A10 10 0 0116 6z" fill="#F59E0B" opacity="0.65" />
+    {/* Chrome wrench head */}
+    <path d="M26.2 5.8a4.5 4.5 0 00-6.1.6l-2.4 2.4 4.5 4.5 2.4-2.4a4.5 4.5 0 001.6-5.1z" fill="url(#chrome-wrench)" />
+    <circle cx="23.5" cy="8.5" r="1.5" fill="#334155" />
+    {/* Orange handle */}
+    <path d="M18.8 11.8l-9.6 9.6a2.6 2.6 0 003.7 3.7l9.6-9.6-3.7-3.7z" fill="url(#orange-handle)" />
+    <circle cx="11" cy="23.3" r="1" fill="#7C2D12" />
+    <defs>
+      <linearGradient id="chrome-wrench" x1="17" y1="6" x2="27" y2="13" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#F8FAFC" />
+        <stop offset="0.5" stopColor="#94A3B8" />
+        <stop offset="1" stopColor="#64748B" />
+      </linearGradient>
+      <linearGradient id="orange-handle" x1="9" y1="22" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#C2410C" />
+        <stop offset="0.5" stopColor="#EA580C" />
+        <stop offset="1" stopColor="#FB923C" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const HazardTriangleIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+    <path d="M16 4.5L28.5 26.5H3.5L16 4.5Z" fill="#FBBF24" stroke="#DC2626" strokeWidth="2.8" strokeLinejoin="round" />
+    <path d="M16 7.5L26 25H6L16 7.5Z" fill="#FDE047" />
+    <path d="M16 11.5v7" stroke="#991B1B" strokeWidth="2.8" strokeLinecap="round" />
+    <circle cx="16" cy="22" r="1.5" fill="#991B1B" />
+  </svg>
+);
+
+const SparklesIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+    <path d="M16 3c0 6.6-5.4 12-12 12 6.6 0 12 5.4 12 12 0-6.6 5.4-12 12-12-6.6 0-12-5.4-12-12z" fill="url(#sparkle-3d)" />
+    <path d="M25 4c0 3.3-2.7 6-6 6 3.3 0 6 2.7 6 6 0-3.3 2.7-6 6-6-3.3 0-6-2.7-6-6z" fill="#F43F5E" />
+    <path d="M7 21c0 2.2-1.8 4-4 4 2.2 0 4 1.8 4 4 0-2.2 1.8-4 4-4-2.2 0-4-1.8-4-4z" fill="#06B6D4" />
+    <defs>
+      <linearGradient id="sparkle-3d" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#A855F7" />
+        <stop offset="0.4" stopColor="#EC4899" />
+        <stop offset="0.8" stopColor="#F97316" />
+        <stop offset="1" stopColor="#FACC15" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const ClipboardCheckIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+    {/* Clipboard backing */}
+    <rect x="5.5" y="4" width="21" height="25" rx="3" fill="#E2BA86" stroke="#C89758" strokeWidth="1.2" />
+    {/* White sheet of paper */}
+    <rect x="7.5" y="7" width="17" height="20" rx="1.5" fill="#FFFFFF" />
+    {/* Top metal clip */}
+    <path d="M11 3h10a1.5 1.5 0 011.5 1.5v2h-13v-2A1.5 1.5 0 0111 3z" fill="#94A3B8" />
+    <circle cx="16" cy="4.5" r="1" fill="#475569" />
+    {/* Blue checkmark on paper */}
+    <path d="M11.5 16.5l3 3 6.5-6.5" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    {/* Subtle notes lines */}
+    <path d="M10 23h12" stroke="#E2E8F0" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const DispatchHeadsetIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+    <circle cx="16" cy="15.5" r="7.5" fill="#FED7AA" />
+    <path d="M9.5 15c0-4 3-7 6.5-7s6.5 3 6.5 7c0 .6-.1 1.2-.3 1.8-1.5-1.8-3.8-2.2-6.2-2.2s-4.5.4-6.2 2.2c-.2-.6-.3-1.2-.3-1.8z" fill="#78350F" />
+    <path d="M8 16a8 8 0 0116 0" stroke="#EA580C" strokeWidth="2.2" strokeLinecap="round" fill="none" />
+    <rect x="6.5" y="13.5" width="2.5" height="5" rx="1.2" fill="#C2410C" />
+    <rect x="23" y="13.5" width="2.5" height="5" rx="1.2" fill="#C2410C" />
+    <path d="M23 17l-3.5 4h-2" stroke="#EA580C" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+    <circle cx="16.5" cy="21" r="1.2" fill="#EA580C" />
+    <path d="M9 28c0-3.5 3.1-6 7-6s7 2.5 7 6" fill="#EA580C" opacity="0.85" />
+  </svg>
+);
+
+const FolderHistoryIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+    <path d="M4 8a2 2 0 012-2h6l2 2h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V8z" fill="#F59E0B" />
+    <path d="M4 12a2 2 0 012-2h18a2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V12z" fill="#FBBF24" />
+    <circle cx="21" cy="22" r="5" fill="#10B981" stroke="#FFFFFF" strokeWidth="1.5" />
+    <path d="M19 22l1.5 1.5 3-3" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export default function MembershipPage() {
   const { openBookingModal, showToast, navigateTo } = useApp();
   const [openFaq, setOpenFaq] = useState(null);
@@ -122,12 +211,12 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* 2. All-in-One Membership Section matching Image 2 (Desktop) & Image 4/5 (Mobile) */}
+      {/* 2. All-in-One Membership Section matching Image 2 (Desktop) & Image 1 (Mobile) */}
       <section className="membership-allinone-section">
         <div className="allinone-header text-center">
           <h2 className="allinone-title">
-            Everything your car needs.<br />
-            all in <span className="text-orange">one Membership</span>
+            <span className="allinone-title-line">Everything your car needs.</span>
+            <span className="allinone-title-line">all in <span className="text-orange">one Membership</span></span>
           </h2>
         </div>
 
@@ -138,41 +227,45 @@ export default function MembershipPage() {
             <div className="concentric-circle concentric-circle--1"></div>
             <div className="concentric-circle concentric-circle--2"></div>
             <div className="concentric-circle concentric-circle--3"></div>
+            <div className="concentric-circle concentric-circle--4"></div>
           </div>
 
           {/* Left Column 3 Benefit Cards */}
           <div className="allinone-side-col allinone-col--left">
             {/* Card 1 */}
-            <div className="membership-perk-card" onClick={() => handleBenefitClick('10% Off Repairs')}>
+            <div className="membership-perk-card perk-card--left" onClick={() => handleBenefitClick('10% Off Repairs')}>
               <div className="perk-text-content">
                 <h4 className="perk-title">10% Off Repairs</h4>
                 <p className="perk-desc">Save on repair service</p>
-                <span className="perk-know-more">Know more &rsaquo;</span>
+                <span className="perk-know-more">Know more +</span>
               </div>
               <div className="perk-icon-circle perk-icon--wrench">
-                <Wrench className="w-4 h-4 text-orange-600" />
+                <WrenchGearIcon />
+                <span className="perk-connector-arm perk-connector--tl" aria-hidden="true"></span>
               </div>
             </div>
 
             {/* Card 2 */}
-            <div className="membership-perk-card" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
+            <div className="membership-perk-card perk-card--left" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
               <div className="perk-text-content">
                 <h4 className="perk-title">Unlimited Roadside Help</h4>
                 <p className="perk-desc">Help when you need it</p>
               </div>
               <div className="perk-icon-circle perk-icon--hazard">
-                <AlertTriangle className="w-4 h-4 text-amber-600" />
+                <HazardTriangleIcon />
+                <span className="perk-connector-arm perk-connector--ml" aria-hidden="true"></span>
               </div>
             </div>
 
             {/* Card 3 */}
-            <div className="membership-perk-card" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
+            <div className="membership-perk-card perk-card--left" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
               <div className="perk-text-content">
                 <h4 className="perk-title">Unlimited AI Diagnosis</h4>
                 <p className="perk-desc">Know what's wrong</p>
               </div>
               <div className="perk-icon-circle perk-icon--sparkle">
-                <Sparkles className="w-4 h-4 text-purple-600" />
+                <SparklesIcon />
+                <span className="perk-connector-arm perk-connector--bl" aria-hidden="true"></span>
               </div>
             </div>
           </div>
@@ -191,21 +284,23 @@ export default function MembershipPage() {
           {/* Right Column 3 Benefit Cards */}
           <div className="allinone-side-col allinone-col--right">
             {/* Card 4 */}
-            <div className="membership-perk-card membership-perk-card--right" onClick={() => handleBenefitClick('1 Free Annual Check')}>
+            <div className="membership-perk-card perk-card--right" onClick={() => handleBenefitClick('1 Free Annual Check')}>
               <div className="perk-icon-circle perk-icon--clipboard">
-                <ClipboardCheck className="w-4 h-4 text-emerald-600" />
+                <ClipboardCheckIcon />
+                <span className="perk-connector-arm perk-connector--tr" aria-hidden="true"></span>
               </div>
               <div className="perk-text-content">
                 <h4 className="perk-title">1 Free Annual Check</h4>
                 <p className="perk-desc">Keep your car in shape</p>
-                <span className="perk-know-more">Know more &rsaquo;</span>
+                <span className="perk-know-more">Know more +</span>
               </div>
             </div>
 
             {/* Card 5 */}
-            <div className="membership-perk-card membership-perk-card--right" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
+            <div className="membership-perk-card perk-card--right" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
               <div className="perk-icon-circle perk-icon--dispatch">
-                <Headphones className="w-4 h-4 text-blue-600" />
+                <DispatchHeadsetIcon />
+                <span className="perk-connector-arm perk-connector--mr" aria-hidden="true"></span>
               </div>
               <div className="perk-text-content">
                 <h4 className="perk-title">Priority Mechanic Dispatch</h4>
@@ -214,9 +309,10 @@ export default function MembershipPage() {
             </div>
 
             {/* Card 6 */}
-            <div className="membership-perk-card membership-perk-card--right" onClick={() => handleBenefitClick('Service History')}>
+            <div className="membership-perk-card perk-card--right" onClick={() => handleBenefitClick('Service History')}>
               <div className="perk-icon-circle perk-icon--folder">
-                <FolderClock className="w-4 h-4 text-amber-600" />
+                <FolderHistoryIcon />
+                <span className="perk-connector-arm perk-connector--br" aria-hidden="true"></span>
               </div>
               <div className="perk-text-content">
                 <h4 className="perk-title">Service History</h4>
@@ -226,81 +322,102 @@ export default function MembershipPage() {
           </div>
         </div>
 
-        {/* Mobile Layout (Image 4 & 5): Center card on top, then 2-column grid of 6 cards below */}
+        {/* Mobile Layout (Matching Mobile Screenshot Image 1): Center card on top with concentric ripples, then 2-column grid of 6 cards below */}
         <div className="allinone-mobile-layout">
-          <div className="mobile-card-preview-wrap">
-            <img 
-              src={membershipCardImg} 
-              alt="Instant Mechanic All Year Car Care Membership Card" 
-              className="mobile-luxury-card-img"
-            />
+          {/* Center Card with Concentric Ripples */}
+          <div className="mobile-card-container-wrap">
+            <div className="allinone-mobile-concentric" aria-hidden="true">
+              <div className="mobile-concentric-circle mobile-concentric--1"></div>
+              <div className="mobile-concentric-circle mobile-concentric--2"></div>
+              <div className="mobile-concentric-circle mobile-concentric--3"></div>
+            </div>
+            <div className="mobile-card-preview-wrap">
+              <img 
+                src={membershipCardImg} 
+                alt="Instant Mechanic All Year Car Care Membership Card" 
+                className="mobile-luxury-card-img"
+              />
+            </div>
           </div>
 
           <div className="mobile-perks-grid">
-            <div className="mobile-perk-item" onClick={() => handleBenefitClick('10% Off Repairs')}>
-              <div className="mobile-perk-header">
+            {/* Left Column in Mobile: Cards 1, 2, 3 (text left, badge overhanging right) */}
+            <div className="mobile-perks-col mobile-perks-col--left">
+              {/* Card 1 */}
+              <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('10% Off Repairs')}>
+                <div className="mobile-perk-text">
+                  <h5 className="mobile-perk-title">10% Off Repairs</h5>
+                  <p className="mobile-perk-desc">Save on repair service</p>
+                  <span className="mobile-perk-link">Know more +</span>
+                </div>
                 <div className="mobile-perk-icon-circle perk-icon--wrench">
-                  <Wrench className="w-3.5 h-3.5 text-orange-600" />
+                  <WrenchGearIcon />
                 </div>
-                <h5 className="mobile-perk-title">10% Off Repairs</h5>
               </div>
-              <p className="mobile-perk-desc">Save on repair service</p>
-              <span className="mobile-perk-link">Know more &rsaquo;</span>
-            </div>
 
-            <div className="mobile-perk-item" onClick={() => handleBenefitClick('1 Free Annual Check')}>
-              <div className="mobile-perk-header">
-                <div className="mobile-perk-icon-circle perk-icon--clipboard">
-                  <ClipboardCheck className="w-3.5 h-3.5 text-emerald-600" />
+              {/* Card 2 */}
+              <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
+                <div className="mobile-perk-text">
+                  <h5 className="mobile-perk-title">Unlimited Roadside Help</h5>
+                  <p className="mobile-perk-desc">Help when you need it</p>
                 </div>
-                <h5 className="mobile-perk-title">1 Free Annual Check</h5>
-              </div>
-              <p className="mobile-perk-desc">Keep your car in shape</p>
-              <span className="mobile-perk-link">Know more &rsaquo;</span>
-            </div>
-
-            <div className="mobile-perk-item" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
-              <div className="mobile-perk-header">
                 <div className="mobile-perk-icon-circle perk-icon--hazard">
-                  <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
+                  <HazardTriangleIcon />
                 </div>
-                <h5 className="mobile-perk-title">Unlimited Roadside Help</h5>
               </div>
-              <p className="mobile-perk-desc">Help when you need it</p>
-            </div>
 
-            <div className="mobile-perk-item" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
-              <div className="mobile-perk-header">
-                <div className="mobile-perk-icon-circle perk-icon--dispatch">
-                  <Headphones className="w-3.5 h-3.5 text-blue-600" />
+              {/* Card 3 */}
+              <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
+                <div className="mobile-perk-text">
+                  <h5 className="mobile-perk-title">Unlimited AI Diagnosis</h5>
+                  <p className="mobile-perk-desc">Know what's wrong</p>
                 </div>
-                <h5 className="mobile-perk-title">Priority Mechanic Dispatch</h5>
-              </div>
-              <p className="mobile-perk-desc">Faster response, every time</p>
-            </div>
-
-            <div className="mobile-perk-item" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
-              <div className="mobile-perk-header">
                 <div className="mobile-perk-icon-circle perk-icon--sparkle">
-                  <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+                  <SparklesIcon />
                 </div>
-                <h5 className="mobile-perk-title">Unlimited AI Diagnosis</h5>
               </div>
-              <p className="mobile-perk-desc">Know what's wrong</p>
             </div>
 
-            <div className="mobile-perk-item" onClick={() => handleBenefitClick('Service History')}>
-              <div className="mobile-perk-header">
-                <div className="mobile-perk-icon-circle perk-icon--folder">
-                  <FolderClock className="w-3.5 h-3.5 text-amber-600" />
+            {/* Right Column in Mobile: Cards 4, 5, 6 (badge overhanging left, text right) */}
+            <div className="mobile-perks-col mobile-perks-col--right">
+              {/* Card 4 */}
+              <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('1 Free Annual Check')}>
+                <div className="mobile-perk-icon-circle perk-icon--clipboard">
+                  <ClipboardCheckIcon />
                 </div>
-                <h5 className="mobile-perk-title">Service History</h5>
+                <div className="mobile-perk-text">
+                  <h5 className="mobile-perk-title">1 Free Annual Check</h5>
+                  <p className="mobile-perk-desc">Keep your car in shape</p>
+                  <span className="mobile-perk-link">Know more +</span>
+                </div>
               </div>
-              <p className="mobile-perk-desc">All your records, in one place</p>
+
+              {/* Card 5 */}
+              <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
+                <div className="mobile-perk-icon-circle perk-icon--dispatch">
+                  <DispatchHeadsetIcon />
+                </div>
+                <div className="mobile-perk-text">
+                  <h5 className="mobile-perk-title">Priority Mechanic Dispatch</h5>
+                  <p className="mobile-perk-desc">Faster response, every time</p>
+                </div>
+              </div>
+
+              {/* Card 6 */}
+              <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('Service History')}>
+                <div className="mobile-perk-icon-circle perk-icon--folder">
+                  <FolderHistoryIcon />
+                </div>
+                <div className="mobile-perk-text">
+                  <h5 className="mobile-perk-title">Service History</h5>
+                  <p className="mobile-perk-desc">All your records, in one place</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* 3. Pricing Plan Section matching Image 2 (Desktop) & Image 5 (Mobile) */}
       <section className="membership-pricing-section" id="membership-plan">
