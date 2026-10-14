@@ -149,28 +149,28 @@ export default function AnnualServicePage() {
 
   const faqs = [
     {
-      q: 'How do I know which car repair service I need?',
-      a: 'If you already know the issue, choose from our 12 specialized categories above. If unsure, book our doorstep General Diagnostic Inspection (OBD-II Scan) and our technician will pinpoint the issue before any work begins.'
+      q: 'What is included in the Essential Car Care Service?',
+      a: 'Our package covers fresh engine oil replacement, oil filter, air filter, and cabin AC filter change, coolant and brake fluid top-up, a complete 40-point computer diagnostic OBD scan, full periodic maintenance inspection, and a complimentary exterior car wash.'
     },
     {
-      q: "What if I don't know what's wrong with my car?",
-      a: "Don't worry! You can use our Instant AI Car Diagnosis tool or request an on-site diagnosis van. We carry 100+ diagnostic sensors to test batteries, alternators, brakes, and electrical circuits on the spot."
+      q: 'Can this complete annual service be done at my doorstep?',
+      a: 'Yes, 100%! Our certified technicians arrive in fully equipped mobile service vans with oil extractors, genuine parts, digital tools, and diagnostic scanners to complete the service in your parking space with zero mess.'
     },
     {
-      q: 'Can I search for my car problem?',
-      a: 'Yes! Simply type your symptoms (like "squeaking noise", "engine overheating", or "battery clicking") in the search bar to see related repairs and transparent estimates.'
+      q: 'What engine oil and spare parts brands do you use?',
+      a: 'We strictly use 100% genuine OEM/OES certified replacement filters and grade-matched fully synthetic or semi-synthetic lubricants from trusted global brands including Castrol, Mobil, Shell, and Motul.'
     },
     {
-      q: 'What types of car problems can Instant Mechanic help with?',
-      a: 'We handle everything from on-road emergencies (flat tyre, dead battery, fuel drain) to scheduled maintenance, brakes, suspension, AC repairs, engine tune-ups, and electrical diagnostics.'
+      q: 'How long does the doorstep service take?',
+      a: 'The complete periodic maintenance service and comprehensive diagnostic health scan takes approximately 60 to 90 minutes. You can relax at home or attend to work while our technician works on your vehicle.'
     },
     {
-      q: 'What if my car has stopped suddenly?',
-      a: 'Tap the red SOS button or call our 24/7 hotline. We dispatch the nearest mobile workshop van within 15 minutes equipped with jump starters, fuel, and towing capabilities.'
+      q: 'Will this service affect my car\'s manufacturer warranty?',
+      a: 'Not at all. We adhere strictly to OEM vehicle maintenance schedules using manufacturer-approved lubricant grades and genuine parts, preserving your vehicle\'s warranty and engine longevity.'
     },
     {
-      q: 'Can I get towing, recovery or a car inspection?',
-      a: 'Yes, we provide flatbed towing, hydraulic wheel-lift recovery, and complete 40-point pre-purchase or pre-trip vehicle inspections at your doorstep.'
+      q: 'Do you provide a warranty on the service and parts?',
+      a: 'Yes, we provide an unconditional 1,000 km or 1-month service warranty on all workmanship, plus standard manufacturer warranties on all replaced spare parts.'
     }
   ];
 
@@ -694,12 +694,14 @@ export default function AnnualServicePage() {
 
         {/* Frequently Asked Questions */}
         <section className="faq-section">
-          <h2 className="faq-heading">
-            Frequently Asked <span className="text-orange">Questions</span>
-          </h2>
-          <p className="faq-subheading">
-            Everything you need to know before booking a car repair service.
-          </p>
+          <div className="faq-header text-center">
+            <h2 className="faq-heading">
+              Frequently Asked <span className="text-orange">Questions</span>
+            </h2>
+            <p className="faq-subheading">
+              Everything you need to know about our doorstep annual car service.
+            </p>
+          </div>
 
           <div className="faq-accordion-list">
             {faqs.map((faq, index) => {
@@ -711,7 +713,7 @@ export default function AnnualServicePage() {
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                     aria-expanded={isOpen}
                   >
-                    <span>{faq.q}</span>
+                    <span className="faq-question-text">{faq.q}</span>
                     <span className="faq-icon-indicator">{isOpen ? '−' : '+'}</span>
                   </button>
                   {isOpen && (

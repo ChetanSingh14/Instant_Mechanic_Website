@@ -5607,12 +5607,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Should you add these section */
+/* Should you add these section */
 .should-you-add-section {
   background: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #FFE4D0;
   border-radius: 24px;
   padding: 28px;
   margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .should-you-add-title {
@@ -5631,17 +5636,21 @@ h1, h2, h3, h4, h5, h6 {
 .should-you-add-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .advice-card {
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  padding: 16px;
+  padding: 16px 20px;
   border-radius: 16px;
   background: #F9FAFB;
   border: 1px solid #F3F4F6;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .advice-thumb-square {
@@ -5653,17 +5662,129 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 2px;
 }
 
+.advice-content {
+  flex: 1;
+  min-width: 0;
+}
+
 .advice-title {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #111827;
   margin-bottom: 4px;
 }
 
 .advice-desc {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   color: #4B5563;
-  line-height: 1.45;
+  line-height: 1.5;
+}
+
+/* Annual Service FAQ Section */
+.faq-section {
+  margin-top: 50px;
+  margin-bottom: 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.faq-heading {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.faq-subheading {
+  font-size: 0.95rem;
+  color: #6B7280;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.faq-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+.faq-card:hover {
+  border-color: #D1D5DB;
+}
+
+.faq-card--open {
+  border-color: #FED7AA;
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.06);
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.faq-question-text {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.faq-card--open .faq-question-text {
+  color: #EA580C;
+}
+
+.faq-icon-indicator {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #F3F4F6;
+  color: #4B5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.faq-card--open .faq-icon-indicator {
+  background: #FFF7ED;
+  color: #EA580C;
+}
+
+.faq-answer-body {
+  padding: 0 24px 20px 24px;
+  color: #4B5563;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-top: 1px solid #F9FAFB;
+  padding-top: 14px;
 }
 
 /* Modals */
