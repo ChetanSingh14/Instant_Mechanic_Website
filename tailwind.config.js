@@ -26,7 +26,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Geom', 'Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
       },
       maxWidth: {
         container: '1200px',
