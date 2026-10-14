@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu, X } from 'lucide-react';
 import BrandLogo from '../common/BrandLogo';
 import { useApp } from '../../context/AppContext';
+import cartIcon from '../../assets/cart-icon.png';
 
 export default function Navbar() {
   const { activeTab, navigateTo, isSidebarOpen, toggleSidebar, openBookingModal } = useApp();
@@ -73,6 +74,18 @@ export default function Navbar() {
 
         {/* Right: Actions */}
         <div className="site-header__actions">
+          {activeTab === 'repairs' && (
+            <button
+              type="button"
+              className="nav-cart-btn"
+              onClick={() => openBookingModal({ title: 'Cart Services', price: '₹399' })}
+              aria-label="View Cart"
+              title="Cart"
+            >
+              <img src={cartIcon} alt="Cart" className="nav-cart-img" />
+            </button>
+          )}
+
           <a 
             href="tel:1800890247" 
             className="nav-btn-call"
