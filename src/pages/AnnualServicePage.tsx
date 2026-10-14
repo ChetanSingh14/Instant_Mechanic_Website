@@ -28,7 +28,11 @@ import heroAnnualBg from '../assets/annual/hero-annual-bg.png';
 import cardMembershipBg from '../assets/annual/card-membership-bg.png';
 import cardLuxuryBg from '../assets/annual/card-luxury-bg.png';
 import cardMechanicBg from '../assets/annual/card-mechanic-bg.png';
-import teamAudiServiceImg from '../assets/annual/team-audi-service.png';
+import audiServiceMechanicsImg from '../assets/annual/audi-service-mechanics.png';
+import badgeVerifiedMechanic from '../assets/annual/badge-verified-mechanic.png';
+import badgeQualityService from '../assets/annual/badge-quality-service.png';
+import badgeClearPricing from '../assets/annual/badge-clear-pricing.png';
+import badgeEasyBooking from '../assets/annual/badge-easy-booking.png';
 import carReg3dIcon from '../assets/annual/image-67.png';
 import officePhone3dIcon from '../assets/annual/office-phone.png';
 
@@ -253,40 +257,33 @@ export default function AnnualServicePage() {
                     <section className="car-deserves-section">
             <div className="car-deserves-container">
               <div className="car-deserves-left">
-                <h2 className="car-deserves-title">
-                  Your Car Deserves More Than <span className="text-orange">Just a Service.</span>
-                </h2>
+                <h1 className="car-deserves-title">
+                  Your Car Deserves More<br />
+                  Than <span className="text-orange">Just a Service.</span>
+                </h1>
                 <p className="car-deserves-description">
                   Stay ahead of unexpected breakdowns with regular annual servicing that checks the essentials, catches potential issues early, and keeps your car safe, smooth, and ready for the road.
                 </p>
 
-                {/* 4 Feature Badges */}
+                {/* 4 Feature Badges with exact 3D assets */}
                 <div className="car-deserves-badges-grid">
                   <div className="deserves-badge-item">
-                    <div className="deserves-badge-icon">
-                      <Wrench className="w-4 h-4 text-orange-600" />
-                    </div>
+                    <img src={badgeVerifiedMechanic} alt="Verified Mechanics" className="deserves-badge-img" />
                     <span className="deserves-badge-text">Verified Mechanics</span>
                   </div>
 
                   <div className="deserves-badge-item">
-                    <div className="deserves-badge-icon">
-                      <ShieldCheck className="w-4 h-4 text-orange-600" />
-                    </div>
+                    <img src={badgeQualityService} alt="Quality Service" className="deserves-badge-img" />
                     <span className="deserves-badge-text">Quality Service</span>
                   </div>
 
                   <div className="deserves-badge-item">
-                    <div className="deserves-badge-icon">
-                      <Receipt className="w-4 h-4 text-orange-600" />
-                    </div>
+                    <img src={badgeClearPricing} alt="Clear Pricing" className="deserves-badge-img" />
                     <span className="deserves-badge-text">Clear Pricing</span>
                   </div>
 
                   <div className="deserves-badge-item">
-                    <div className="deserves-badge-icon">
-                      <Calendar className="w-4 h-4 text-orange-600" />
-                    </div>
+                    <img src={badgeEasyBooking} alt="Easy Booking" className="deserves-badge-img" />
                     <span className="deserves-badge-text">Easy Booking</span>
                   </div>
                 </div>
@@ -294,13 +291,11 @@ export default function AnnualServicePage() {
 
               {/* Right Audi Team Service Image */}
               <div className="car-deserves-right">
-                <div className="car-deserves-img-backdrop">
-                  <img 
-                    src={teamAudiServiceImg} 
-                    alt="Mechanics servicing Audi" 
-                    className="car-deserves-audi-img"
-                  />
-                </div>
+                <img 
+                  src={audiServiceMechanicsImg} 
+                  alt="Instant Mechanic team servicing Audi" 
+                  className="car-deserves-audi-img"
+                />
               </div>
             </div>
 
@@ -311,7 +306,7 @@ export default function AnnualServicePage() {
                   <img src={carReg3dIcon} alt="Car" className="quick-3d-icon" />
                 </div>
                 <div className="quick-check-field-inner">
-                  <label className="quick-check-label">Enter your car registration number</label>
+                  <span className="quick-check-label">Enter your car registration number</span>
                   <input 
                     type="text" 
                     placeholder="eg- DL-12-AB-1234" 
@@ -327,7 +322,7 @@ export default function AnnualServicePage() {
                   <img src={officePhone3dIcon} alt="Phone" className="quick-3d-icon" />
                 </div>
                 <div className="quick-check-field-inner">
-                  <label className="quick-check-label">Mobile Number</label>
+                  <span className="quick-check-label">Mobile Number</span>
                   <input 
                     type="tel" 
                     placeholder="+91 XXXX-XXXX-XX" 
@@ -347,23 +342,25 @@ export default function AnnualServicePage() {
             </div>
           </section> 
           <section className="annual-hero-section">
-            <div className="annual-hero-inner">
+            {/* Unified Hero Background Layer */}
+            <div className="annual-hero-bg-layer">
+              <img 
+                src={heroAnnualBg} 
+                alt="Instant Mechanic doorstep servicing" 
+                className="annual-hero-bg-cover"
+              />
+              <div className="annual-hero-fade-overlay"></div>
+            </div>
+
+            <div className="annual-hero-content">
               {/* Left Hero Content */}
-              <div className="annual-hero-left">
+              <div className="annual-hero-text">
                 <h1 className="annual-hero-title">
                   Annual <span className="text-orange">Car Service</span>
                 </h1>
                 <p className="annual-hero-description">
                   Get reliable annual car service for hatchbacks, sedans, SUVs, and luxury cars with Instant Mechanic. From oil changes and inspections to essential maintenance, our experienced mechanics keep your car smooth, safe, and road-ready.
                 </p>
-                {/* Mechanic & Car Image background visible on left */}
-                <div className="annual-hero-car-graphic">
-                  <img 
-                    src={heroAnnualBg} 
-                    alt="Instant Mechanic servicing car" 
-                    className="annual-hero-bg-img"
-                  />
-                </div>
               </div>
 
               {/* Right Hero Card: Select Your Car */}

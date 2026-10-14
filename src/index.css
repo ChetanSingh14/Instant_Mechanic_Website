@@ -5874,32 +5874,64 @@ h1, h2, h3, h4, h5, h6 {
   overflow-x: hidden;
 }
 
-/* 1. Hero Section */
+/* 1. Hero Section (Matching Figma Desktop Reference & Mobile Reference) */
 .annual-hero-section {
+  position: relative;
   width: 100%;
-  max-width: 1260px;
-  margin: 0 auto;
-  padding: 30px 24px 60px;
+  max-width: 1280px;
+  margin: 0 auto 50px;
+  min-height: 580px;
+  padding: 30px 24px;
+  box-sizing: border-box;
 }
 
-.annual-hero-inner {
+.annual-hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.annual-hero-bg-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  display: block;
+}
+
+.annual-hero-fade-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 50%, rgba(255, 255, 255, 0.35) 0%, transparent 70%),
+              linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 25%, rgba(255, 255, 255, 0.5) 95%);
+  pointer-events: none;
+}
+
+.annual-hero-content {
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: 1.25fr 0.92fr;
-  gap: 40px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
   align-items: flex-start;
+  min-height: 520px;
 }
 
-.annual-hero-left {
-  display: flex;
-  flex-direction: column;
+.annual-hero-text {
+  max-width: 520px;
+  padding-top: 24px;
 }
 
 .annual-hero-title {
   font-size: 3.2rem;
   font-weight: 850;
   color: #18181B;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
   margin-bottom: 16px;
 }
 
@@ -5907,23 +5939,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
   color: #52525B;
   line-height: 1.6;
-  max-width: 580px;
-  margin-bottom: 24px;
-}
-
-.annual-hero-car-graphic {
-  width: 100%;
-  max-width: 620px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-}
-
-.annual-hero-bg-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+  max-width: 500px;
 }
 
 /* Right Card: Select Your Car */
@@ -6191,89 +6207,89 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-1px);
 }
 
-/* 3. Your Car Deserves More Section */
+/* 3. Your Car Deserves More Section (Matching Figma Top Hero Reference) */
 .car-deserves-section {
   width: 100%;
-  max-width: 1260px;
-  margin: 0 auto 80px;
-  padding: 50px 32px 36px;
-  background: #FFFDF9;
-  border-radius: 36px;
-  border: 1px solid #FEEDE0;
+  background: radial-gradient(circle at 10% 25%, rgba(254, 237, 223, 0.9) 0%, rgba(254, 243, 232, 0.4) 40%, transparent 60%),
+              radial-gradient(circle at 95% 80%, rgba(254, 237, 223, 0.7) 0%, rgba(254, 243, 232, 0.3) 45%, transparent 65%),
+              #FAF6F0;
+  padding: 55px 24px 60px;
+  margin-bottom: 60px;
+  box-sizing: border-box;
 }
 
 .car-deserves-container {
+  max-width: 1260px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.18fr 0.82fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 36px;
   align-items: center;
-  margin-bottom: 36px;
+}
+
+.car-deserves-left {
+  display: flex;
+  flex-direction: column;
 }
 
 .car-deserves-title {
-  font-size: 2.5rem;
+  font-size: 3.1rem;
   font-weight: 850;
   color: #18181B;
-  line-height: 1.18;
+  line-height: 1.16;
   letter-spacing: -0.025em;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .car-deserves-description {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: #52525B;
   line-height: 1.6;
-  max-width: 540px;
-  margin-bottom: 26px;
+  max-width: 520px;
+  margin-bottom: 30px;
 }
 
 .car-deserves-badges-grid {
   display: flex;
+  align-items: center;
+  gap: 24px;
   flex-wrap: wrap;
-  gap: 16px;
 }
 
 .deserves-badge-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: #FFFFFF;
-  padding: 8px 14px;
-  border-radius: 12px;
-  border: 1px solid #F4F4F5;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
 }
 
-.deserves-badge-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  background: #FFF7ED;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.deserves-badge-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .deserves-badge-text {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  color: #27272A;
+  color: #18181B;
+  white-space: nowrap;
 }
 
 .car-deserves-right {
   display: flex;
+  align-items: center;
   justify-content: center;
-}
-
-.car-deserves-img-backdrop {
-  width: 100%;
-  max-width: 480px;
-  border-radius: 24px;
-  overflow: hidden;
+  position: relative;
 }
 
 .car-deserves-audi-img {
   width: 100%;
+  max-width: 580px;
   height: auto;
   display: block;
   object-fit: contain;
@@ -6282,32 +6298,32 @@ h1, h2, h3, h4, h5, h6 {
 /* Floating Registration Bar */
 .car-quick-check-strip {
   background: #FFFFFF;
-  border-radius: 20px;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.05);
-  border: 1px solid #F4F4F5;
-  padding: 14px 18px;
+  border-radius: 24px;
+  box-shadow: 0 16px 44px -8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 16px 22px;
   display: flex;
   align-items: center;
   gap: 16px;
   width: 100%;
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 36px auto 0;
   box-sizing: border-box;
 }
 
 .quick-check-input-box {
-  background: #F4F4F5;
-  border-radius: 12px;
-  padding: 10px 16px;
+  background: #ECEEF1;
+  border-radius: 14px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   flex: 1;
 }
 
 .quick-check-icon-wrap {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6328,45 +6344,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .quick-check-label {
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.86rem;
+  font-weight: 750;
   color: #18181B;
   display: block;
+  line-height: 1.2;
 }
 
 .quick-check-native-input {
   background: transparent;
   border: none;
   outline: none;
-  font-size: 0.9rem;
-  color: #18181B;
-  font-weight: 600;
+  font-size: 0.84rem;
+  color: #71717A;
+  font-weight: 500;
   width: 100%;
+  margin-top: 2px;
 }
 
 .quick-check-native-input::placeholder {
-  color: #A1A1AA;
-  font-weight: 400;
+  color: #8E95A0;
+  font-weight: 450;
 }
 
 .quick-check-submit-btn {
   background: #EA580C;
   color: #FFFFFF;
   font-weight: 750;
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   border: none;
-  border-radius: 12px;
-  padding: 0 26px;
-  height: 54px;
+  border-radius: 14px;
+  padding: 0 32px;
+  height: 58px;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28);
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.32);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .quick-check-submit-btn:hover {
   background: #C2410C;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(234, 88, 12, 0.4);
 }
 
 /* Billing Top Nav */
@@ -6426,56 +6445,189 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive Breakpoints (Matching Image 5 for Mobile) */
 @media (max-width: 960px) {
-  .annual-hero-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .annual-hero-section {
+    padding: 30px 16px 40px;
+    min-height: auto;
+  }
+
+  .annual-hero-bg-layer {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100% - 140px);
+    border-radius: 20px;
+  }
+
+  .annual-hero-bg-cover {
+    object-fit: cover;
+    object-position: 20% center;
+  }
+
+  .annual-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: auto;
+  }
+
+  .annual-hero-text {
+    text-align: center;
+    max-width: 100%;
+    padding-top: 0;
   }
 
   .annual-hero-title {
-    font-size: 2.4rem;
+    font-size: 2.1rem;
     text-align: center;
+    margin-bottom: 10px;
   }
 
   .annual-hero-description {
+    font-size: 0.84rem;
     text-align: center;
-    margin: 0 auto 20px;
-  }
-
-  .annual-hero-car-graphic {
-    margin: 0 auto;
+    margin: 0 auto 16px;
+    max-width: 95%;
   }
 
   .annual-select-car-card {
-    position: static;
-    max-width: 520px;
+    position: relative;
+    z-index: 3;
+    max-width: 440px;
     margin: 0 auto;
     width: 100%;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
   }
 
   .more-reasons-grid {
     grid-template-columns: 1fr;
   }
 
+  /* Mobile styling for Top Hero section (Matching exact Figma mobile view) */
+  .car-deserves-section {
+    padding: 30px 16px 40px;
+    margin-bottom: 40px;
+  }
+
   .car-deserves-container {
-    grid-template-columns: 1fr;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 16px;
+  }
+
+  .car-deserves-left {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .car-deserves-title {
+    font-size: 1.95rem;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 12px;
   }
 
   .car-deserves-description {
-    margin: 0 auto 24px;
+    font-size: 0.82rem;
+    line-height: 1.48;
+    color: #52525B;
+    text-align: left;
+    margin: 0 0 20px 0;
+    max-width: 100%;
   }
 
   .car-deserves-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .deserves-badge-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .deserves-badge-img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .deserves-badge-text {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #18181B;
+    line-height: 1.15;
+    white-space: normal;
+  }
+
+  .car-deserves-right {
+    width: 100%;
+    display: flex;
     justify-content: center;
+    margin: 8px 0 16px;
+  }
+
+  .car-deserves-audi-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
   }
 
   .car-quick-check-strip {
+    width: 100%;
+    background: #FFF7F2;
+    border: 1.5px solid #F6DFD1;
+    border-radius: 24px;
+    padding: 16px 14px;
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.05);
+    display: flex;
     flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
   }
 
-  .quick-check-input-box,
+  .quick-check-input-box {
+    width: 100%;
+    background: #E8E8ED;
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+  }
+
+  .quick-3d-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .quick-check-label {
+    font-size: 0.82rem;
+    font-weight: 750;
+    color: #18181B;
+  }
+
+  .quick-check-native-input {
+    font-size: 0.74rem;
+    color: #71717A;
+  }
+
   .quick-check-submit-btn {
     width: 100%;
+    height: 50px;
+    border-radius: 9999px;
+    font-size: 0.92rem;
+    font-weight: 750;
   }
 }
 
