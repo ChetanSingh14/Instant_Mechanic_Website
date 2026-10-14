@@ -1,5 +1,6 @@
 import React from 'react';
-import logoImg from '../../assets/logo.png';
+import logoMobileImg from '../../assets/logo.png';
+import logoDesktopImg from '../../assets/logo-desktop.png';
 
 export interface BrandLogoProps {
   size?: 'default' | 'large' | string;
@@ -19,9 +20,14 @@ export default function BrandLogo({ size = 'default', onClick, variant = 'light'
       title="Instant Mechanic"
     >
       <img 
-        src={logoImg} 
+        src={logoDesktopImg} 
         alt="Instant Mechanic" 
-        className="brand-logo__img"
+        className="brand-logo__img brand-logo__img--desktop"
+      />
+      <img 
+        src={logoMobileImg} 
+        alt="Instant Mechanic" 
+        className="brand-logo__img brand-logo__img--mobile"
       />
     </div>
   );

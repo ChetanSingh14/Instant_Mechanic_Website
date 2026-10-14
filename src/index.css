@@ -188,7 +188,23 @@ h1, h2, h3, h4, h5, h6 {
   height: 38px;
   width: auto;
   object-fit: contain;
+}
+
+.brand-logo__img--desktop {
   display: block;
+}
+
+.brand-logo__img--mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .brand-logo__img--desktop {
+    display: none;
+  }
+  .brand-logo__img--mobile {
+    display: block;
+  }
 }
 
 .brand-logo--large .brand-logo__img {
@@ -700,14 +716,14 @@ h1, h2, h3, h4, h5, h6 {
 .home-hero {
   position: relative;
   width: 100%;
-  min-height: 520px;
+  min-height: 720px;
   background-color: #FAF6F0;
   background-image: 
     linear-gradient(
-      90deg, 
-      rgba(251, 248, 243, 0.96) 0%, 
-      rgba(251, 248, 243, 0.88) 32%, 
-      rgba(251, 248, 243, 0.15) 58%, 
+      45deg, 
+      rgba(223, 223, 223, 0.96) 0%, 
+      rgba(221, 221, 221, 0.88) 18%, 
+      rgba(251, 248, 243, 0.15) 48%, 
       rgba(251, 248, 243, 0) 100%
     ),
     url('/hero-bg.png');
@@ -5878,11 +5894,12 @@ h1, h2, h3, h4, h5, h6 {
 .annual-hero-section {
   position: relative;
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto 50px;
-  min-height: 580px;
-  padding: 30px 24px;
+  min-height: 590px;
+  padding: 30px 0 60px;
+  margin: 0 0 50px;
   box-sizing: border-box;
+  overflow: hidden;
+  background-color: #FFFFFF;
 }
 
 .annual-hero-bg-layer {
@@ -5890,35 +5907,41 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 28px;
+  border-radius: 0;
   overflow: hidden;
   z-index: 1;
+  pointer-events: none;
 }
 
 .annual-hero-bg-cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: left center;
+  object-position: 20% center;
   display: block;
 }
 
 .annual-hero-fade-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 75% 50%, rgba(255, 255, 255, 0.35) 0%, transparent 70%),
-              linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 25%, rgba(255, 255, 255, 0.5) 95%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.75) 72%, #FFFFFF 96%),
+              linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 20%, transparent 80%, #FFFFFF 100%);
   pointer-events: none;
 }
 
 .annual-hero-content {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 36px;
   align-items: flex-start;
   min-height: 520px;
+  box-sizing: border-box;
 }
 
 .annual-hero-text {
@@ -6446,59 +6469,131 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive Breakpoints (Matching Image 5 for Mobile) */
 @media (max-width: 960px) {
   .annual-hero-section {
-    padding: 30px 16px 40px;
+    padding: 24px 16px 50px;
+    margin: 0 0 36px;
     min-height: auto;
+    overflow: hidden;
+    position: relative;
+    background: #FFFFFF;
   }
 
   .annual-hero-bg-layer {
     position: absolute;
-    top: 140px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: calc(100% - 140px);
-    border-radius: 20px;
+    top: 130px;
+    left: -130px;
+    width: 440px;
+    height: 580px;
+    border-radius: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: visible;
   }
 
   .annual-hero-bg-cover {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: 20% center;
+    object-position: left center;
+    opacity: 0.95;
+  }
+
+  .annual-hero-fade-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.7) 75%, #FFFFFF 100%),
+                linear-gradient(180deg, transparent 65%, #FFFFFF 100%);
+    pointer-events: none;
   }
 
   .annual-hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 0;
     min-height: auto;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    z-index: 2;
   }
 
   .annual-hero-text {
     text-align: center;
     max-width: 100%;
     padding-top: 0;
+    margin-bottom: 22px;
   }
 
   .annual-hero-title {
-    font-size: 2.1rem;
+    font-size: 2.25rem;
+    font-weight: 850;
+    line-height: 1.15;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 0 0 12px 0;
+    color: #18181B;
+    display: block !important;
   }
 
   .annual-hero-description {
-    font-size: 0.84rem;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: #52525B;
     text-align: center;
-    margin: 0 auto 16px;
-    max-width: 95%;
+    margin: 0 auto;
+    max-width: 330px;
+    display: block !important;
   }
 
   .annual-select-car-card {
     position: relative;
     z-index: 3;
-    max-width: 440px;
-    margin: 0 auto;
+    max-width: 360px;
     width: 100%;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+    margin: 0 auto;
+    padding: 28px 20px 24px;
+    border: 2px solid #EA580C;
+    border-radius: 28px;
+    background: #FFFFFF;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .select-card-header {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+
+  .select-card-title {
+    font-size: 1.55rem;
+    font-weight: 850;
+    margin-bottom: 4px;
+  }
+
+  .select-card-subtitle {
+    font-size: 0.82rem;
+    color: #71717A;
+  }
+
+  .select-card-form {
+    gap: 13px;
+  }
+
+  .select-input-group {
+    gap: 5px;
+  }
+
+  .select-custom-dropdown {
+    height: 48px;
+    font-size: 0.92rem;
+  }
+
+  .select-service-items-btn {
+    height: 48px;
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+
+  .select-card-stepper {
+    margin-top: 20px;
   }
 
   .more-reasons-grid {
