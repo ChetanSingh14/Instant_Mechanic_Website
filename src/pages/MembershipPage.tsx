@@ -341,77 +341,68 @@ export default function MembershipPage() {
           </div>
 
           <div className="mobile-perks-grid">
-            {/* Left Column in Mobile: Cards 1, 2, 3 (text left, badge overhanging right) */}
-            <div className="mobile-perks-col mobile-perks-col--left">
-              {/* Card 1 */}
-              <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('10% Off Repairs')}>
-                <div className="mobile-perk-text">
-                  <h5 className="mobile-perk-title">10% Off Repairs</h5>
-                  <p className="mobile-perk-desc">Save on repair service</p>
-                  <span className="mobile-perk-link">Know more +</span>
-                </div>
-                <div className="mobile-perk-icon-circle perk-icon--wrench">
-                  <WrenchGearIcon />
-                </div>
+            {/* Row 1: Left & Right */}
+            <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('10% Off Repairs')}>
+              <div className="mobile-perk-text">
+                <h5 className="mobile-perk-title">10% Off Repairs</h5>
+                <p className="mobile-perk-desc">Save on repair service</p>
+                <span className="mobile-perk-link">Know more +</span>
               </div>
-
-              {/* Card 2 */}
-              <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
-                <div className="mobile-perk-text">
-                  <h5 className="mobile-perk-title">Unlimited Roadside Help</h5>
-                  <p className="mobile-perk-desc">Help when you need it</p>
-                </div>
-                <div className="mobile-perk-icon-circle perk-icon--hazard">
-                  <HazardTriangleIcon />
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
-                <div className="mobile-perk-text">
-                  <h5 className="mobile-perk-title">Unlimited AI Diagnosis</h5>
-                  <p className="mobile-perk-desc">Know what's wrong</p>
-                </div>
-                <div className="mobile-perk-icon-circle perk-icon--sparkle">
-                  <SparklesIcon />
-                </div>
+              <div className="mobile-perk-icon-circle perk-icon--wrench">
+                <WrenchGearIcon />
               </div>
             </div>
 
-            {/* Right Column in Mobile: Cards 4, 5, 6 (badge overhanging left, text right) */}
-            <div className="mobile-perks-col mobile-perks-col--right">
-              {/* Card 4 */}
-              <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('1 Free Annual Check')}>
-                <div className="mobile-perk-icon-circle perk-icon--clipboard">
-                  <ClipboardCheckIcon />
-                </div>
-                <div className="mobile-perk-text">
-                  <h5 className="mobile-perk-title">1 Free Annual Check</h5>
-                  <p className="mobile-perk-desc">Keep your car in shape</p>
-                  <span className="mobile-perk-link">Know more +</span>
-                </div>
+            <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('1 Free Annual Check')}>
+              <div className="mobile-perk-icon-circle perk-icon--clipboard">
+                <ClipboardCheckIcon />
               </div>
-
-              {/* Card 5 */}
-              <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
-                <div className="mobile-perk-icon-circle perk-icon--dispatch">
-                  <DispatchHeadsetIcon />
-                </div>
-                <div className="mobile-perk-text">
-                  <h5 className="mobile-perk-title">Priority Mechanic Dispatch</h5>
-                  <p className="mobile-perk-desc">Faster response, every time</p>
-                </div>
+              <div className="mobile-perk-text">
+                <h5 className="mobile-perk-title">1 Free Annual Check</h5>
+                <p className="mobile-perk-desc">Keep your car in shape</p>
+                <span className="mobile-perk-link">Know more +</span>
               </div>
+            </div>
 
-              {/* Card 6 */}
-              <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('Service History')}>
-                <div className="mobile-perk-icon-circle perk-icon--folder">
-                  <FolderHistoryIcon />
-                </div>
-                <div className="mobile-perk-text">
-                  <h5 className="mobile-perk-title">Service History</h5>
-                  <p className="mobile-perk-desc">All your records, in one place</p>
-                </div>
+            {/* Row 2: Left & Right */}
+            <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('Unlimited Roadside Help')}>
+              <div className="mobile-perk-text">
+                <h5 className="mobile-perk-title">Unlimited Roadside Help</h5>
+                <p className="mobile-perk-desc">Help when you need it</p>
+              </div>
+              <div className="mobile-perk-icon-circle perk-icon--hazard">
+                <HazardTriangleIcon />
+              </div>
+            </div>
+
+            <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('Priority Mechanic Dispatch')}>
+              <div className="mobile-perk-icon-circle perk-icon--dispatch">
+                <DispatchHeadsetIcon />
+              </div>
+              <div className="mobile-perk-text">
+                <h5 className="mobile-perk-title">Priority Mechanic Dispatch</h5>
+                <p className="mobile-perk-desc">Faster response, every time</p>
+              </div>
+            </div>
+
+            {/* Row 3: Left & Right */}
+            <div className="mobile-perk-item perk-card--left" onClick={() => handleBenefitClick('Unlimited AI Diagnosis')}>
+              <div className="mobile-perk-text">
+                <h5 className="mobile-perk-title">Unlimited AI Diagnosis</h5>
+                <p className="mobile-perk-desc">Know what's wrong</p>
+              </div>
+              <div className="mobile-perk-icon-circle perk-icon--sparkle">
+                <SparklesIcon />
+              </div>
+            </div>
+
+            <div className="mobile-perk-item perk-card--right" onClick={() => handleBenefitClick('Service History')}>
+              <div className="mobile-perk-icon-circle perk-icon--folder">
+                <FolderHistoryIcon />
+              </div>
+              <div className="mobile-perk-text">
+                <h5 className="mobile-perk-title">Service History</h5>
+                <p className="mobile-perk-desc">All your records, in one place</p>
               </div>
             </div>
           </div>

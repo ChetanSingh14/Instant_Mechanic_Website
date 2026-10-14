@@ -6394,17 +6394,18 @@ h1, h2, h3, h4, h5, h6 {
 
   /* All-in-One: Section & Title Responsive */
   .membership-allinone-section {
-    padding: 50px 16px 70px;
+    padding: 40px 10px 60px;
   }
 
   .allinone-header {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .allinone-title {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
     line-height: 1.25;
     letter-spacing: -0.02em;
+    font-weight: 800;
   }
 
   .allinone-title-line {
@@ -6418,7 +6419,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .allinone-mobile-layout {
     display: block;
-    max-width: 390px;
+    max-width: 365px;
     margin: 0 auto;
     position: relative;
   }
@@ -6427,8 +6428,8 @@ h1, h2, h3, h4, h5, h6 {
   .mobile-card-container-wrap {
     position: relative;
     width: 100%;
-    max-width: 320px;
-    margin: 0 auto 34px;
+    max-width: 300px;
+    margin: 0 auto 30px;
   }
 
   .allinone-mobile-concentric {
@@ -6449,21 +6450,21 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .mobile-concentric--1 {
-    width: 290px;
-    height: 290px;
+    width: 260px;
+    height: 260px;
     border: 1.5px solid rgba(234, 88, 12, 0.16);
     background: radial-gradient(circle, rgba(251, 146, 60, 0.22) 0%, rgba(254, 215, 170, 0.10) 55%, transparent 75%);
   }
 
   .mobile-concentric--2 {
-    width: 390px;
-    height: 390px;
+    width: 350px;
+    height: 350px;
     border: 1.5px solid rgba(234, 88, 12, 0.10);
   }
 
   .mobile-concentric--3 {
-    width: 490px;
-    height: 490px;
+    width: 440px;
+    height: 440px;
     border: 1px solid rgba(234, 88, 12, 0.05);
   }
 
@@ -6471,9 +6472,9 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     z-index: 2;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 14px 32px rgba(234, 88, 12, 0.16);
+    box-shadow: 0 12px 30px rgba(234, 88, 12, 0.15);
   }
 
   .mobile-luxury-card-img {
@@ -6486,40 +6487,35 @@ h1, h2, h3, h4, h5, h6 {
   .mobile-perks-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px 22px;
+    column-gap: 34px;
+    row-gap: 12px;
     width: 100%;
     position: relative;
     z-index: 2;
   }
 
-  .mobile-perks-col {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
   .mobile-perk-item {
     position: relative;
     background: #FFFFFF;
-    border: 1.5px solid #F6D8B8;
-    border-radius: 14px;
-    box-shadow: 0 3px 12px rgba(234, 88, 12, 0.05);
+    border: 1px solid #FCD8B8;
+    border-radius: 13px;
+    box-shadow: 0 2px 10px rgba(234, 88, 12, 0.04);
     cursor: pointer;
     transition: all 0.2s ease;
     overflow: visible;
-    min-height: 62px;
+    min-height: 58px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
   .mobile-perk-item.perk-card--left {
-    padding: 9px 22px 9px 10px;
+    padding: 8px 18px 8px 10px;
     text-align: left;
   }
 
   .mobile-perk-item.perk-card--right {
-    padding: 9px 10px 9px 22px;
+    padding: 8px 10px 8px 18px;
     text-align: left;
   }
 
@@ -6528,26 +6524,28 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .mobile-perk-title {
-    font-size: 0.72rem;
+    font-size: 0.65rem;
     font-weight: 800;
     color: #111827;
     margin: 0 0 2px;
     line-height: 1.2;
+    letter-spacing: -0.015em;
     white-space: nowrap;
   }
 
   .mobile-perk-desc {
-    font-size: 0.58rem;
+    font-size: 0.53rem;
     font-weight: 500;
     color: #4B5563;
     margin: 0;
     line-height: 1.25;
+    letter-spacing: -0.01em;
     white-space: nowrap;
   }
 
   .mobile-perk-link {
     display: inline-block;
-    font-size: 0.58rem;
+    font-size: 0.53rem;
     font-weight: 600;
     color: #EA580C;
     margin-top: 2px;
@@ -6558,29 +6556,29 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
+    box-shadow: 0 2px 6px rgba(234, 88, 12, 0.08);
     z-index: 5;
     background: #FFF8F0;
-    border: 1.5px solid #FCD8B5;
+    border: 1.2px solid #FCD8B5;
   }
 
   .mobile-perk-item.perk-card--left .mobile-perk-icon-circle {
-    right: -14px;
+    right: -10px;
   }
 
   .mobile-perk-item.perk-card--right .mobile-perk-icon-circle {
-    left: -14px;
+    left: -10px;
   }
 
   .mobile-perk-icon-circle svg {
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
   }
 
   /* Pricing: Hide desktop card & show mobile plan card (Image 5) */
