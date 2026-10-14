@@ -1,44 +1,15 @@
 import React, { useEffect } from 'react';
-import { 
-  X, 
-  Home, 
-  Wrench, 
-  CalendarCheck, 
-  CreditCard, 
-  ClipboardList, 
-  AlertTriangle, 
-  Navigation, 
-  PhoneCall, 
-  ShieldCheck, 
-  Car,
-  ChevronRight,
-  Headphones,
-  Award
-} from 'lucide-react';
+import { X, ChevronRight } from 'lucide-react';
 import BrandLogo from '../common/BrandLogo';
 import { useApp } from '../../context/AppContext';
-import { NAV_ITEMS, SIDEBAR_EXTRA_ITEMS } from '../../data/mockData';
-
-const ICON_MAP = {
-  Home,
-  Wrench,
-  CalendarCheck,
-  CreditCard,
-  ClipboardList,
-  AlertTriangle,
-  Navigation,
-  PhoneCall,
-  ShieldCheck,
-};
 
 export default function Sidebar() {
   const { 
     isSidebarOpen, 
     toggleSidebar, 
-    activeTab, 
     navigateTo, 
-    openSOSModal,
-    activeBooking 
+    openBookingModal,
+    showToast 
   } = useApp();
 
   // Close on ESC key press
@@ -54,132 +25,172 @@ export default function Sidebar() {
 
   if (!isSidebarOpen) return null;
 
-  const handleItemClick = (id: string) => {
-    if (id === 'sos') {
-      toggleSidebar(false);
-      openSOSModal();
-    } else if (id === 'track') {
-      navigateTo('bookings');
-    } else {
-      navigateTo(id);
+  const handleNavClick = (target: string) => {
+    toggleSidebar(false);
+    if (target === 'membership') {
+      navigateTo('membership');
+    } else if (target === 'carbuddy') {
+      navigateTo('home');
+      setTimeout(() => {
+        const el = document.querySelector('.carbuddy-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
+    } else if (target === 'services' || target === 'repair' || target === 'about') {
+      showToast('This service will be available in the upcoming update!', 'info');
     }
+  };
+
+  const handlePolicyClick = (policyName: string) => {
+    toggleSidebar(false);
+    showToast(`${policyName} details displayed.`, 'info');
   };
 
   return (
     <div className="sidebar-overlay" onClick={() => toggleSidebar(false)}>
       <aside 
-        className="sidebar-drawer" 
+        className="mobile-drawer" 
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-label="Navigation Menu"
       >
-        {/* Drawer Header */}
-        <div className="sidebar-header">
+        {/* Drawer Header: Logo on left, X on right */}
+        <div className="mobile-drawer__header">
           <BrandLogo onClick={() => { navigateTo('home'); toggleSidebar(false); }} />
           <button 
-            className="sidebar-close-btn"
+            className="mobile-drawer__close-btn"
             onClick={() => toggleSidebar(false)}
             aria-label="Close Menu"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 text-zinc-700" />
           </button>
         </div>
 
-        {/* Active Booking Banner if available */}
-        {activeBooking && (
-          <div 
-            className="sidebar-live-chip"
-            onClick={() => { navigateTo('bookings'); toggleSidebar(false); }}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="sidebar-live-chip__pulse" />
-            <div className="sidebar-live-chip__info">
-              <span className="sidebar-live-chip__title">Live: {activeBooking.status}</span>
-              <span className="sidebar-live-chip__sub">{activeBooking.carModel} • {activeBooking.eta}</span>
-            </div>
-            <ChevronRight className="w-4 h-4 text-orange-500" />
-          </div>
-        )}
+        {/* Scrollable Content */}
+        <div className="mobile-drawer__body">
+          {/* Main Links */}
+          <ul className="mobile-drawer__nav-list">
+            <li className="mobile-drawer__nav-item">
+              <button 
+                className="mobile-drawer__nav-link"
+                onClick={() => handleNavClick('membership')}
+              >
+                <span className="mobile-drawer__nav-label">Membership</span>
+                <ChevronRight className="w-4 h-4 text-zinc-400" />
+              </button>
+            </li>
 
-        {/* Primary Navigation Sections */}
-        <div className="sidebar-content">
-          <div className="sidebar-group">
-            <span className="sidebar-group-title">MAIN MENU</span>
-            <ul className="sidebar-nav-list">
-              {NAV_ITEMS.map((item) => {
-                const IconComponent = ICON_MAP[item.icon] || Wrench;
-                const isActive = activeTab === item.id;
-                return (
-                  <li key={item.id}>
-                    <button
-                      className={`sidebar-nav-btn ${isActive ? 'sidebar-nav-btn--active' : ''}`}
-                      onClick={() => handleItemClick(item.id)}
-                    >
-                      <div className="sidebar-nav-btn__left">
-                        <IconComponent className="w-5 h-5 sidebar-icon" />
-                        <span>{item.label}</span>
-                      </div>
-                      <div className="sidebar-nav-btn__right">
-                        {item.badge && (
-                          <span className={`sidebar-badge ${item.badge.includes('Active') ? 'sidebar-badge--active' : ''}`}>
-                            {item.badge}
-                          </span>
-                        )}
-                        <ChevronRight className="w-4 h-4 sidebar-arrow" />
-                      </div>
-                    </button>
-                  </li>
-                );
-              })}
+            <li className="mobile-drawer__nav-item">
+              <button 
+                className="mobile-drawer__nav-link"
+                onClick={() => handleNavClick('services')}
+              >
+                <span className="mobile-drawer__nav-label">Car Services</span>
+                <span className="mobile-drawer__ribbon-badge">Coming soon</span>
+              </button>
+            </li>
+
+            <li className="mobile-drawer__nav-item">
+              <button 
+                className="mobile-drawer__nav-link"
+                onClick={() => handleNavClick('repair')}
+              >
+                <span className="mobile-drawer__nav-label">Car Repair</span>
+                <span className="mobile-drawer__ribbon-badge">Coming soon</span>
+              </button>
+            </li>
+
+            <li className="mobile-drawer__nav-item">
+              <button 
+                className="mobile-drawer__nav-link"
+                onClick={() => handleNavClick('about')}
+              >
+                <span className="mobile-drawer__nav-label">About Us</span>
+                <span className="mobile-drawer__ribbon-badge">Coming soon</span>
+              </button>
+            </li>
+
+            <li className="mobile-drawer__nav-item">
+              <button 
+                className="mobile-drawer__nav-link"
+                onClick={() => handleNavClick('carbuddy')}
+              >
+                <span className="mobile-drawer__nav-label">AI Diagnosis - Car Buddy</span>
+                <ChevronRight className="w-4 h-4 text-zinc-400" />
+              </button>
+            </li>
+          </ul>
+
+          <div className="mobile-drawer__divider" />
+
+          {/* Policies Section */}
+          <div className="mobile-drawer__section">
+            <h4 className="mobile-drawer__section-title">Policies</h4>
+            <ul className="mobile-drawer__policy-list">
+              <li>
+                <button 
+                  className="mobile-drawer__policy-link"
+                  onClick={() => handlePolicyClick('Terms & Conditions')}
+                >
+                  Terms & Conditions
+                </button>
+              </li>
+              <li>
+                <button 
+                  className="mobile-drawer__policy-link"
+                  onClick={() => handlePolicyClick('Privacy Policy')}
+                >
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button 
+                  className="mobile-drawer__policy-link"
+                  onClick={() => handlePolicyClick('Cancellation Policy')}
+                >
+                  Cancellation
+                </button>
+              </li>
+              <li>
+                <button 
+                  className="mobile-drawer__policy-link"
+                  onClick={() => handlePolicyClick('Refund Policy')}
+                >
+                  Refund Policy
+                </button>
+              </li>
             </ul>
-          </div>
-
-          <div className="sidebar-divider" />
-
-          {/* Quick Support & Emergency */}
-          <div className="sidebar-group">
-            <span className="sidebar-group-title">EMERGENCY & QUICK LINKS</span>
-            <ul className="sidebar-nav-list">
-              {SIDEBAR_EXTRA_ITEMS.map((item) => {
-                const IconComponent = ICON_MAP[item.icon] || AlertTriangle;
-                return (
-                  <li key={item.id}>
-                    <button
-                      className={`sidebar-nav-btn ${item.alert ? 'sidebar-nav-btn--alert' : ''}`}
-                      onClick={() => handleItemClick(item.id)}
-                    >
-                      <div className="sidebar-nav-btn__left">
-                        <IconComponent className="w-5 h-5 sidebar-icon" />
-                        <span>{item.label}</span>
-                      </div>
-                      <ChevronRight className="w-4 h-4 sidebar-arrow" />
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          {/* 24/7 Helpline Card */}
-          <div className="sidebar-support-card">
-            <div className="support-card-icon">
-              <Headphones className="w-5 h-5 text-orange-600" />
-            </div>
-            <div className="support-card-text">
-              <span className="support-card-label">Roadside Emergency 24/7</span>
-              <a href="tel:1800890247" className="support-card-phone">1800-890-247 (Toll Free)</a>
-            </div>
           </div>
         </div>
 
-        {/* Drawer Footer */}
-        <div className="sidebar-footer">
-          <div className="sidebar-footer-guarantee">
-            <Award className="w-4 h-4 text-emerald-600" />
-            <span>100% Genuine Spares & Warranty</span>
-          </div>
-          <span className="sidebar-version">v2.4.0 • Instant Mechanic</span>
+        {/* Drawer Bottom Action Buttons */}
+        <div className="mobile-drawer__footer">
+          <button 
+            className="mobile-drawer__btn-primary"
+            onClick={() => {
+              toggleSidebar(false);
+              openBookingModal({
+                title: 'Instant Roadside Mechanic',
+                price: '₹299',
+                desc: 'Verified mechanic dispatched to your location within 15 minutes.'
+              });
+            }}
+          >
+            Book a Mechanic Now
+          </button>
+
+          <button 
+            className="mobile-drawer__btn-secondary"
+            onClick={() => {
+              toggleSidebar(false);
+              openBookingModal({
+                title: 'Comprehensive Car Service',
+                price: '₹2,499',
+                desc: 'Scheduled periodic inspection, engine oil replacement, and 30-point car check.'
+              });
+            }}
+          >
+            Book a Car Service
+          </button>
         </div>
       </aside>
     </div>

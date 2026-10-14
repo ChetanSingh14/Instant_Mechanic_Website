@@ -2,7 +2,6 @@ import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import Navbar from './components/layout/Navbar';
 import Sidebar from './components/layout/Sidebar';
-import BottomNav from './components/layout/BottomNav';
 import Footer from './components/layout/Footer';
 import SOSButton from './components/common/SOSButton';
 import SOSModal from './components/modals/SOSModal';
@@ -56,9 +55,6 @@ function AppContent() {
 
       {/* Floating Emergency SOS Radar Button */}
       <SOSButton />
-
-      {/* Mobile-first App Bottom Navigation */}
-      <BottomNav />
 
       {/* Footer */}
       <Footer />
