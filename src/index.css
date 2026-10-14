@@ -5680,28 +5680,35 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 
-/* Annual Service FAQ Section */
+/* Annual Service FAQ Section & Pill Accordion */
+.annual-faq-section,
 .faq-section {
   margin-top: 50px;
   margin-bottom: 60px;
   width: 100%;
   box-sizing: border-box;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.annual-faq-header,
 .faq-header {
   text-align: center;
   margin-bottom: 28px;
 }
 
+.annual-faq-heading,
 .faq-heading {
-  font-size: 2.1rem;
-  font-weight: 800;
+  font-size: 2.3rem;
+  font-weight: 850;
   color: #111827;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   margin-bottom: 8px;
   text-align: center;
 }
 
+.annual-faq-subheading,
 .faq-subheading {
   font-size: 0.95rem;
   color: #6B7280;
@@ -5709,11 +5716,77 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 24px;
 }
 
+.annual-faq-pill-list,
 .faq-accordion-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
+}
+
+.annual-faq-pill-card {
+  background: #FFFFFF;
+  border: 1.5px solid #D4D4D8;
+  border-radius: 9999px;
+  overflow: hidden;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.annual-faq-pill-card:hover {
+  border-color: #A1A1AA;
+}
+
+.annual-faq-pill-card--open {
+  border-radius: 20px;
+  border-color: #FED7AA;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.06);
+}
+
+.annual-faq-pill-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.annual-faq-pill-text {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #18181B;
+  line-height: 1.4;
+}
+
+.annual-faq-pill-card--open .annual-faq-pill-text {
+  color: #EA580C;
+}
+
+.annual-faq-pill-indicator {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #71717A;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.annual-faq-pill-card--open .annual-faq-pill-indicator {
+  color: #EA580C;
+}
+
+.annual-faq-pill-answer {
+  padding: 0 28px 20px 28px;
+  color: #4B5563;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-top: 1px solid #F4F4F5;
+  padding-top: 14px;
 }
 
 .faq-card {
@@ -5785,6 +5858,625 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
   border-top: 1px solid #F9FAFB;
   padding-top: 14px;
+}
+
+/* ==========================================================================
+   ANNUAL CAR SERVICE - OVERVIEW PAGE V1 STYLES (MATCHING IMAGES 1-5)
+   ========================================================================== */
+.annual-service-master-page {
+  width: 100%;
+  background-color: #FFFFFF;
+  min-height: 100vh;
+}
+
+.annual-overview-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 1. Hero Section */
+.annual-hero-section {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+
+.annual-hero-inner {
+  display: grid;
+  grid-template-columns: 1.25fr 0.92fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.annual-hero-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.annual-hero-title {
+  font-size: 3.2rem;
+  font-weight: 850;
+  color: #18181B;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+
+.annual-hero-description {
+  font-size: 1rem;
+  color: #52525B;
+  line-height: 1.6;
+  max-width: 580px;
+  margin-bottom: 24px;
+}
+
+.annual-hero-car-graphic {
+  width: 100%;
+  max-width: 620px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.annual-hero-bg-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Right Card: Select Your Car */
+.annual-select-car-card {
+  background: #FFFFFF;
+  border: 2px solid #EA580C;
+  border-radius: 28px;
+  padding: 34px 30px 26px;
+  box-shadow: 0 16px 40px -8px rgba(234, 88, 12, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 90px;
+}
+
+.select-card-header {
+  margin-bottom: 22px;
+}
+
+.select-card-title {
+  font-size: 1.7rem;
+  font-weight: 850;
+  color: #18181B;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.select-card-subtitle {
+  font-size: 0.86rem;
+  color: #71717A;
+}
+
+.select-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.select-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.select-field-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #3F3F46;
+}
+
+.select-dropdown-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.select-custom-dropdown {
+  width: 100%;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1.5px solid #E4E4E7;
+  border-radius: 12px;
+  padding: 0 40px 0 16px;
+  font-size: 0.92rem;
+  color: #18181B;
+  font-weight: 500;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.select-custom-dropdown:hover,
+.select-custom-dropdown:focus {
+  border-color: #EA580C;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+}
+
+.select-dropdown-chevron {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #71717A;
+  pointer-events: none;
+}
+
+.select-service-items-btn {
+  width: 100%;
+  height: 52px;
+  background: #EA580C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 750;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 22px;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.28);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.select-service-items-btn:hover {
+  background: #C2410C;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(234, 88, 12, 0.38);
+}
+
+/* Stepper Indicator */
+.annual-stepper-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.step-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.step-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #D4D4D8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #71717A;
+  background: #FFFFFF;
+}
+
+.step-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #71717A;
+}
+
+.step-point--active .step-circle {
+  border-color: #EA580C;
+  color: #EA580C;
+  background: #FFF7ED;
+}
+
+.step-point--active .step-label {
+  color: #EA580C;
+}
+
+.step-dotted-line {
+  width: 52px;
+  height: 1px;
+  border-top: 1.5px dotted #D4D4D8;
+  margin-top: -14px;
+}
+
+/* 2. More Reasons to Choose Us Section */
+.more-reasons-section {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto 70px;
+  padding: 0 24px;
+}
+
+.more-reasons-header {
+  margin-bottom: 28px;
+}
+
+.more-reasons-title {
+  font-size: 2.2rem;
+  font-weight: 850;
+  color: #18181B;
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+}
+
+.more-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reason-promo-card {
+  height: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.reason-promo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.09);
+}
+
+.reason-promo-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+.reason-promo-heading {
+  font-size: 1.3rem;
+  font-weight: 850;
+  color: #18181B;
+  line-height: 1.22;
+  margin-bottom: 6px;
+}
+
+.reason-promo-sub {
+  font-size: 0.8rem;
+  color: #52525B;
+  font-weight: 500;
+}
+
+.reason-promo-btn {
+  border-radius: 9999px;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 750;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.reason-promo-btn--orange {
+  background: #EA580C;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+}
+
+.reason-promo-btn--orange:hover {
+  background: #C2410C;
+  transform: translateY(-1px);
+}
+
+.reason-promo-btn--dark {
+  background: #18181B;
+  color: #FFFFFF;
+}
+
+.reason-promo-btn--dark:hover {
+  background: #27272A;
+  transform: translateY(-1px);
+}
+
+/* 3. Your Car Deserves More Section */
+.car-deserves-section {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto 80px;
+  padding: 50px 32px 36px;
+  background: #FFFDF9;
+  border-radius: 36px;
+  border: 1px solid #FEEDE0;
+}
+
+.car-deserves-container {
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.car-deserves-title {
+  font-size: 2.5rem;
+  font-weight: 850;
+  color: #18181B;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
+}
+
+.car-deserves-description {
+  font-size: 0.95rem;
+  color: #52525B;
+  line-height: 1.6;
+  max-width: 540px;
+  margin-bottom: 26px;
+}
+
+.car-deserves-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.deserves-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid #F4F4F5;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+.deserves-badge-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #FFF7ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deserves-badge-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #27272A;
+}
+
+.car-deserves-right {
+  display: flex;
+  justify-content: center;
+}
+
+.car-deserves-img-backdrop {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.car-deserves-audi-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Floating Registration Bar */
+.car-quick-check-strip {
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.05);
+  border: 1px solid #F4F4F5;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.quick-check-input-box {
+  background: #F4F4F5;
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.quick-check-icon-wrap {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quick-3d-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.quick-check-field-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.quick-check-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #18181B;
+  display: block;
+}
+
+.quick-check-native-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #18181B;
+  font-weight: 600;
+  width: 100%;
+}
+
+.quick-check-native-input::placeholder {
+  color: #A1A1AA;
+  font-weight: 400;
+}
+
+.quick-check-submit-btn {
+  background: #EA580C;
+  color: #FFFFFF;
+  font-weight: 750;
+  font-size: 0.94rem;
+  border: none;
+  border-radius: 12px;
+  padding: 0 26px;
+  height: 54px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quick-check-submit-btn:hover {
+  background: #C2410C;
+  transform: translateY(-1px);
+}
+
+/* Billing Top Nav */
+.billing-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.billing-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1.5px solid #E4E4E7;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #18181B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.billing-back-btn:hover {
+  border-color: #EA580C;
+  color: #EA580C;
+  background: #FFF7ED;
+}
+
+.billing-step-indicator-compact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-badge-mini {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #71717A;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #F4F4F5;
+}
+
+.step-badge-mini--done {
+  color: #059669;
+  background: #ECFDF5;
+}
+
+.step-badge-mini--current {
+  color: #EA580C;
+  background: #FFF7ED;
+  font-weight: 700;
+}
+
+/* Responsive Breakpoints (Matching Image 5 for Mobile) */
+@media (max-width: 960px) {
+  .annual-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .annual-hero-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .annual-hero-description {
+    text-align: center;
+    margin: 0 auto 20px;
+  }
+
+  .annual-hero-car-graphic {
+    margin: 0 auto;
+  }
+
+  .annual-select-car-card {
+    position: static;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .more-reasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .car-deserves-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .car-deserves-description {
+    margin: 0 auto 24px;
+  }
+
+  .car-deserves-badges-grid {
+    justify-content: center;
+  }
+
+  .car-quick-check-strip {
+    flex-direction: column;
+  }
+
+  .quick-check-input-box,
+  .quick-check-submit-btn {
+    width: 100%;
+  }
 }
 
 /* Modals */

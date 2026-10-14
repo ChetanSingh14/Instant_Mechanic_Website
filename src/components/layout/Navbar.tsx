@@ -36,10 +36,16 @@ export default function Navbar() {
       if (link.target === 'repairs') {
         window.dispatchEvent(new CustomEvent('reset-repair-category'));
       }
+      if (link.target === 'annual') {
+        window.dispatchEvent(new CustomEvent('reset-annual-overview'));
+      }
       navigateTo(link.target);
     } else {
       if (link.id === 'repairs') {
         window.dispatchEvent(new CustomEvent('reset-repair-category'));
+      }
+      if (link.id === 'annual' || link.id === 'services') {
+        window.dispatchEvent(new CustomEvent('reset-annual-overview'));
       }
       navigateTo(link.id);
     }
