@@ -21,6 +21,9 @@ import photo3 from '../assets/membership/Rectangle 76.png';
 import photo4 from '../assets/membership/Rectangle 74.png';
 import membershipCardImg from '../assets/membership/image 54.png';
 import membershipPlanBanner from '../assets/membership/membership card.png';
+import carCalendar3dImg from '../assets/membership/car-calendar-3d.png';
+import carCareLogoImg from '../assets/membership/car-care-membership-logo.png';
+import driveConfidenceBannerImg from '../assets/membership/image-41.png';
 
 export default function MembershipPage() {
   const { openBookingModal, showToast, navigateTo } = useApp();
@@ -310,7 +313,7 @@ export default function MembershipPage() {
           </p>
         </div>
 
-        {/* Desktop Plan Card using rendered background or live layout */}
+        {/* Desktop Plan Card matching Image 2 (Desktop) */}
         <div className="membership-plan-card-desktop">
           <div className="plan-desktop-card-inner">
             <div className="plan-desktop-left">
@@ -329,15 +332,15 @@ export default function MembershipPage() {
 
               <div className="plan-perks-checklist">
                 <div className="plan-perk-check">
-                  <Calendar className="w-4 h-4 text-orange-600 flex-shrink-0" />
+                  <span className="plan-perk-emoji" aria-hidden="true">🗓️</span>
                   <span>12 Months Coverage</span>
                 </div>
                 <div className="plan-perk-check">
-                  <Users className="w-4 h-4 text-orange-600 flex-shrink-0" />
+                  <span className="plan-perk-emoji" aria-hidden="true">👥</span>
                   <span>24/7 Member support</span>
                 </div>
                 <div className="plan-perk-check">
-                  <CheckCircle2 className="w-4 h-4 text-orange-600 flex-shrink-0" />
+                  <span className="plan-perk-emoji" aria-hidden="true">☑️</span>
                   <span>No hidden Charges</span>
                 </div>
               </div>
@@ -345,20 +348,24 @@ export default function MembershipPage() {
 
             <div className="plan-desktop-right">
               <img 
-                src={membershipPlanBanner} 
+                src={carCalendar3dImg} 
                 alt="Car Care Membership with 3D car and calendar" 
-                className="plan-banner-cropped-img"
+                className="plan-car-calendar-3d-img"
               />
             </div>
           </div>
         </div>
 
-        {/* Mobile Plan Card matching Image 5 */}
+        {/* Mobile Plan Card matching Image 5 (Mobile) */}
         <div className="membership-plan-card-mobile">
           <div className="mobile-plan-banner-card">
-            {/* 3D Badge: CarCare Membership */}
+            {/* 3D Shiny Badge: CarCare Membership */}
             <div className="mobile-plan-badge-wrap text-center">
-              <span className="mobile-plan-badge-pill">👑 CarCare Membership</span>
+              <img 
+                src={carCareLogoImg} 
+                alt="Car Care Membership" 
+                className="mobile-plan-logo-img"
+              />
             </div>
 
             <div className="mobile-plan-text text-center">
@@ -377,15 +384,15 @@ export default function MembershipPage() {
 
               <div className="mobile-plan-perks-row">
                 <div className="mobile-plan-perk-item">
-                  <Calendar className="w-3.5 h-3.5 text-blue-500" />
+                  <span className="plan-perk-emoji" aria-hidden="true">🗓️</span>
                   <span>12 Months Coverage</span>
                 </div>
                 <div className="mobile-plan-perk-item">
-                  <Users className="w-3.5 h-3.5 text-amber-500" />
+                  <span className="plan-perk-emoji" aria-hidden="true">👥</span>
                   <span>24/7 Member support</span>
                 </div>
                 <div className="mobile-plan-perk-item">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span className="plan-perk-emoji" aria-hidden="true">☑️</span>
                   <span>No hidden Charges</span>
                 </div>
               </div>
@@ -423,6 +430,33 @@ export default function MembershipPage() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* 5. Drive with Confidence Banner (Desktop Only) */}
+      <section 
+        className="membership-drive-confidence-banner"
+        style={{ backgroundImage: `url(${driveConfidenceBannerImg})` }}
+      >
+        <div className="drive-confidence-overlay">
+          <div className="drive-confidence-inner">
+            <div className="drive-confidence-content">
+              <h2 className="drive-confidence-title">
+                Drive with confidence. We've got you.
+              </h2>
+              <p className="drive-confidence-desc">
+                Wherever the road takes you, Instant Mechanic is just a call away.<br />
+                From everyday care to unexpected breakdowns, we're here when you need us.
+              </p>
+              <button 
+                className="drive-confidence-btn"
+                onClick={() => openBookingModal({ title: 'Book a Service', price: 'Get Instant Quote' })}
+              >
+                <span>Book a service Now</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
