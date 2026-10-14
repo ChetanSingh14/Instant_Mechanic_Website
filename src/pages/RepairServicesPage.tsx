@@ -13,6 +13,7 @@ import {
   BadgePercent, 
   Sparkles,
   CheckCircle2,
+  Check,
   Wrench,
   UserCheck,
   Receipt,
@@ -35,19 +36,34 @@ import doorKeyIcon from '../assets/design_assets/Door-key.png';
 import roadsideIcon from '../assets/design_assets/Roadside Assistance.png';
 import carExplodedImg from '../assets/design_assets/car_parts_exploded.png';
 
+// Category banner images
+import garageBannerImg from '../assets/carrepairinnerpage/garage image.png';
+import bannerBattery from '../assets/carrepairinnerpage/image 54.png';
+import bannerTyres from '../assets/carrepairinnerpage/image 54 (1).png';
+import bannerEngine from '../assets/carrepairinnerpage/image 54 (2).png';
+import bannerOverheat from '../assets/carrepairinnerpage/image 54 (3).png';
+import bannerBrakes from '../assets/carrepairinnerpage/Car with its parts laid out_mask-group.png';
+import bannerClutch from '../assets/carrepairinnerpage/Car with its parts laid out_mask-group (1).png';
+import bannerSteering from '../assets/carrepairinnerpage/Car with its parts laid out_mask-group (2).png';
+import bannerAc from '../assets/carrepairinnerpage/Car with its parts laid out_mask-group (3).png';
+import bannerElectric from '../assets/carrepairinnerpage/Car with its parts laid out_mask-group (4).png';
+import bannerLights from '../assets/carrepairinnerpage/Car with its parts laid out_mask-group (5).png';
+import bannerDoorKeys from '../assets/carrepairinnerpage/Car with its parts laid out_mask-group (6).png';
+import bannerRoadside from '../assets/carrepairinnerpage/Car with its parts laid out_mask-group (7).png';
+
 const SERVICE_CATEGORIES = [
-  { id: 'battery', title: 'Battery Assistance', icon: batteryIcon, subtitle: 'Get your car back on the road with quick battery assistance.' },
-  { id: 'tyres', title: 'Tyres & Wheels', icon: wheelIcon, subtitle: 'Puncture repair, stepney change, air filling and tyre health checks.' },
-  { id: 'engine', title: 'Engine', icon: engineIcon, subtitle: 'Scanning, engine misfires, rough idle, stalling and oil leak diagnosis.' },
-  { id: 'overheat', title: 'Overheating', icon: overheatIcon, subtitle: 'Radiator checks, coolant top-up, fan motor inspection & temperature fix.' },
-  { id: 'brakes', title: 'Brakes', icon: brakeIcon, subtitle: 'Brake pad replacement, disc wear inspection, bleeding and ABS alerts.' },
-  { id: 'clutch', title: 'Clutch & Gear', icon: gearIcon, subtitle: 'Hard clutch pedal, gear slipping, cable adjustment and transmission fluid.' },
-  { id: 'steering', title: 'Steering & Suspension', icon: steeringIcon, subtitle: 'Wheel alignment, shock absorber inspection, tie rods and power steering.' },
-  { id: 'ac', title: 'AC & Infotainment', icon: acIcon, subtitle: 'AC cooling coil check, gas refill, compressor inspection & screen audio.' },
-  { id: 'electric', title: 'Electrical & Warnings', icon: electricIcon, subtitle: 'Dashboard warning lights, fuse replacement, alternator & sensor checks.' },
-  { id: 'lights', title: 'Lights & Visibility', icon: lightIcon, subtitle: 'Headlight bulb replacement, indicators, wiper motor and windshield glass.' },
-  { id: 'door-keys', title: 'Doors, Keys & Body', icon: doorKeyIcon, subtitle: 'Key lock lockout assistance, door lock motors, boot release & latch fixes.' },
-  { id: 'roadside', title: 'Roadside Help', icon: roadsideIcon, subtitle: 'Emergency breakdown towing, jump start, fuel delivery and minor repairs.' },
+  { id: 'battery', title: 'Battery Assistance', icon: batteryIcon, bannerImg: bannerBattery, titlePrefix: 'Battery', titleHighlight: 'Assistance', subtitle: 'Get your car back on the road with quick battery assistance.' },
+  { id: 'tyres', title: 'Tyres & Wheels', icon: wheelIcon, bannerImg: bannerTyres, titlePrefix: 'Tyres &', titleHighlight: 'Wheels', subtitle: 'Puncture repair, stepney change, air filling and tyre health checks.' },
+  { id: 'engine', title: 'Engine', icon: engineIcon, bannerImg: bannerEngine, titlePrefix: 'Engine', titleHighlight: 'Diagnostics', subtitle: 'Scanning, engine misfires, rough idle, stalling and oil leak diagnosis.' },
+  { id: 'overheat', title: 'Overheating', icon: overheatIcon, bannerImg: bannerOverheat, titlePrefix: 'Car', titleHighlight: 'Overheating', subtitle: 'Radiator checks, coolant top-up, fan motor inspection & temperature fix.' },
+  { id: 'brakes', title: 'Brakes', icon: brakeIcon, bannerImg: bannerBrakes, titlePrefix: 'Brake', titleHighlight: 'Services', subtitle: 'Brake pad replacement, disc wear inspection, bleeding and ABS alerts.' },
+  { id: 'clutch', title: 'Clutch & Gear', icon: gearIcon, bannerImg: bannerClutch, titlePrefix: 'Clutch &', titleHighlight: 'Gear', subtitle: 'Hard clutch pedal, gear slipping, cable adjustment and transmission fluid.' },
+  { id: 'steering', title: 'Steering & Suspension', icon: steeringIcon, bannerImg: bannerSteering, titlePrefix: 'Steering &', titleHighlight: 'Suspension', subtitle: 'Wheel alignment, shock absorber inspection, tie rods and power steering.' },
+  { id: 'ac', title: 'AC & Infotainment', icon: acIcon, bannerImg: bannerAc, titlePrefix: 'AC &', titleHighlight: 'Infotainment', subtitle: 'AC cooling coil check, gas refill, compressor inspection & screen audio.' },
+  { id: 'electric', title: 'Electrical & Warnings', icon: electricIcon, bannerImg: bannerElectric, titlePrefix: 'Electrical &', titleHighlight: 'Warnings', subtitle: 'Dashboard warning lights, fuse replacement, alternator & sensor checks.' },
+  { id: 'lights', title: 'Lights & Visibility', icon: lightIcon, bannerImg: bannerLights, titlePrefix: 'Lights &', titleHighlight: 'Visibility', subtitle: 'Headlight bulb replacement, indicators, wiper motor and windshield glass.' },
+  { id: 'door-keys', title: 'Doors, Keys & Body', icon: doorKeyIcon, bannerImg: bannerDoorKeys, titlePrefix: 'Doors, Keys &', titleHighlight: 'Body', subtitle: 'Key lock lockout assistance, door lock motors, boot release & latch fixes.' },
+  { id: 'roadside', title: 'Roadside Help', icon: roadsideIcon, bannerImg: bannerRoadside, titlePrefix: 'Roadside', titleHighlight: 'Assistance', subtitle: 'Emergency breakdown towing, jump start, fuel delivery and minor repairs.' },
 ];
 
 const DETAILED_PROBLEMS = {
@@ -129,6 +145,125 @@ const DETAILED_PROBLEMS = {
       desc: 'Front/rear brake caliper inspection, pad wear analysis, and disc rotor testing.',
       price: '₹399',
       related: ['Brake caliper pin greasing', 'Brake line bleeding', 'ABS sensor inspection'],
+    },
+    {
+      id: 'brk-2',
+      title: 'Brake Spongy / Low Fluid',
+      desc: 'Fix spongy brake pedal, fluid leaks, and master cylinder pressure loss.',
+      price: '₹449',
+      related: ['Brake fluid top-up DOT4', 'Brake booster check', 'Handbrake cable tightening'],
+    }
+  ],
+  clutch: [
+    {
+      id: 'clt-1',
+      title: 'Hard Clutch / Gear Stiff',
+      desc: 'Resolve hard pedal pressing, gear shifting tightness, and clutch judder.',
+      price: '₹499',
+      related: ['Clutch wire cable adjustment', 'Release bearing inspection', 'Transmission fluid check'],
+    },
+    {
+      id: 'clt-2',
+      title: 'Clutch Slipping / Low Pickup',
+      desc: 'Diagnose engine RPM flare without acceleration and worn clutch plates.',
+      price: '₹499',
+      related: ['Pressure plate wear check', 'Flywheel resurfacing advice', 'Hydraulic slave cylinder inspection'],
+    }
+  ],
+  steering: [
+    {
+      id: 'str-1',
+      title: 'Wheel Alignment & Balancing',
+      desc: 'Fix car pulling to one side, off-center steering wheel, and tire wear.',
+      price: '₹399',
+      related: ['Toe/camber computer alignment', 'Tie rod end inspection', 'High-speed vibration balance'],
+    },
+    {
+      id: 'str-2',
+      title: 'Suspension Noise & Shockers',
+      desc: 'Diagnose thudding noise on bumps, bouncy ride, and leaking shock absorbers.',
+      price: '₹499',
+      related: ['Lower arm bush inspection', 'Stabilizer link rod check', 'Strut mount testing'],
+    }
+  ],
+  ac: [
+    {
+      id: 'ac-1',
+      title: 'Car AC Not Cooling / Low Airflow',
+      desc: 'Complete AC cooling inspection, blower check, and cabin pollen filter cleaning.',
+      price: '₹399',
+      related: ['Condenser coil wash', 'AC compressor clutch test', 'Cabin filter dusting'],
+    },
+    {
+      id: 'ac-2',
+      title: 'AC Gas Refill & Leak Detection',
+      desc: 'Precision refrigerant gas top-up with UV dye leak testing and vent temp check.',
+      price: '₹799',
+      related: ['R134a refrigerant charge', 'AC valve seal test', 'O-ring replacement'],
+    }
+  ],
+  electric: [
+    {
+      id: 'elec-1',
+      title: 'Battery Drain & Alternator Issue',
+      desc: 'Trace parasitic electrical draw, test alternator charging, and check fuses.',
+      price: '₹399',
+      related: ['Parasitic draw test', 'Alternator diode inspection', 'Main fuse box scan'],
+    },
+    {
+      id: 'elec-2',
+      title: 'Power Windows & Horn Failure',
+      desc: 'Door window glass stuck, power window switch check, and horn wiring repair.',
+      price: '₹299',
+      related: ['Window motor relay check', 'Horn switch wiring fix', 'Central locking test'],
+    }
+  ],
+  lights: [
+    {
+      id: 'lgt-1',
+      title: 'Headlight / Fog Light Replacement',
+      desc: 'Doorstep halogen/LED bulb replacement and beam angle level adjustment.',
+      price: '₹199',
+      related: ['H4/H7 halogen bulb replacement', 'Headlight relay check', 'Beam leveler calibration'],
+    },
+    {
+      id: 'lgt-2',
+      title: 'Indicators & Wiper Blade Fix',
+      desc: 'Blinker failure, wiper washer motor check, and premium wiper blade installation.',
+      price: '₹249',
+      related: ['Flasher relay replacement', 'Windshield wiper blade fitting', 'Washer nozzle cleaning'],
+    }
+  ],
+  'door-keys': [
+    {
+      id: 'dr-1',
+      title: 'Car Lockout & Key Assistance',
+      desc: 'Non-destructive door unlocking when keys are locked inside vehicle.',
+      price: '₹499',
+      related: ['Air wedge door unlocking', 'Key fob battery replacement', 'Boot lockout release'],
+    },
+    {
+      id: 'dr-2',
+      title: 'Door Latch & Central Lock Fix',
+      desc: 'Repair door not latching, actuator motor failure, and boot release cable.',
+      price: '₹399',
+      related: ['Door actuator motor check', 'Child lock inspection', 'Boot latch striker alignment'],
+    }
+  ],
+  roadside: [
+    {
+      id: 'rds-1',
+      title: 'Emergency Jump Start & Towing',
+      desc: 'Fast 15-minute roadside arrival for dead battery jump start or flatbed towing.',
+      price: '₹299',
+      related: ['Heavy-duty jump pack start', 'Hydraulic flatbed towing', 'On-spot roadside diagnosis'],
+    },
+    {
+      id: 'rds-2',
+      title: 'Emergency Fuel & Puncture',
+      desc: 'Emergency fuel delivery up to 5L and roadside stepney tyre change.',
+      price: '₹299',
+      related: ['Emergency petrol/diesel delivery', 'Hydraulic jack wheel swap', 'Air pressure refill'],
     }
   ]
 };
@@ -163,9 +298,15 @@ const FAQS = [
 export default function RepairServicesPage() {
   const { openBookingModal } = useApp();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [expandedRelated, setExpandedRelated] = useState({});
+
+  React.useEffect(() => {
+    const handleReset = () => setSelectedCategory(null);
+    window.addEventListener('reset-repair-category', handleReset);
+    return () => window.removeEventListener('reset-repair-category', handleReset);
+  }, []);
 
   const filteredCategories = SERVICE_CATEGORIES.filter(c => 
     c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -186,50 +327,42 @@ export default function RepairServicesPage() {
 
   return (
     <div className="repair-page">
-      {/* 1. Hero Header Section matching Image 3 */}
-      <section className="repair-hero">
-        <div className="repair-hero-container">
-          <h1 className="repair-hero-title">
-            <span className="text-orange">Car Repair,</span> Made Simple.
-          </h1>
-          <p className="repair-hero-subtitle">
-            Whether it's a sudden breakdown or a routine repair, find the right service for your car and get back on the road with confidence.
-          </p>
+      {/* 1. Hero Header Section - ONLY on outer overview, removed on inner repair page */}
+      {!selectedCategory && (
+        <section className="repair-hero">
+          <div className="repair-hero-container">
+            <h1 className="repair-hero-title">
+              <span className="text-orange">Car Repair,</span> Made Simple.
+            </h1>
+            <p className="repair-hero-subtitle">
+              Whether it's a sudden breakdown or a routine repair, find the right service for your car and get back on the road with confidence.
+            </p>
 
-          {/* Search Bar matching Image 3 */}
-          <div className="repair-search-container">
-            <div className="repair-search-bar">
-              {selectedCategory ? (
-                <button 
-                  className="repair-search-back-btn" 
-                  onClick={() => setSelectedCategory(null)}
-                  aria-label="Back to all categories"
-                >
-                  <ArrowLeft className="w-5 h-5 text-gray-700" />
-                </button>
-              ) : (
+            {/* Search Bar */}
+            <div className="repair-search-container">
+              <div className="repair-search-bar">
                 <button 
                   className="repair-search-back-btn" 
                   onClick={() => setSearchQuery('')}
-                  aria-label="Back"
+                  aria-label="Clear search"
                 >
                   <ArrowLeft className="w-5 h-5 text-gray-500" />
                 </button>
-              )}
-              <input
-                type="text"
-                placeholder='What&apos;s wrong with your car? Try "car won&apos;t start"...'
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="repair-search-input"
-              />
-              <button className="repair-search-mic-btn" aria-label="Voice search">
-                <Mic className="w-5 h-5 text-gray-700" />
-              </button>
+                <input
+                  type="text"
+                  placeholder='What&apos;s wrong with your car? Try "car won&apos;t start"...'
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="repair-search-input"
+                />
+                <button className="repair-search-mic-btn" aria-label="Voice search">
+                  <Mic className="w-5 h-5 text-gray-700" />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Main Content Container */}
       <div className="repair-content-container">
@@ -262,6 +395,14 @@ export default function RepairServicesPage() {
           <div className="repair-detail-layout">
             {/* Left Category Sidebar */}
             <aside className="repair-sidebar">
+              <button 
+                type="button" 
+                className="repair-sidebar-back-btn" 
+                onClick={() => setSelectedCategory(null)}
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>All Services</span>
+              </button>
               <h3 className="repair-sidebar-title">What's wrong with your car?</h3>
               <ul className="repair-sidebar-list">
                 {SERVICE_CATEGORIES.map((cat) => {
@@ -288,13 +429,22 @@ export default function RepairServicesPage() {
               <div className="repair-detail-banner">
                 <div className="repair-detail-banner-text">
                   <h2 className="repair-detail-banner-title">
-                    {currentCategory?.title.split(' ')[0]}{' '}
-                    <span className="text-orange">{currentCategory?.title.split(' ').slice(1).join(' ') || 'Assistance'}</span>
+                    {currentCategory?.titlePrefix || currentCategory?.title.split(' ')[0]}{' '}
+                    <span className="text-orange">{currentCategory?.titleHighlight || currentCategory?.title.split(' ').slice(1).join(' ')}</span>
                   </h2>
                   <p className="repair-detail-banner-desc">
                     {currentCategory?.subtitle}
                   </p>
                 </div>
+                {currentCategory?.bannerImg && (
+                  <div className="repair-detail-banner-img-wrap">
+                    <img 
+                      src={currentCategory.bannerImg} 
+                      alt={currentCategory.title} 
+                      className="repair-detail-banner-img" 
+                    />
+                  </div>
+                )}
               </div>
 
               {/* 2x2 Detailed Problem Cards */}
@@ -334,7 +484,7 @@ export default function RepairServicesPage() {
                           <ul className="repair-related-list">
                             {prob.related.map((item, idx) => (
                               <li key={idx} className="repair-related-item">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-orange flex-shrink-0" />
+                                <Check className="w-3.5 h-3.5 text-gray-700 flex-shrink-0 mt-0.5" />
                                 <span>{item}</span>
                               </li>
                             ))}
@@ -346,11 +496,15 @@ export default function RepairServicesPage() {
                 })}
               </div>
 
-              {/* "Not sure what's wrong?" Callout Banner */}
+              {/* "Not sure what's wrong?" Callout Banner with Garage Image */}
               <div className="repair-not-sure-banner">
                 <div className="repair-not-sure-text">
-                  <h3>Not sure what's <span className="text-orange">wrong?</span></h3>
-                  <p>Tell us the symptoms. A verified mechanic will diagnose it at your location.</p>
+                  <h3 className="repair-not-sure-title">
+                    Not sure what&apos;s <span className="text-orange">wrong?</span>
+                  </h3>
+                  <p className="repair-not-sure-desc">
+                    Tell us the symptoms. A verified mechanic will diagnose it at your location.
+                  </p>
                   <button 
                     className="repair-not-sure-btn"
                     onClick={() => {
@@ -360,112 +514,124 @@ export default function RepairServicesPage() {
                     Call for help now
                   </button>
                 </div>
+                <div className="repair-not-sure-img-wrap">
+                  <img 
+                    src={garageBannerImg} 
+                    alt="Instant Mechanic garage diagnosis" 
+                    className="repair-not-sure-garage-img" 
+                  />
+                </div>
               </div>
             </main>
           </div>
         )}
 
-        {/* 2. Why Choose Instant Mechanic Section matching Image 3 with Exploded Car Image */}
-        <section className="repair-why-section">
-          <div className="repair-why-header text-center">
-            <h2 className="repair-why-title">
-              Why Choose <span className="text-orange">Instant Mechanic?</span>
-            </h2>
-          </div>
+        {/* Why Choose & FAQ are rendered ONLY on the outer page, hidden on inner category detail page */}
+        {!selectedCategory && (
+          <>
+            {/* 2. Why Choose Instant Mechanic Section matching Image 3 with Exploded Car Image */}
+            <section className="repair-why-section">
+              <div className="repair-why-header text-center">
+                <h2 className="repair-why-title">
+                  Why Choose <span className="text-orange">Instant Mechanic?</span>
+                </h2>
+              </div>
 
-          <div className="repair-why-showcase">
-            {/* Center Exploded Car Asset */}
-            <div className="repair-why-center-img-wrap">
-              <img 
-                src={carExplodedImg} 
-                alt="Instant Mechanic full vehicle parts and mechanics" 
-                className="repair-why-exploded-car" 
-              />
-            </div>
-
-            {/* 4 Feature Callout Cards with Orange Border and Circular Icon Badges */}
-            {/* Card 1: Top Left */}
-            <div className="why-callout-card why-callout--top-left">
-              <div className="why-callout-text">
-                <h3 className="why-callout-title">Verified Mechanics</h3>
-                <p className="why-callout-desc">Skilled, background-checked professionals you can rely on.</p>
-              </div>
-              <div className="why-callout-badge-circle">
-                <UserCheck className="w-5 h-5 text-orange-600" />
-              </div>
-            </div>
-
-            {/* Card 2: Top Right */}
-            <div className="why-callout-card why-callout--top-right">
-              <div className="why-callout-badge-circle">
-                <Receipt className="w-5 h-5 text-orange-600" />
-              </div>
-              <div className="why-callout-text">
-                <h3 className="why-callout-title">Transparent Pricing</h3>
-                <p className="why-callout-desc">Clear estimates with no hidden charges.</p>
-              </div>
-            </div>
-
-            {/* Card 3: Bottom Left */}
-            <div className="why-callout-card why-callout--bottom-left">
-              <div className="why-callout-text">
-                <h3 className="why-callout-title">On-Time Service</h3>
-                <p className="why-callout-desc">Quick, reliable assistance at your convenience.</p>
-              </div>
-              <div className="why-callout-badge-circle">
-                <Clock className="w-5 h-5 text-orange-600" />
-              </div>
-            </div>
-
-            {/* Card 4: Bottom Right */}
-            <div className="why-callout-card why-callout--bottom-right">
-              <div className="why-callout-badge-circle">
-                <ShieldCheck className="w-5 h-5 text-orange-600" />
-              </div>
-              <div className="why-callout-text">
-                <h3 className="why-callout-title">Quality Service</h3>
-                <p className="why-callout-desc">Trusted repair standards with quality parts and workmanship.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. Frequently Asked Questions matching Image 4 */}
-        <section className="repair-faq-section">
-          <div className="repair-faq-header text-center">
-            <h2 className="repair-faq-title">
-              Frequently Asked <span className="text-orange">Questions</span>
-            </h2>
-            <p className="repair-faq-subtitle">
-              Everything you need to know before booking a car repair service.
-            </p>
-          </div>
-
-          <div className="repair-faq-list">
-            {FAQS.map((faq, index) => {
-              const isOpen = expandedFaq === index;
-              return (
-                <div key={index} className={`repair-faq-item ${isOpen ? 'open' : ''}`}>
-                  <button
-                    className="repair-faq-btn"
-                    onClick={() => setExpandedFaq(isOpen ? null : index)}
-                    aria-expanded={isOpen}
-                  >
-                    <span className="repair-faq-question">{faq.q}</span>
-                    <span className="repair-faq-toggle-icon">
-                      {isOpen ? '−' : '+'}
-                    </span>
-                  </button>
-                  {isOpen && (
-                    <div className="repair-faq-answer">
-                      <p>{faq.a}</p>
-                    </div>
-                  )}
+              <div className="repair-why-showcase">
+                {/* Center Exploded Car Asset */}
+                <div className="repair-why-center-img-wrap">
+                  <img 
+                    src={carExplodedImg} 
+                    alt="Instant Mechanic full vehicle parts and mechanics" 
+                    className="repair-why-exploded-car" 
+                  />
                 </div>
-              );
-            })}
-          </div>
-        </section>
+
+                {/* 4 Feature Callout Cards with Orange Border and Circular Icon Badges */}
+                {/* Card 1: Top Left */}
+                <div className="why-callout-card why-callout--top-left">
+                  <div className="why-callout-text">
+                    <h3 className="why-callout-title">Verified Mechanics</h3>
+                    <p className="why-callout-desc">Skilled, background-checked professionals you can rely on.</p>
+                  </div>
+                  <div className="why-callout-badge-circle">
+                    <UserCheck className="w-5 h-5 text-orange-600" />
+                  </div>
+                </div>
+
+                {/* Card 2: Top Right */}
+                <div className="why-callout-card why-callout--top-right">
+                  <div className="why-callout-badge-circle">
+                    <Receipt className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <div className="why-callout-text">
+                    <h3 className="why-callout-title">Transparent Pricing</h3>
+                    <p className="why-callout-desc">Clear estimates with no hidden charges.</p>
+                  </div>
+                </div>
+
+                {/* Card 3: Bottom Left */}
+                <div className="why-callout-card why-callout--bottom-left">
+                  <div className="why-callout-text">
+                    <h3 className="why-callout-title">On-Time Service</h3>
+                    <p className="why-callout-desc">Quick, reliable assistance at your convenience.</p>
+                  </div>
+                  <div className="why-callout-badge-circle">
+                    <Clock className="w-5 h-5 text-orange-600" />
+                  </div>
+                </div>
+
+                {/* Card 4: Bottom Right */}
+                <div className="why-callout-card why-callout--bottom-right">
+                  <div className="why-callout-badge-circle">
+                    <ShieldCheck className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <div className="why-callout-text">
+                    <h3 className="why-callout-title">Quality Service</h3>
+                    <p className="why-callout-desc">Trusted repair standards with quality parts and workmanship.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 3. Frequently Asked Questions matching Image 4 */}
+            <section className="repair-faq-section">
+              <div className="repair-faq-header text-center">
+                <h2 className="repair-faq-title">
+                  Frequently Asked <span className="text-orange">Questions</span>
+                </h2>
+                <p className="repair-faq-subtitle">
+                  Everything you need to know before booking a car repair service.
+                </p>
+              </div>
+
+              <div className="repair-faq-list">
+                {FAQS.map((faq, index) => {
+                  const isOpen = expandedFaq === index;
+                  return (
+                    <div key={index} className={`repair-faq-item ${isOpen ? 'open' : ''}`}>
+                      <button
+                        className="repair-faq-btn"
+                        onClick={() => setExpandedFaq(isOpen ? null : index)}
+                        aria-expanded={isOpen}
+                      >
+                        <span className="repair-faq-question">{faq.q}</span>
+                        <span className="repair-faq-toggle-icon">
+                          {isOpen ? '−' : '+'}
+                        </span>
+                      </button>
+                      {isOpen && (
+                        <div className="repair-faq-answer">
+                          <p>{faq.a}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          </>
+        )}
       </div>
     </div>
   );

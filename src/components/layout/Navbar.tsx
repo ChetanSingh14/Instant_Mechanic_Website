@@ -32,8 +32,14 @@ export default function Navbar() {
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       }
     } else if (link.target) {
+      if (link.target === 'repairs') {
+        window.dispatchEvent(new CustomEvent('reset-repair-category'));
+      }
       navigateTo(link.target);
     } else {
+      if (link.id === 'repairs') {
+        window.dispatchEvent(new CustomEvent('reset-repair-category'));
+      }
       navigateTo(link.id);
     }
   };
