@@ -13,8 +13,8 @@ export default function TestimonialSection() {
       id: 1,
       image: photo1,
       name: 'Neha Sharma',
-      initial: 'A',
-      initialBg: '#EA580C',
+      initial: '',
+      initialBg: '',
       rating: 5,
       review: '“Stranded on the road and got help without any hassle.”'
     },
@@ -76,14 +76,16 @@ export default function TestimonialSection() {
 
               {/* Card Body */}
               <div className="testimonial-card__body">
-                {/* Author row with initial avatar */}
+                {/* Author row with optional initial avatar badge */}
                 <div className="testimonial-author-row">
-                  <div 
-                    className="testimonial-initial-badge"
-                    style={{ backgroundColor: item.initialBg }}
-                  >
-                    {item.initial}
-                  </div>
+                  {item.initial ? (
+                    <div 
+                      className="testimonial-initial-badge"
+                      style={{ backgroundColor: item.initialBg }}
+                    >
+                      {item.initial}
+                    </div>
+                  ) : null}
                   <span className="testimonial-author-name">{item.name}</span>
                 </div>
 
