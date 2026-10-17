@@ -4684,40 +4684,54 @@ h1, h2, h3, h4, h5, h6,
   font-size: 0.84rem;
   color: #6B7280;
   line-height: 1.45;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-.repair-problem-price-row {
+.repair-problem-divider {
+  border-bottom: 1px solid #F3F4F6;
+  margin-bottom: 14px;
+}
+
+.repair-problem-action-row {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid #F3F4F6;
-  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.repair-problem-left-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .repair-price-label {
-  font-size: 0.72rem;
-  color: #9CA3AF;
+  font-size: 0.7rem;
+  color: #71717A;
   display: block;
+  margin-bottom: 2px;
 }
 
 .repair-price-val {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #111827;
+  color: #EA580C;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  display: block;
 }
 
 .repair-add-cart-btn {
   background: #EA580C;
   color: #FFFFFF;
   border: none;
-  border-radius: 12px;
-  padding: 8px 18px;
-  font-size: 0.84rem;
+  border-radius: 9999px;
+  padding: 10px 24px;
+  font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28);
   transition: all 0.18s ease;
+  white-space: nowrap;
 }
 
 .repair-add-cart-btn:hover {
@@ -4726,21 +4740,22 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .repair-related-accordion {
-  padding-top: 10px;
-  border-top: 1px solid #F3F4F6;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #E5E7EB;
 }
 
 .repair-related-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   background: none;
   border: none;
-  color: #4B5563;
-  font-size: 0.8rem;
+  color: #52525B;
+  font-size: 0.72rem;
   font-weight: 500;
   cursor: pointer;
-  padding: 2px 0;
+  padding: 0;
   transition: color 0.15s ease;
 }
 
@@ -4899,6 +4914,10 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: -0.02em;
 }
 
+.repair-mobile-back-bar {
+  display: none;
+}
+
 .repair-why-showcase {
   position: relative;
   max-width: 960px;
@@ -4907,6 +4926,18 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.repair-why-top-cards,
+.repair-why-bottom-cards {
+  display: contents;
+}
+
+.why-callout-badge-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
 }
 
 .repair-why-center-img-wrap {
@@ -5074,48 +5105,283 @@ h1, h2, h3, h4, h5, h6,
 
 /* Mobile & Tablet Responsiveness for Repair Page */
 @media (max-width: 900px) {
-  .repair-categories-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .repair-detail-layout {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  /* Hide heavy desktop sidebar on mobile */
+  .repair-sidebar {
+    display: none !important;
+  }
+
+  .repair-detail-main {
+    width: 100%;
+  }
+
+  /* Mobile Back to Categories Button */
+  .repair-mobile-back-bar {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .repair-mobile-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 9999px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #18181B;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Category Top Banner on mobile - Keep horizontal image blending (Matching Figma Images 2, 3, 4, 5) */
+  .repair-detail-banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 125px;
+    padding: 18px 14px 18px 18px;
+    border-radius: 18px;
+    margin-bottom: 16px;
+    background: #FEEDE0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .repair-detail-banner-text {
+    max-width: 58%;
+    padding: 0;
+    z-index: 2;
+    position: relative;
+  }
+
+  .repair-detail-banner-title {
+    font-size: 1.45rem;
+    font-weight: 850;
+    margin-bottom: 5px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: #18181B;
+  }
+
+  .repair-detail-banner-desc {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    color: #52525B;
+  }
+
+  .repair-detail-banner-img-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .repair-detail-banner-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 15%, black 45%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 15%, black 45%, black 100%);
+  }
+
+  .repair-problem-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .repair-problem-card {
+    border-radius: 16px;
+    padding: 16px 16px 18px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+  }
+
+  .repair-problem-title {
+    font-size: 0.94rem;
+    font-weight: 750;
+    color: #18181B;
+    margin-bottom: 4px;
+  }
+
+  .repair-problem-desc {
+    font-size: 0.78rem;
+    color: #6B7280;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .repair-problem-divider {
+    border-bottom: 1px solid #F3F4F6;
+    margin-bottom: 12px;
+  }
+
+  .repair-problem-action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .repair-price-label {
+    font-size: 0.68rem;
+    color: #71717A;
+    margin-bottom: 2px;
+  }
+
+  .repair-price-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #EA580C;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+
+  .repair-related-toggle {
+    font-size: 0.7rem;
+    color: #52525B;
+  }
+
+  .repair-add-cart-btn {
+    padding: 9px 22px;
+    font-size: 0.82rem;
+    border-radius: 9999px;
+    background: #EA580C;
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.28);
+  }
+
+  /* Why Choose Section (Matching Image 1) */
+  .repair-why-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0 16px;
+  }
+
+  .repair-why-header {
+    margin-bottom: 20px;
+  }
+
+  .repair-why-title {
+    font-size: 1.6rem;
+    font-weight: 850;
+    letter-spacing: -0.02em;
   }
 
   .repair-why-showcase {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    position: relative;
+    max-width: 440px;
+    margin: 0 auto;
     min-height: auto;
-    gap: 20px;
+    gap: 8px;
+  }
+
+  .repair-why-top-cards,
+  .repair-why-bottom-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .repair-why-center-img-wrap {
+    width: 100%;
+    max-width: 290px;
+    margin: -10px auto;
+    z-index: 1;
+  }
+
+  .repair-why-exploded-car {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
   }
 
   .why-callout-card {
-    position: static;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
     width: 100%;
-    max-width: 440px;
+    background: #FFFFFF;
+    border: 1.2px solid #EA580C;
+    border-radius: 12px;
+    padding: 8px 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
   }
 
-  .repair-detail-layout {
-    grid-template-columns: 1fr;
+  .why-callout-badge-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid #EA580C;
+    background: #FFF7ED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
-  .repair-sidebar {
-    position: static;
+  .why-callout-badge-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .why-callout-title {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 2px;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .why-callout-desc {
+    font-size: 0.58rem;
+    color: #6B7280;
+    line-height: 1.25;
   }
 }
 
 @media (max-width: 640px) {
   .repair-categories-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 12px;
   }
 
   .repair-hero-title {
     font-size: 1.85rem;
   }
 
-  .repair-why-title,
   .repair-faq-title {
-    font-size: 1.65rem;
-  }
-
-  .repair-problem-grid {
-    grid-template-columns: 1fr;
+    font-size: 1.55rem;
   }
 
   .repair-search-bar {
