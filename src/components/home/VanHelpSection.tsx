@@ -61,17 +61,20 @@ export default function VanHelpSection() {
 
             {/* Live Progress Bar from Mechanic to Location Map Pin */}
             <div className="van-tracker-route">
-              <div className="van-route-node">
-                <img
-                  src={mechanicAvatarImg}
-                  alt="Mechanic"
-                  className="van-route-avatar"
-                />
-              </div>
               <div className="van-route-line-wrap">
-                <div className="van-route-line"></div>
+                <div className="van-route-line">
+                  <div className="van-route-progress">
+                    <div className="van-route-mechanic-pin">
+                      <img
+                        src={mechanicAvatarImg}
+                        alt="Mechanic"
+                        className="van-route-avatar"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="van-route-node">
+              <div className="van-route-node van-route-node--dest">
                 <img
                   src={mapPinImg}
                   alt="Your Location Map"
