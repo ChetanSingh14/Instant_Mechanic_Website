@@ -6211,6 +6211,15 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: -0.025em;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.more-reasons-highlight {
+  color: #EA580C;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .more-reasons-grid {
@@ -6532,21 +6541,207 @@ h1, h2, h3, h4, h5, h6,
 
 /* Responsive Breakpoints (Matching Image 5 for Mobile) */
 @media (max-width: 960px) {
+  /* Your Car Deserves More Section - Mobile View (Matching Figma Mobile Prototype) */
+  .car-deserves-section {
+    display: block !important;
+    width: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(254, 237, 223, 0.9) 0%, rgba(254, 243, 232, 0.4) 40%, transparent 60%),
+                radial-gradient(circle at 90% 75%, rgba(254, 237, 223, 0.7) 0%, rgba(254, 243, 232, 0.3) 45%, transparent 65%),
+                #FAF6F0;
+    padding: 24px 16px 36px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+  }
+
+  .car-deserves-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .car-deserves-left {
+    text-align: left;
+    width: 100%;
+  }
+
+  .car-deserves-title {
+    font-size: 1.55rem;
+    font-weight: 850;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #18181B;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .car-deserves-description {
+    font-size: 0.68rem;
+    line-height: 1.48;
+    color: #71717A;
+    margin-bottom: 16px;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .car-deserves-badges-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 2px;
+  }
+
+  .car-deserves-badges-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .deserves-badge-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .deserves-badge-img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .deserves-badge-text {
+    font-size: 0.58rem;
+    font-weight: 700;
+    color: #27272A;
+    white-space: nowrap;
+  }
+
+  .car-deserves-right {
+    width: 100%;
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .car-deserves-audi-img {
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Floating Registration Card on Mobile */
+  .car-quick-check-strip {
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 345px;
+    margin: 18px auto 0;
+    box-sizing: border-box;
+  }
+
+  .quick-check-input-box {
+    background: #ECEEF1;
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .quick-check-icon-wrap {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .quick-3d-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .quick-check-field-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    width: 100%;
+  }
+
+  .quick-check-label {
+    font-size: 0.72rem;
+    font-weight: 750;
+    color: #18181B;
+    line-height: 1.2;
+  }
+
+  .quick-check-native-input {
+    font-size: 0.72rem;
+    color: #71717A;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .quick-check-submit-btn {
+    background: #EA580C;
+    color: #FFFFFF;
+    font-weight: 750;
+    font-size: 0.88rem;
+    border: none;
+    border-radius: 12px;
+    padding: 0 20px;
+    height: 46px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28);
+    margin-top: 2px;
+    transition: background 0.2s ease;
+  }
+
   .annual-hero-section {
-    padding: 24px 16px 50px;
-    margin: 0 0 36px;
+    padding: 24px 16px 42px;
+    margin: 0 0 40px;
     min-height: auto;
     overflow: hidden;
     position: relative;
-    background: #FFFFFF;
+    background: radial-gradient(circle at 50% 18%, rgba(254, 237, 223, 0.6) 0%, rgba(254, 243, 232, 0.2) 50%, transparent 70%), #FAF6F0;
   }
 
   .annual-hero-bg-layer {
     position: absolute;
     top: 130px;
-    left: -130px;
-    width: 440px;
-    height: 580px;
+    left: -70px;
+    width: 380px;
+    height: 520px;
     border-radius: 0;
     z-index: 1;
     pointer-events: none;
@@ -6557,15 +6752,15 @@ h1, h2, h3, h4, h5, h6,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left center;
+    object-position: left 20%;
     opacity: 0.95;
   }
 
   .annual-hero-fade-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.7) 75%, #FFFFFF 100%),
-                linear-gradient(180deg, transparent 65%, #FFFFFF 100%);
+    background: linear-gradient(90deg, transparent 55%, rgba(250, 246, 240, 0.8) 80%, #FAF6F0 100%),
+                linear-gradient(180deg, transparent 70%, #FAF6F0 100%);
     pointer-events: none;
   }
 
@@ -6585,208 +6780,284 @@ h1, h2, h3, h4, h5, h6,
     text-align: center;
     max-width: 100%;
     padding-top: 0;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
   .annual-hero-title {
-    font-size: 2.25rem;
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
     font-weight: 850;
-    line-height: 1.15;
+    line-height: 1.18;
     text-align: center;
-    margin: 0 0 12px 0;
+    margin: 0 0 8px 0;
     color: #18181B;
+    letter-spacing: -0.025em;
     display: block !important;
   }
 
   .annual-hero-description {
-    font-size: 0.86rem;
-    line-height: 1.55;
-    color: #52525B;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    color: #71717A;
     text-align: center;
     margin: 0 auto;
-    max-width: 330px;
+    max-width: 310px;
     display: block !important;
   }
 
   .annual-select-car-card {
     position: relative;
+    top: auto !important;
     z-index: 3;
-    max-width: 360px;
+    max-width: 345px;
     width: 100%;
     margin: 0 auto;
-    padding: 28px 20px 24px;
-    border: 2px solid #EA580C;
-    border-radius: 28px;
-    background: #FFFFFF;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    padding: 22px 18px 24px;
+    border: 1.5px solid #EA580C;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 32px rgba(234, 88, 12, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
   }
 
   .select-card-header {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     text-align: left;
   }
 
   .select-card-title {
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     font-weight: 850;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .select-card-subtitle {
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     color: #71717A;
   }
 
   .select-card-form {
-    gap: 13px;
+    gap: 12px;
   }
 
   .select-input-group {
-    gap: 5px;
-  }
-
-  .select-custom-dropdown {
-    height: 48px;
-    font-size: 0.92rem;
-  }
-
-  .select-service-items-btn {
-    height: 48px;
-    font-size: 0.95rem;
-    margin-top: 6px;
-  }
-
-  .select-card-stepper {
-    margin-top: 20px;
-  }
-
-  .more-reasons-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Mobile styling for Top Hero section (Matching exact Figma mobile view) */
-  .car-deserves-section {
-    padding: 30px 16px 40px;
-    margin-bottom: 40px;
-  }
-
-  .car-deserves-container {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 16px;
-  }
-
-  .car-deserves-left {
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .car-deserves-title {
-    font-size: 1.95rem;
-    line-height: 1.2;
-    text-align: left;
-    margin-bottom: 12px;
-  }
-
-  .car-deserves-description {
-    font-size: 0.82rem;
-    line-height: 1.48;
-    color: #52525B;
-    text-align: left;
-    margin: 0 0 20px 0;
-    max-width: 100%;
-  }
-
-  .car-deserves-badges-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-
-  .deserves-badge-item {
-    display: flex;
-    align-items: center;
     gap: 4px;
   }
 
-  .deserves-badge-img {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-    flex-shrink: 0;
+  .select-field-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #374151;
   }
 
-  .deserves-badge-text {
-    font-size: 0.62rem;
+  .select-custom-dropdown {
+    height: 42px;
+    font-size: 0.84rem;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    padding: 0 36px 0 12px;
+  }
+
+  .select-dropdown-chevron {
+    right: 12px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .select-service-items-btn {
+    height: 44px;
+    font-size: 0.88rem;
     font-weight: 700;
-    color: #18181B;
-    line-height: 1.15;
-    white-space: normal;
-  }
-
-  .car-deserves-right {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 8px 0 16px;
-  }
-
-  .car-deserves-audi-img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-  }
-
-  .car-quick-check-strip {
-    width: 100%;
-    background: #FFF7F2;
-    border: 1.5px solid #F6DFD1;
-    border-radius: 24px;
-    padding: 16px 14px;
-    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 10px;
-  }
-
-  .quick-check-input-box {
-    width: 100%;
-    background: #E8E8ED;
-    border-radius: 14px;
-    padding: 12px 14px;
+    border-radius: 9999px;
+    margin-top: 4px;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .annual-stepper-row {
+    margin-top: 0;
+    margin-bottom: 4px;
+    gap: 8px;
+    padding: 0 4px;
+  }
+
+  .step-circle {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+
+  .step-label {
+    font-size: 0.66rem;
+  }
+
+  .step-dotted-line {
+    width: 40px;
+    margin-top: -12px;
+  }
+
+  /* More Reasons to Choose Us - Mobile Horizontal Carousel (Matching Figma Mobile View) */
+  .more-reasons-section {
+    padding: 0 16px;
+    margin: 0 auto 40px;
+    overflow: hidden;
+  }
+
+  .more-reasons-header {
+    margin-bottom: 16px;
+  }
+
+  .more-reasons-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #18181B;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .more-reasons-highlight {
+    color: #EA580C;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .more-reasons-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 14px;
+    padding: 4px 16px 16px;
+    margin: 0 -16px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .more-reasons-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reason-promo-card {
+    flex: 0 0 260px;
+    width: 260px;
+    height: 168px;
+    border-radius: 18px;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .reason-promo-overlay {
+    padding: 16px 18px;
+  }
+
+  .reason-promo-heading {
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+
+  .reason-promo-sub {
+    font-size: 0.72rem;
+    line-height: 1.25;
+    color: #52525B;
+  }
+
+  .reason-promo-btn {
+    padding: 7px 16px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    gap: 4px;
+  }
+
+  /* FAQ Mobile Section - Left-Aligned & Compact Pill Accordions (Exact Figma Mobile View) */
+  .annual-faq-section,
+  .faq-section {
+    padding: 0 16px;
+    margin-top: 36px;
+    margin-bottom: 50px;
     box-sizing: border-box;
   }
 
-  .quick-3d-icon {
-    width: 32px;
-    height: 32px;
+  .annual-faq-header,
+  .faq-header {
+    text-align: left;
+    margin-bottom: 18px;
   }
 
-  .quick-check-label {
-    font-size: 0.82rem;
-    font-weight: 750;
+  .annual-faq-heading,
+  .faq-heading {
+    font-size: 1.45rem;
+    font-weight: 850;
+    color: #111827;
+    text-align: left;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+
+  .annual-faq-subheading,
+  .faq-subheading {
+    font-size: 0.78rem;
+    color: #71717A;
+    text-align: left;
+    margin-bottom: 18px;
+    line-height: 1.45;
+  }
+
+  .annual-faq-pill-list,
+  .faq-accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 100%;
+  }
+
+  .annual-faq-pill-card {
+    border-radius: 9999px;
+    border: 1px solid #E4E4E7;
+    background: #FFFFFF;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+
+  .annual-faq-pill-card--open {
+    border-radius: 18px;
+    border-color: #FED7AA;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.06);
+  }
+
+  .annual-faq-pill-btn {
+    padding: 10px 18px;
+    gap: 12px;
+  }
+
+  .annual-faq-pill-text {
+    font-size: 0.78rem;
+    font-weight: 600;
     color: #18181B;
+    line-height: 1.35;
+    text-align: left;
   }
 
-  .quick-check-native-input {
-    font-size: 0.74rem;
+  .annual-faq-pill-indicator {
+    font-size: 1.15rem;
+    font-weight: 400;
     color: #71717A;
   }
 
-  .quick-check-submit-btn {
-    width: 100%;
-    height: 50px;
-    border-radius: 9999px;
-    font-size: 0.92rem;
-    font-weight: 750;
+  .annual-faq-pill-answer {
+    padding: 0 18px 14px;
+    font-size: 0.76rem;
+    line-height: 1.5;
+    color: #52525B;
   }
 }
 

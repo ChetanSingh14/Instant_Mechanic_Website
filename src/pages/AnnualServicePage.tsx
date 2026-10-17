@@ -458,7 +458,7 @@ export default function AnnualServicePage() {
           <section className="more-reasons-section">
             <div className="more-reasons-header">
               <h2 className="more-reasons-title">
-                More Reasons to <span className="text-orange">Choose Us</span> <ArrowRight className="w-5 h-5 inline-block text-orange ml-1" />
+                <span>More Reasons to</span> <span className="more-reasons-highlight">Choose Us <ArrowRight className="w-4 h-4 md:w-5 md:h-5 inline-block text-orange ml-1 align-middle" /></span>
               </h2>
             </div>
 
@@ -544,7 +544,7 @@ export default function AnnualServicePage() {
 
           {/* 4. Frequently Asked Questions (Matching Image 4) */}
           <section className="annual-faq-section">
-            <div className="annual-faq-header text-center">
+            <div className="annual-faq-header">
               <h2 className="annual-faq-heading">
                 Frequently Asked <span className="text-orange">Questions</span>
               </h2>
@@ -1112,7 +1112,7 @@ export default function AnnualServicePage() {
 
             {/* Frequently Asked Questions */}
             <section className="annual-faq-section">
-              <div className="annual-faq-header text-center">
+              <div className="annual-faq-header">
                 <h2 className="annual-faq-heading">
                   Frequently Asked <span className="text-orange">Questions</span>
                 </h2>
